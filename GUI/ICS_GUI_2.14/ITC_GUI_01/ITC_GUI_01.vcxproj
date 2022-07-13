@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F3AE7D6A-6C2E-427F-91C4-94E15AFA5582}</ProjectGuid>
+    <RootNamespace>ITC_GUI_01</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Static</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Static</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <RegisterOutput>true</RegisterOutput>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>$(IntDir)ITC_GUI_01.tlb</TypeLibraryName>
+      <HeaderFileName>ITC_GUI_01_h.h</HeaderFileName>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0412</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\DDC\aceXtremeSDKv4.4.1\libraries\emacepl\src\;C:\DDC\aceXtremeSDKv4.4.1\drivers\acex\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <RegisterOutput>true</RegisterOutput>
+      <AdditionalLibraryDirectories>C:\DDC\aceXtremeSDKv4.4.1\libraries\emacepl\bin\$(Platform)\Release;C:\DDC\aceXtremeSDKv4.4.1\libraries\emacepl\bin\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>emacepl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>$(IntDir)ITC_GUI_01.tlb</TypeLibraryName>
+      <HeaderFileName>ITC_GUI_01_h.h</HeaderFileName>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0412</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BIT_FIELD.h" />
+    <ClInclude Include="BIT_SUMMARY.h" />
+    <ClInclude Include="BIT_SUMMARY2.h" />
+    <ClInclude Include="ClientSocket.h" />
+    <ClInclude Include="configop.h" />
+    <ClInclude Include="CtrlPowSup.h" />
+    <ClInclude Include="DlgProxy.h" />
+    <ClInclude Include="FAULT_DATA.h" />
+    <ClInclude Include="FMT_NET_LOAD.h" />
+    <ClInclude Include="FMT_NET_LOAD2.h" />
+    <ClInclude Include="ICS_CP.h" />
+    <ClInclude Include="ITC_GUI_01.h" />
+    <ClInclude Include="ITC_GUI_01Dlg.h" />
+    <ClInclude Include="ITC_SET_DIS.h" />
+    <ClInclude Include="MWOD_LOAD.h" />
+    <ClInclude Include="MWOD_LOAD2.h" />
+    <ClInclude Include="MWOD_LOAD_STATUS.h" />
+    <ClInclude Include="MWOD_LOAD_STATUS2.h" />
+    <ClInclude Include="PRESET_LOAD.h" />
+    <ClInclude Include="PRESET_LOAD2.h" />
+    <ClInclude Include="PRESET_STATUS.h" />
+    <ClInclude Include="PRESET_STATUS2.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="SET_ARC1.h" />
+    <ClInclude Include="SET_ARC2.h" />
+    <ClInclude Include="SET_ETHERNET.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="VOICE_MESSAGE.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BIT_FIELD.cpp" />
+    <ClCompile Include="BIT_SUMMARY.cpp" />
+    <ClCompile Include="BIT_SUMMARY2.cpp" />
+    <ClCompile Include="ClientSocket.cpp" />
+    <ClCompile Include="configop.cpp" />
+    <ClCompile Include="CtrlPowSup.cpp" />
+    <ClCompile Include="DlgProxy.cpp" />
+    <ClCompile Include="FAULT_DATA.cpp" />
+    <ClCompile Include="FMT_NET_LOAD.cpp" />
+    <ClCompile Include="FMT_NET_LOAD2.cpp" />
+    <ClCompile Include="ICS_CP.cpp" />
+    <ClCompile Include="ITC_GUI_01.cpp" />
+    <ClCompile Include="ITC_GUI_01Dlg.cpp" />
+    <ClCompile Include="ITC_SET_DIS.cpp" />
+    <ClCompile Include="MWOD_LOAD.cpp" />
+    <ClCompile Include="MWOD_LOAD2.cpp" />
+    <ClCompile Include="MWOD_LOAD_STATUS.cpp" />
+    <ClCompile Include="MWOD_LOAD_STATUS2.cpp" />
+    <ClCompile Include="PRESET_LOAD.cpp" />
+    <ClCompile Include="PRESET_LOAD2.cpp" />
+    <ClCompile Include="PRESET_STATUS.cpp" />
+    <ClCompile Include="PRESET_STATUS2.cpp" />
+    <ClCompile Include="SET_ARC1.cpp" />
+    <ClCompile Include="SET_ARC2.cpp" />
+    <ClCompile Include="SET_ETHERNET.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="VOICE_MESSAGE.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="ITC_GUI_01.idl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ITC_GUI_01.reg" />
+    <None Include="res\ITC_GUI_01.rc2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ITC_GUI_01.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\res\Ethernet.ico" />
+    <Image Include="res\ARC.ico" />
+    <Image Include="res\circuit_4717.ico" />
+    <Image Include="res\Config.ico" />
+    <Image Include="res\DGTR.ico" />
+    <Image Include="res\DGTR.png" />
+    <Image Include="res\Ethernet.ico" />
+    <Image Include="res\ethernet_cable_icon_135661.ico" />
+    <Image Include="res\icon1.ico" />
+    <Image Include="res\icon10.ico" />
+    <Image Include="res\icon11.ico" />
+    <Image Include="res\icon12.ico" />
+    <Image Include="res\icon13.ico" />
+    <Image Include="res\icon2.ico" />
+    <Image Include="res\icon3.ico" />
+    <Image Include="res\icon4.ico" />
+    <Image Include="res\icon5.ico" />
+    <Image Include="res\icon6.ico" />
+    <Image Include="res\icon7.ico" />
+    <Image Include="res\icon8.ico" />
+    <Image Include="res\icon9.ico" />
+    <Image Include="res\icons8-windows-8-users-exit.ico" />
+    <Image Include="res\icons8-windows-8-very-basic-link.ico" />
+    <Image Include="res\ITC_GUI_01.ico" />
+    <Image Include="res\Network.contrast-white.ico" />
+    <Image Include="res\settings-4-64.ico" />
+    <Image Include="res\specctra.ico" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="ITC_GUI_01.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

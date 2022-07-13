@@ -1,0 +1,131 @@
+;/******************************************************************************
+; * Data Device Corporation
+; * Filename: emapci.inf
+; * Copyright (c) 2019 Data Device Corporation
+; ******************************************************************************
+; * Non-Disclosure Statement
+; * ------------------------
+; * This software is the sole property of Data Device Corporation. All
+; * rights, title, ownership, or other interests in the software remain
+; * the property of Data Device Corporation. This software may be used
+; * in accordance with applicable licenses. Any unauthorized use,
+; * duplication, transmission, distribution, or disclosure is expressly
+; * forbidden.
+; *
+; * This non-disclosure statement may not be removed or modified without
+; * prior written consent of Data Device Corporation.
+; ******************************************************************************/
+
+[Version]
+Signature="$Windows NT$"
+Class="DDC Devices"
+ClassGUID={b8fd1ebc-0bfd-4973-9a61-258d72bda69f}
+Provider=%DDC%
+CatalogFile=emapci.cat
+DriverPackageDisplayName=%DESC%
+DriverVer=02/04/2020,4.4.1.4
+
+[Manufacturer]
+%DDC%=DDC,NTamd64
+
+[SourceDisksNames.amd64]
+1=%DISK_NAME%
+
+[SourceDisksFiles.amd64]
+emapci.sys=1
+WdfCoInstaller01009.dll=1
+ddcins64.dll=1
+
+[DestinationDirs]
+DefaultDestDir=12
+EMAPCI.CopyFiles=11
+CoInstaller_CopyFiles=11
+
+[DDC.NTamd64]
+%VEN_4DDC&DEV_1400.DeviceDesc% = EMAPCI_Inst, PCI\VEN_4DDC&DEV_1400
+%VEN_4DDC&DEV_0400.DeviceDesc% = EMAPCI_Inst, PCI\VEN_4DDC&DEV_0400
+%VEN_4DDC&DEV_0402.DeviceDesc% = EMAPCI_Inst, PCI\VEN_4DDC&DEV_0402
+%VEN_4DDC&DEV_0404.DeviceDesc% = EMAPCI_Inst, PCI\VEN_4DDC&DEV_0404
+%VEN_4DDC&DEV_0406.DeviceDesc% = EMAPCI_Inst, PCI\VEN_4DDC&DEV_0406
+%VEN_4DDC&DEV_0401.DeviceDesc% = EMAPCI_Inst, PCI\VEN_4DDC&DEV_0401
+%VEN_4DDC&DEV_2400.DeviceDesc% = EMAPCI_Inst, PCI\VEN_4DDC&DEV_2400
+%VEN_4DDC&DEV_2401.DeviceDesc% = EMAPCI_Inst, PCI\VEN_4DDC&DEV_2401
+%VEN_4DDC&DEV_2402.DeviceDesc% = EMAPCI_Inst, PCI\VEN_4DDC&DEV_2402
+%VEN_4DDC&DEV_2403.DeviceDesc% = EMAPCI_Inst, PCI\VEN_4DDC&DEV_2403
+%VEN_4DDC&DEV_2404.DeviceDesc% = EMAPCI_Inst, PCI\VEN_4DDC&DEV_2404
+%VEN_4DDC&DEV_2405.DeviceDesc% = EMAPCI_Inst, PCI\VEN_4DDC&DEV_2405
+
+;-------------------------------
+; Install DDC Device Class
+;-------------------------------
+
+[ClassInstall32.NTamd64]
+CopyFiles = EMAPCI.CopyFiles
+AddReg = EMAPCI.AddReg
+
+[EMAPCI.AddReg]
+HKR,,,,"DDC Devices"
+HKR,,Installer32,,ddcins64.dll
+HKR,,Icon,,"102"
+
+[EMAPCI.CopyFiles]
+ddcins64.dll
+
+;-------------------------------
+; Device Installation
+;-------------------------------
+
+[EMAPCI_Inst.NTamd64]
+CopyFiles=EMAPCI_Inst.CopyFiles
+
+[EMAPCI_Inst.CopyFiles]
+emapci.sys
+
+[EMAPCI_Inst.NTamd64.Services]
+AddService=emapci,0x00000002,EMAPCI_Service
+
+[EMAPCI_Service]
+DisplayName    = %EMAPCI.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\emapci.sys
+
+;-------------------------------
+; CoInstaller Installation
+;-------------------------------
+
+[EMAPCI_Inst.NTamd64.CoInstallers]
+AddReg=CoInstaller_AddReg
+CopyFiles=CoInstaller_CopyFiles
+
+[CoInstaller_CopyFiles]
+wdfcoinstaller01009.dll
+
+[CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller01009.dll,WdfCoInstaller"
+
+[EMAPCI_Inst.NTamd64.Wdf]
+KmdfService = emapci, EMAPCI_wdfsect
+
+[EMAPCI_wdfsect]
+KmdfLibraryVersion = 1.5
+
+[Strings]
+DDC                          = "Data Device Corporation"
+DISK_NAME                    = "DDC MIL-1553 Device - Installation disk"
+DESC                         = "DDC Driver for EMAPCI Devices"
+EMAPCI.SvcDesc               = "DDC MIL-1553 EMACE Driver"
+
+VEN_4DDC&DEV_1400.DeviceDesc = "BU-65566H Mini-PCI MIL-1553 Card"
+VEN_4DDC&DEV_0400.DeviceDesc = "1553 PCI Mini/Micro-ACE Device"
+VEN_4DDC&DEV_0402.DeviceDesc = "1553 PCI Mini/Micro-ACE Device"
+VEN_4DDC&DEV_0404.DeviceDesc = "1553 PCI Mini/Micro-ACE Device"
+VEN_4DDC&DEV_0406.DeviceDesc = "1553 PCI Mini/Micro-ACE Device"
+VEN_4DDC&DEV_0401.DeviceDesc = "BU-65586N2 MIL-1553 I/O Card"
+VEN_4DDC&DEV_2400.DeviceDesc = "BU-65596F1/BU-65597F1 PMC MIL-1553 Card"
+VEN_4DDC&DEV_2401.DeviceDesc = "BU-65596F2/BU-65597F2 PMC MIL-1553 Card"
+VEN_4DDC&DEV_2402.DeviceDesc = "BU-65596F4/BU-65597F4 PMC MIL-1553 Card"
+VEN_4DDC&DEV_2403.DeviceDesc = "BU-65596M1/BU-65597M1 PMC MIL-1553 Card"
+VEN_4DDC&DEV_2404.DeviceDesc = "BU-65596M2/BU-65597M2 PMC MIL-1553 Card"
+VEN_4DDC&DEV_2405.DeviceDesc = "BU-65596M4/BU-65597M4 PMC MIL-1553 Card"

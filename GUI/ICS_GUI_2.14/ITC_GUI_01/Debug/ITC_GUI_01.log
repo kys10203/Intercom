@@ -1,0 +1,27 @@
+﻿빌드 시작: 2021-04-01 오전 9:58:15
+     1>2 노드의 "C:\Users\kys10\Documents\Visual Studio 2012\Projects\ITC_GUI_01\ITC_GUI_01\ITC_GUI_01.vcxproj" 프로젝트(Build 대상)입니다.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\ITC_GUI_01.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt DlgProxy.cpp ITC_GUI_01.cpp ITC_GUI_01Dlg.cpp
+         ITC_GUI_01Dlg.cpp
+         코드를 생성하고 있습니다...
+         건너뛰고 있습니다... (관련된 변경 내용 없음)
+         ITC_GUI_01.cpp
+         DlgProxy.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\kys10\Documents\Visual Studio 2012\Projects\ITC_GUI_01\Debug\ITC_GUI_01.exe" /INCREMENTAL /NOLOGO /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\Include\Manifest\dpiaware.manifest" /DEBUG /PDB:"C:\Users\kys10\Documents\Visual Studio 2012\Projects\ITC_GUI_01\Debug\ITC_GUI_01.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\kys10\Documents\Visual Studio 2012\Projects\ITC_GUI_01\Debug\ITC_GUI_01.lib" /MACHINE:X86 Debug\ITC_GUI_01.res
+         Debug\DlgProxy.obj
+         Debug\ITC_GUI_01.obj
+         Debug\ITC_GUI_01Dlg.obj
+         Debug\SET_ARC1.obj
+         Debug\SET_ARC2.obj
+         Debug\SET_ETHERNET.obj
+         Debug\SET_ITC.obj
+         Debug\stdafx.obj
+         ITC_GUI_01.vcxproj -> C:\Users\kys10\Documents\Visual Studio 2012\Projects\ITC_GUI_01\Debug\ITC_GUI_01.exe
+       RegisterOutput:
+         "C:\Users\kys10\Documents\Visual Studio 2012\Projects\ITC_GUI_01\Debug\ITC_GUI_01.exe" /RegServer
+     1>"C:\Users\kys10\Documents\Visual Studio 2012\Projects\ITC_GUI_01\ITC_GUI_01\ITC_GUI_01.vcxproj" 프로젝트를 빌드했습니다(Build 대상).
+
+빌드했습니다.
+
+경과 시간: 00:00:03.87

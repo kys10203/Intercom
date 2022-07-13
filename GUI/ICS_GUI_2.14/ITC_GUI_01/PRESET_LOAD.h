@@ -1,0 +1,81 @@
+
+#pragma once
+#include "bit_field.h"
+#include "afxwin.h"
+
+
+// CPRESET_LOAD 대화 상자입니다.
+
+class CPRESET_LOAD : public CDialogEx
+{
+	DECLARE_DYNAMIC(CPRESET_LOAD)
+
+public:
+	CPRESET_LOAD(CWnd* pParent = NULL);   // 표준 생성자입니다.
+	virtual ~CPRESET_LOAD();
+
+// 대화 상자 데이터입니다.
+	enum { IDD = IDD_PRESET_LOAD };
+
+protected:
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 지원입니다.
+
+	DECLARE_MESSAGE_MAP()
+public:
+    afx_msg void OnBnClickedButton1();
+    virtual BOOL OnInitDialog();
+    CEdit m_Edit_ARC1_FREQ01;
+    CEdit m_Edit_ARC1_FREQ02;
+    CEdit m_Edit_ARC1_FREQ03;
+    CEdit m_Edit_ARC1_FREQ04;
+    CEdit m_Edit_ARC1_FREQ05;
+    CEdit m_Edit_ARC1_FREQ06;
+    CEdit m_Edit_ARC1_FREQ07;
+    CEdit m_Edit_ARC1_FREQ08;
+    CEdit m_Edit_ARC1_FREQ09;
+    CEdit m_Edit_ARC1_FREQ10;
+    CEdit m_Edit_ARC1_Group_Sel;
+
+    U16BIT CPRESET_LOAD::ReadCoarseFreq(UNION_FREQUENCY* p_FREQUENCY, UNION_FINE_FREQUENCY_AND_AJ* p_FINE_FREQUENCY_AND_AJ, CEdit* p_CEdit);
+    U16BIT CPRESET_LOAD::ReadFreqManagement(UNION_FINE_FREQUENCY_AND_AJ* p_FINE_FREQUENCY_AND_AJ, CComboBox* p_Combo);
+
+    UNION_PRESET_GROUP_SELECT un_PRESET_GROUP_SELECT;
+    UNION_FREQUENCY un_FREQUENCY01;
+    UNION_FREQUENCY un_FREQUENCY02;
+    UNION_FREQUENCY un_FREQUENCY03;
+    UNION_FREQUENCY un_FREQUENCY04;
+    UNION_FREQUENCY un_FREQUENCY05;
+    UNION_FREQUENCY un_FREQUENCY06;
+    UNION_FREQUENCY un_FREQUENCY07;
+    UNION_FREQUENCY un_FREQUENCY08;
+    UNION_FREQUENCY un_FREQUENCY09;
+    UNION_FREQUENCY un_FREQUENCY10;
+
+    UNION_FINE_FREQUENCY_AND_AJ un_FREQ_MANAGE01;
+    UNION_FINE_FREQUENCY_AND_AJ un_FREQ_MANAGE02;
+    UNION_FINE_FREQUENCY_AND_AJ un_FREQ_MANAGE03;
+    UNION_FINE_FREQUENCY_AND_AJ un_FREQ_MANAGE04;
+    UNION_FINE_FREQUENCY_AND_AJ un_FREQ_MANAGE05;
+    UNION_FINE_FREQUENCY_AND_AJ un_FREQ_MANAGE06;
+    UNION_FINE_FREQUENCY_AND_AJ un_FREQ_MANAGE07;
+    UNION_FINE_FREQUENCY_AND_AJ un_FREQ_MANAGE08;
+    UNION_FINE_FREQUENCY_AND_AJ un_FREQ_MANAGE09;
+    UNION_FINE_FREQUENCY_AND_AJ un_FREQ_MANAGE10;
+
+    U16BIT MSG_FREQUENCY[BUFSIZE];
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
+    afx_msg void OnClose();
+    void DpPrevSet(void);
+    CString NumToCString(UNION_FREQUENCY* p_UNION_FREQUENCY, UNION_FINE_FREQUENCY_AND_AJ* p_UNION_FINE_FREQUENCY_AND_AJ);
+
+    CComboBox m_ARC1_ComboFM01;
+    CComboBox m_ARC1_ComboFM02;
+    CComboBox m_ARC1_ComboFM03;
+    CComboBox m_ARC1_ComboFM04;
+    CComboBox m_ARC1_ComboFM05;
+    CComboBox m_ARC1_ComboFM06;
+    CComboBox m_ARC1_ComboFM07;
+    CComboBox m_ARC1_ComboFM08;
+    CComboBox m_ARC1_ComboFM09;
+    CComboBox m_ARC1_ComboFM10;
+};

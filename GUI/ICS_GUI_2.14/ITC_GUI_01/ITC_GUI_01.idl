@@ -1,0 +1,367 @@
+// ITC_GUI_01.idl : ITC_GUI_01.exe에 대한 형식 라이브러리 소스
+
+// 이 파일은 MIDL 컴파일러에 의해 처리되어
+// 형식 라이브러리(ITC_GUI_01.tlb)를 생성합니다.
+
+#include "olectl.h"
+[ uuid(46B86C24-8AA9-46ED-8BB1-DB4614A82719), version(1.0) ]
+library ITC_GUI_01
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	//  CITC_GUI_01Doc의 기본 디스패치 인터페이스
+	
+	[ uuid(6B05AC16-D1C7-4DCE-B56C-4EC1E6ACA41B) ]
+	dispinterface IITC_GUI_01
+	{
+		properties:
+			
+		methods:
+	};
+
+	//  CITC_GUI_01Doc의 클래스 정보
+	
+	[ uuid(429EBE3E-3D76-4298-9B50-EBA4C47632DA) ]
+	coclass ITC_GUI_01
+	{
+		[default] dispinterface IITC_GUI_01;
+	};
+	//  SET_ETHERNET의 기본 디스패치 인터페이스입니다.
+		
+	[ uuid(4EBAF9A3-D8CA-4A87-A7EF-D99B1767E15E) ]
+	dispinterface ISET_ETHERNET
+	{
+		properties:
+		methods:
+	};
+
+	//  SET_ETHERNET의 클래스 정보입니다.
+
+	[ uuid(D5663DEB-83F0-431A-A8F8-14516F07C00A) ]
+	coclass SET_ETHERNET
+	{
+		[default] dispinterface ISET_ETHERNET;
+	};
+	//  SET_ITC의 기본 디스패치 인터페이스입니다.
+		
+	[ uuid(28B3BCF5-A0E6-4D3E-AAC3-7ACB64725948) ]
+	dispinterface ISET_ITC
+	{
+		properties:
+		methods:
+	};
+
+	//  SET_ITC의 클래스 정보입니다.
+
+	[ uuid(6D11709D-C4AC-4649-B38F-C5BAF023DB65) ]
+	coclass SET_ITC
+	{
+		[default] dispinterface ISET_ITC;
+	};
+
+	//  SET_ARC1의 기본 디스패치 인터페이스입니다.
+		
+	[ uuid(293F06B9-53B3-49C1-B5F5-53948C916EF3) ]
+	dispinterface ISET_ARC1
+	{
+		properties:
+		methods:
+	};
+
+	//  SET_ARC1의 클래스 정보입니다.
+
+	[ uuid(B7C6A205-2019-4441-8205-4B2CA9A83F92) ]
+	coclass SET_ARC1
+	{
+		[default] dispinterface ISET_ARC1;
+	};
+	//  SET_ARC2의 기본 디스패치 인터페이스입니다.
+		
+	[ uuid(07B58DA5-557C-4270-BC24-7F301C0B81BC) ]
+	dispinterface ISET_ARC2
+	{
+		properties:
+		methods:
+	};
+
+	//  SET_ARC2의 클래스 정보입니다.
+
+	[ uuid(06C7362C-BDCD-4206-A92D-D4FB2B7FB1F5) ]
+	coclass SET_ARC2
+	{
+		[default] dispinterface ISET_ARC2;
+	};
+	//  SET_DIST의 기본 디스패치 인터페이스입니다.
+		
+	[ uuid(A667630F-464E-41D5-892B-E49578A4331D) ]
+	dispinterface ISET_DIST
+	{
+		properties:
+		methods:
+	};
+
+	//  SET_DIST의 클래스 정보입니다.
+
+	[ uuid(39845814-9B15-4CEF-A3D1-F097B8A43E50) ]
+	coclass SET_DIST
+	{
+		[default] dispinterface ISET_DIST;
+	};
+	//  SET_1553B의 기본 디스패치 인터페이스입니다.
+		
+	[ uuid(47E69852-7FA2-44E5-BB39-1C368A730BD5) ]
+	dispinterface ISET_1553B
+	{
+		properties:
+		methods:
+	};
+
+	//  SET_1553B의 클래스 정보입니다.
+
+	[ uuid(81178E7C-0BF7-424A-A93E-CCCEB1CEDE45) ]
+	coclass SET_1553B
+	{
+		[default] dispinterface ISET_1553B;
+	};
+	//  MWOD_LOAD의 기본 디스패치 인터페이스입니다.
+		
+	[ uuid(D908D661-DE11-4CA1-AD04-9486E33C61EE) ]
+	dispinterface IMWOD_LOAD
+	{
+		properties:
+		methods:
+	};
+
+	//  MWOD_LOAD의 클래스 정보입니다.
+
+	[ uuid(79F9FA5F-65AC-4204-99AD-D7AAEA03310F) ]
+	coclass MWOD_LOAD
+	{
+		[default] dispinterface IMWOD_LOAD;
+	};
+	//  FMT_NET_LOAD의 기본 디스패치 인터페이스입니다.
+		
+	[ uuid(C7E6F7CE-2DED-4A47-9A49-3E6A13454DB4) ]
+	dispinterface IFMT_NET_LOAD
+	{
+		properties:
+		methods:
+	};
+
+	//  FMT_NET_LOAD의 클래스 정보입니다.
+
+	[ uuid(6B277791-DB48-46A8-9F61-04A3B1571423) ]
+	coclass FMT_NET_LOAD
+	{
+		[default] dispinterface IFMT_NET_LOAD;
+	};
+	//  PRESET_LOAD의 기본 디스패치 인터페이스입니다.
+		
+	[ uuid(EFE3EFE2-D885-4223-8DBE-DB5BB4F26DA8) ]
+	dispinterface IPRESET_LOAD
+	{
+		properties:
+		methods:
+	};
+
+	//  PRESET_LOAD의 클래스 정보입니다.
+
+	[ uuid(9EFC1C1B-75ED-496D-B8EF-56E98459014C) ]
+	coclass PRESET_LOAD
+	{
+		[default] dispinterface IPRESET_LOAD;
+	};
+	//  MWOD_LOAD_STATUS의 기본 디스패치 인터페이스입니다.
+		
+	[ uuid(E7A4D5E4-58DF-4B65-8FAA-A50CA84B3FB8) ]
+	dispinterface IMWOD_LOAD_STATUS
+	{
+		properties:
+		methods:
+	};
+
+	//  MWOD_LOAD_STATUS의 클래스 정보입니다.
+
+	[ uuid(49E71729-17E3-4313-A939-4101A783E8E0) ]
+	coclass MWOD_LOAD_STATUS
+	{
+		[default] dispinterface IMWOD_LOAD_STATUS;
+	};
+	//  PRESET_STATUS의 기본 디스패치 인터페이스입니다.
+		
+	[ uuid(1EE600BB-74FE-46A4-93D3-6463B699D9F3) ]
+	dispinterface IPRESET_STATUS
+	{
+		properties:
+		methods:
+	};
+
+	//  PRESET_STATUS의 클래스 정보입니다.
+
+	[ uuid(413A2A55-E2F0-4E8B-9DD1-41ABBA4F873B) ]
+	coclass PRESET_STATUS
+	{
+		[default] dispinterface IPRESET_STATUS;
+	};
+	//  BIT_SUMMARY의 기본 디스패치 인터페이스입니다.
+		
+	[ uuid(2EDCFB4E-D184-4558-9296-5923016A44D5) ]
+	dispinterface IBIT_SUMMARY
+	{
+		properties:
+		methods:
+	};
+
+	//  BIT_SUMMARY의 클래스 정보입니다.
+
+	[ uuid(5333C881-0D1B-433C-A242-FD7EC5F60D36) ]
+	coclass BIT_SUMMARY
+	{
+		[default] dispinterface IBIT_SUMMARY;
+	};	
+	//  ICS_CP의 기본 디스패치 인터페이스입니다.
+		
+	[ uuid(92F4EE27-6C21-4324-9128-76FF0519ADF2) ]
+	dispinterface IICS_CP
+	{
+		properties:
+		methods:
+	};
+
+	//  ICS_CP의 클래스 정보입니다.
+
+	[ uuid(FD144883-AF7F-4A7D-ADEC-1B2928B6293A) ]
+	coclass ICS_CP
+	{
+		[default] dispinterface IICS_CP;
+	};
+	//  VOICE_MESSAGE의 기본 디스패치 인터페이스입니다.
+		
+	[ uuid(8BA951F5-0BB7-4E28-92F5-13F25D2B9F61) ]
+	dispinterface IVOICE_MESSAGE
+	{
+		properties:
+		methods:
+	};
+
+	//  VOICE_MESSAGE의 클래스 정보입니다.
+
+	[ uuid(A3AA2925-32D0-42CC-BA0D-EE90ED1A8D3E) ]
+	coclass VOICE_MESSAGE
+	{
+		[default] dispinterface IVOICE_MESSAGE;
+	};
+	//  FAULT_DATA의 기본 디스패치 인터페이스입니다.
+		
+	[ uuid(EA185368-4728-4774-BCD1-21D7757D2509) ]
+	dispinterface IFAULT_DATA
+	{
+		properties:
+		methods:
+	};
+
+	//  FAULT_DATA의 클래스 정보입니다.
+
+	[ uuid(AC46178D-A268-4049-86C8-8E8DBD4F9B0A) ]
+	coclass FAULT_DATA
+	{
+		[default] dispinterface IFAULT_DATA;
+	};
+	//  MWOD_LOAD2의 기본 디스패치 인터페이스입니다.
+		
+	[ uuid(46698E4B-8797-47B4-883C-3E43AA31478F) ]
+	dispinterface IMWOD_LOAD2
+	{
+		properties:
+		methods:
+	};
+
+	//  MWOD_LOAD2의 클래스 정보입니다.
+
+	[ uuid(57F47681-25E1-421C-8E34-5433976A8F38) ]
+	coclass MWOD_LOAD2
+	{
+		[default] dispinterface IMWOD_LOAD2;
+	};
+	//  PRESET_LOAD2의 기본 디스패치 인터페이스입니다.
+		
+	[ uuid(4A68286B-D723-4A5B-BFCC-EF8FFAFF329C) ]
+	dispinterface IPRESET_LOAD2
+	{
+		properties:
+		methods:
+	};
+
+	//  PRESET_LOAD2의 클래스 정보입니다.
+
+	[ uuid(F435EFFD-7B21-485A-87B3-F6CEFF94544F) ]
+	coclass PRESET_LOAD2
+	{
+		[default] dispinterface IPRESET_LOAD2;
+	};
+	//  FMT_NET_LOAD2의 기본 디스패치 인터페이스입니다.
+		
+	[ uuid(98AB4848-660F-487E-873F-64D4FE97A393) ]
+	dispinterface IFMT_NET_LOAD2
+	{
+		properties:
+		methods:
+	};
+
+	//  FMT_NET_LOAD2의 클래스 정보입니다.
+
+	[ uuid(2FB81347-3175-49A0-8359-25E571FA43FF) ]
+	coclass FMT_NET_LOAD2
+	{
+		[default] dispinterface IFMT_NET_LOAD2;
+	};
+	//  PRESET_STATUS2의 기본 디스패치 인터페이스입니다.
+		
+	[ uuid(61BA0EBF-7A3C-45FB-9096-B86DF9A4AABE) ]
+	dispinterface IPRESET_STATUS2
+	{
+		properties:
+		methods:
+	};
+
+	//  PRESET_STATUS2의 클래스 정보입니다.
+
+	[ uuid(ADB8CF58-E989-499E-ADD3-DC3A9FF370F3) ]
+	coclass PRESET_STATUS2
+	{
+		[default] dispinterface IPRESET_STATUS2;
+	};
+	//  BIT_SUMMARY2의 기본 디스패치 인터페이스입니다.
+		
+	[ uuid(176AEA64-ACED-4471-B42E-9A1ACAFE343A) ]
+	dispinterface IBIT_SUMMARY2
+	{
+		properties:
+		methods:
+	};
+
+	//  BIT_SUMMARY2의 클래스 정보입니다.
+
+	[ uuid(36C328B5-FF20-4AFA-A76A-AE148783D6D1) ]
+	coclass BIT_SUMMARY2
+	{
+		[default] dispinterface IBIT_SUMMARY2;
+	};
+	//  CtrlPowSup의 기본 디스패치 인터페이스입니다.
+		
+	[ uuid(FF4A1FF5-E9D8-41D2-823D-5BA83B84FD14) ]
+	dispinterface ICtrlPowSup
+	{
+		properties:
+		methods:
+	};
+
+	//  CtrlPowSup의 클래스 정보입니다.
+
+	[ uuid(284A89BF-ADA3-4A27-9EA3-0FFC0F401E5D) ]
+	coclass CtrlPowSup
+	{
+		[default] dispinterface ICtrlPowSup;
+	};
+};

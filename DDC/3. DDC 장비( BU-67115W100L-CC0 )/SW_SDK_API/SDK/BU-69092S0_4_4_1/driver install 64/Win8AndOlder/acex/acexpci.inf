@@ -1,0 +1,151 @@
+;/******************************************************************************
+; * Data Device Corporation
+; * Filename: acexpci.inf
+; * Copyright (c) 2019 Data Device Corporation
+; ******************************************************************************
+; * Non-Disclosure Statement
+; * ------------------------
+; * This software is the sole property of Data Device Corporation. All
+; * rights, title, ownership, or other interests in the software remain
+; * the property of Data Device Corporation. This software may be used
+; * in accordance with applicable licenses. Any unauthorized use,
+; * duplication, transmission, distribution, or disclosure is expressly
+; * forbidden.
+; *
+; * This non-disclosure statement may not be removed or modified without
+; * prior written consent of Data Device Corporation.
+; ******************************************************************************/
+
+[Version]
+Signature="$Windows NT$"
+Class="DDC Devices"
+ClassGUID={b8fd1ebc-0bfd-4973-9a61-258d72bda69f}
+Provider=%DDC%
+CatalogFile=acexpci.cat
+DriverPackageDisplayName=%DESC%
+DriverVer=02/04/2020,4.4.1.4
+
+[Manufacturer]
+%DDC%=DDC,NTamd64
+
+[SourceDisksNames.amd64]
+1=%DISK_NAME%
+
+[SourceDisksFiles.amd64]
+acexpci.sys=1
+WdfCoInstaller01009.dll=1
+ddcins64.dll=1
+
+[DestinationDirs]
+DefaultDestDir=12
+ACEXPCI.CopyFiles=11
+CoInstaller_CopyFiles=11
+
+[DDC.NTamd64]
+%VEN_4DDC&DEV_1A00.DeviceDesc% = ACEXPCI_Inst, PCI\VEN_4DDC&DEV_1A00
+%VEN_4DDC&DEV_1B00.DeviceDesc% = ACEXPCI_Inst, PCI\VEN_4DDC&DEV_1B00
+%VEN_4DDC&DEV_1C00.DeviceDesc% = ACEXPCI_Inst, PCI\VEN_4DDC&DEV_1C00
+%VEN_4DDC&DEV_1C80.DeviceDesc% = ACEXPCI_Inst, PCI\VEN_4DDC&DEV_1C80
+%VEN_4DDC&DEV_1D00.DeviceDesc% = ACEXPCI_Inst, PCI\VEN_4DDC&DEV_1D00
+%VEN_4DDC&DEV_1E00.DeviceDesc% = ACEXPCI_Inst, PCI\VEN_4DDC&DEV_1E00
+%VEN_4DDC&DEV_1F00.DeviceDesc% = ACEXPCI_Inst, PCI\VEN_4DDC&DEV_1F00
+%VEN_4DDC&DEV_2000.DeviceDesc% = ACEXPCI_Inst, PCI\VEN_4DDC&DEV_2000
+%VEN_4DDC&DEV_2100.DeviceDesc% = ACEXPCI_Inst, PCI\VEN_4DDC&DEV_2100
+%VEN_4DDC&DEV_2180.DeviceDesc% = ACEXPCI_Inst, PCI\VEN_4DDC&DEV_2180
+%VEN_4DDC&DEV_2200.DeviceDesc% = ACEXPCI_Inst, PCI\VEN_4DDC&DEV_2200
+%VEN_4DDC&DEV_2500.DeviceDesc% = ACEXPCI_Inst, PCI\VEN_4DDC&DEV_2500
+%VEN_4DDC&DEV_2600.DeviceDesc% = ACEXPCI_Inst, PCI\VEN_4DDC&DEV_2600
+%VEN_4DDC&DEV_2700.DeviceDesc% = ACEXPCI_Inst, PCI\VEN_4DDC&DEV_2700
+%VEN_4DDC&DEV_2900.DeviceDesc% = ACEXPCI_Inst, PCI\VEN_4DDC&DEV_2900
+%VEN_4DDC&DEV_2B00.DeviceDesc% = ACEXPCI_Inst, PCI\VEN_4DDC&DEV_2B00
+%VEN_4DDC&DEV_2C00.DeviceDesc% = ACEXPCI_Inst, PCI\VEN_4DDC&DEV_2C00
+%VEN_4DDC&DEV_2D00.DeviceDesc% = ACEXPCI_Inst, PCI\VEN_4DDC&DEV_2D00
+
+;-------------------------------
+; Install DDC Device Class
+;-------------------------------
+
+[ClassInstall32.NTamd64]
+CopyFiles = ACEXPCI.CopyFiles
+AddReg = ACEXPCI.AddReg
+
+[ACEXPCI.AddReg]
+HKR,,,,"DDC Devices"
+HKR,,Installer32,,ddcins64.dll
+HKR,,Icon,,"102"
+
+[ACEXPCI.CopyFiles]
+ddcins64.dll
+
+;-------------------------------
+; Device Installation
+;-------------------------------
+
+[ACEXPCI_Inst.NTamd64]
+CopyFiles=ACEXPCI_Inst.CopyFiles
+
+[ACEXPCI_Inst.CopyFiles]
+acexpci.sys
+
+[ACEXPCI_Inst.NTamd64.Services]
+AddService=acexpci,0x00000002,ACEXPCI_Service
+
+[ACEXPCI_Service]
+DisplayName    = %ACEXPCI.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\acexpci.sys
+
+[ACEXPCI_Inst.NTamd64.HW]
+AddReg = MSI.reg
+
+[MSI.reg]
+HKR, "Interrupt Management", 0x00000010
+HKR, "Interrupt Management\MessageSignaledInterruptProperties", 0x00000010
+HKR, "Interrupt Management\MessageSignaledInterruptProperties", MSISupported, 0x00010001, 1
+
+;-------------------------------
+; CoInstaller Installation
+;-------------------------------
+
+[ACEXPCI_Inst.NTamd64.CoInstallers]
+AddReg=CoInstaller_AddReg
+CopyFiles=CoInstaller_CopyFiles
+
+[CoInstaller_CopyFiles]
+WdfCoInstaller01009.dll
+
+[CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller01009.dll,WdfCoInstaller"
+
+[ACEXPCI_Inst.NTamd64.Wdf]
+KmdfService = acexpci, ACEXPCI_wdfsect
+
+[ACEXPCI_wdfsect]
+KmdfLibraryVersion = 1.5
+
+[Strings]
+DDC                          = "Data Device Corporation"
+DISK_NAME                    = "DDC MIL-1553 Device - Installation disk"
+DESC                         = "DDC Driver for ACEX PCI and PCIe Devices"
+ACEXPCI.SvcDesc              = "DDC MIL-STD-1553/ARINC-429 ACEXPCI Driver"
+
+VEN_4DDC&DEV_1A00.DeviceDesc = "BU-67301B Total AceXtreme MIL-STD-1553 Device"
+VEN_4DDC&DEV_1B00.DeviceDesc = "BU-67101Q ExpressCard AceXtreme MIL-STD-1553 Device"
+VEN_4DDC&DEV_1C00.DeviceDesc = "BU-67106K PCIe AceXtreme MIL-STD-1553 Device"
+VEN_4DDC&DEV_1C80.DeviceDesc = "BU-67106BK PCIe AceXtreme MIL-STD-1553 Device"
+VEN_4DDC&DEV_1D00.DeviceDesc = "BU-67105C PC-104+ AceXtreme MIL-STD-1553 Device"
+VEN_4DDC&DEV_1E00.DeviceDesc = "BU-67110F/M PMC HD AceXtreme MIL-STD-1553 Device"
+VEN_4DDC&DEV_1F00.DeviceDesc = "BU-67109C PC-104+ AceXtreme MIL-STD-1553/ARINC 429 Device"
+VEN_4DDC&DEV_2000.DeviceDesc = "BU-67107F/M PMC MIO AceXtreme MIL-STD-1553/ARINC 429 Device"
+VEN_4DDC&DEV_2100.DeviceDesc = "BU-67206K PCIe AceXtreme MF MIL-STD-1553 Device"
+VEN_4DDC&DEV_2180.DeviceDesc = "BU-67206BK PCIe AceXtreme MF MIL-STD-1553 Device"
+VEN_4DDC&DEV_2200.DeviceDesc = "BU-67210F/M PMC HD AceXtreme MF MIL-STD-1553 Device"
+VEN_4DDC&DEV_2500.DeviceDesc = "BU-67112Xx XMC Total AceXtreme MIL-STD-1553 Device"
+VEN_4DDC&DEV_2600.DeviceDesc = "DD-40000K/BK PCIe ARINC 429 Device"
+VEN_4DDC&DEV_2700.DeviceDesc = "DD-40100F/BF PMC ARINC 429 Device"
+VEN_4DDC&DEV_2900.DeviceDesc = "BU-67118F/M PMC HD AceXtreme MIL-STD-1553/ARINC 429 Device"
+VEN_4DDC&DEV_2B00.DeviceDesc = "BU-67120N AceXtreme MIL-STD-1553 Device"
+VEN_4DDC&DEV_2C00.DeviceDesc = "BU-67118Y/Z XMC HD AceXtreme MIL-STD-1553/ARINC 429 Device"
+VEN_4DDC&DEV_2D00.DeviceDesc = "DD-40001H PCIe ARINC 429 Device"

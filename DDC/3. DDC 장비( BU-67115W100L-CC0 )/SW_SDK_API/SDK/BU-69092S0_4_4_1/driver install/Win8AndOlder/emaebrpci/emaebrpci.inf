@@ -1,0 +1,110 @@
+;/******************************************************************************
+; * Data Device Corporation
+; * Filename: emaebrpci.inf
+; * Copyright (c) 2019 Data Device Corporation
+; ******************************************************************************
+; * Non-Disclosure Statement
+; * ------------------------
+; * This software is the sole property of Data Device Corporation. All
+; * rights, title, ownership, or other interests in the software remain
+; * the property of Data Device Corporation. This software may be used
+; * in accordance with applicable licenses. Any unauthorized use,
+; * duplication, transmission, distribution, or disclosure is expressly
+; * forbidden.
+; *
+; * This non-disclosure statement may not be removed or modified without
+; * prior written consent of Data Device Corporation.
+; ******************************************************************************/
+
+[Version]
+Signature="$Windows NT$"
+Class="DDC Devices"
+ClassGUID={b8fd1ebc-0bfd-4973-9a61-258d72bda69f}
+Provider=%DDC%
+CatalogFile=emaebrpci.cat
+DriverPackageDisplayName=%DESC%
+DriverVer=02/04/2020,4.4.1.4
+
+[Manufacturer]
+%DDC%=DDC,NTx86
+
+[SourceDisksNames]
+1=%DISK_NAME%
+
+[SourceDisksFiles]
+emaebrpci.sys=1
+WdfCoInstaller01009.dll=1
+ddcins32.dll=1
+
+[DestinationDirs]
+DefaultDestDir=12
+EMAEBRPCI.CopyFiles=11
+CoInstaller_CopyFiles=11
+
+[DDC.NTx86]
+%VEN_4DDC&DEV_2300.DeviceDesc% = EMAEBRPCI_Inst, PCI\VEN_4DDC&DEV_2300
+
+;-------------------------------
+; Install DDC Device Class
+;-------------------------------
+
+[ClassInstall32]
+CopyFiles = EMAEBRPCI.CopyFiles
+AddReg = EMAEBRPCI.AddReg
+
+[EMAEBRPCI.AddReg]
+HKR,,,,"DDC Devices"
+HKR,,Installer32,,ddcins32.dll
+HKR,,Icon,,"102"
+
+[EMAEBRPCI.CopyFiles]
+ddcins32.dll
+
+;-------------------------------
+; Device Installation
+;-------------------------------
+
+[EMAEBRPCI_Inst.NTx86]
+CopyFiles=EMAEBRPCI_Inst.CopyFiles
+
+[EMAEBRPCI_Inst.CopyFiles]
+emaebrpci.sys
+
+[EMAEBRPCI_Inst.NTx86.Services]
+AddService=emaebrpci,0x00000002,EMAEBRPCI_Service
+
+[EMAEBRPCI_Service]
+DisplayName    = %EMAEBRPCI.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\emaebrpci.sys
+
+;-------------------------------
+; CoInstaller Installation
+;-------------------------------
+
+[EMAEBRPCI_Inst.NTx86.CoInstallers]
+AddReg=CoInstaller_AddReg
+CopyFiles=CoInstaller_CopyFiles
+
+[CoInstaller_CopyFiles]
+wdfcoinstaller01009.dll
+
+[CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller01009.dll,WdfCoInstaller"
+
+[EMAEBRPCI_Inst.NTx86.Wdf]
+KmdfService = emaebrpci, EMAEBRPCI_wdfsect
+
+[EMAEBRPCI_wdfsect]
+KmdfLibraryVersion = 1.5
+
+[Strings]
+DDC                          = "Data Device Corporation"
+DISK_NAME                    = "DDC MIL-1553 Device - Installation disk"
+DESC                         = "DDC Driver for EMACE EBR Devices"
+EMAEBRPCI.SvcDesc            = "DDC MIL-1553 EMACE EBR Driver"
+
+VEN_4DDC&DEV_2300.DeviceDesc = "BU-65580M1 PMC MIL-1553/Enhanced Bit Rate Card"
+

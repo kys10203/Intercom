@@ -1,0 +1,122 @@
+;/******************************************************************************
+; * Data Device Corporation
+; * Filename: acexusb.inf
+; * Copyright (c) 2019 Data Device Corporation
+; ******************************************************************************
+; * Non-Disclosure Statement
+; * ------------------------
+; * This software is the sole property of Data Device Corporation. All
+; * rights, title, ownership, or other interests in the software remain
+; * the property of Data Device Corporation. This software may be used
+; * in accordance with applicable licenses. Any unauthorized use,
+; * duplication, transmission, distribution, or disclosure is expressly
+; * forbidden.
+; *
+; * This non-disclosure statement may not be removed or modified without
+; * prior written consent of Data Device Corporation.
+; ******************************************************************************/
+
+[Version]
+Signature="$Windows NT$"
+Class="DDC Devices"
+ClassGUID={b8fd1ebc-0bfd-4973-9a61-258d72bda69f}
+Provider=%DDC%
+CatalogFile=acexusb.cat
+DriverPackageDisplayName=%DESC%
+DriverVer=02/04/2020,4.4.1.4
+
+[Manufacturer]
+%DDC%=DDC,NTx86
+
+[SourceDisksNames]
+1=%DISK_NAME%
+
+[SourceDisksFiles]
+acexusb.sys=1
+WdfCoInstaller01009.dll=1
+ddcins32.dll=1
+
+[DestinationDirs]
+DefaultDestDir=12
+ACEXUSB.CopyFiles=11
+CoInstaller_CopyFiles=11
+
+[DDC.NTx86]
+%VID_4DDC&PID_7102.DeviceDesc% = ACEXUSB_Inst, USB\VID_4DDC&PID_7102
+%VID_4DDC&PID_7103.DeviceDesc% = ACEXUSB_Inst, USB\VID_4DDC&PID_7103
+%VID_4DDC&PID_0100.DeviceDesc% = ACEXUSB_Inst, USB\VID_4DDC&PID_0100
+%VID_4DDC&PID_0200.DeviceDesc% = ACEXUSB_Inst, USB\VID_4DDC&PID_0200
+%VID_4DDC&PID_0300.DeviceDesc% = ACEXUSB_Inst, USB\VID_4DDC&PID_0300
+%VID_4DDC&PID_0400.DeviceDesc% = ACEXUSB_Inst, USB\VID_4DDC&PID_0400
+%VID_4DDC&PID_0500.DeviceDesc% = ACEXUSB_Inst, USB\VID_4DDC&PID_0500
+
+;-------------------------------
+; Install DDC Device Class
+;-------------------------------
+
+[ClassInstall32]
+CopyFiles = ACEXUSB.CopyFiles
+AddReg = ACEXUSB.AddReg
+
+[ACEXUSB.AddReg]
+HKR,,,,"DDC Devices"
+HKR,,Installer32,,ddcins32.dll
+HKR,,Icon,,"102"
+
+[ACEXUSB.CopyFiles]
+ddcins32.dll
+
+;-------------------------------
+; Device Installation
+;-------------------------------
+
+[ACEXUSB_Inst.NTx86]
+CopyFiles=ACEXUSB_Inst.CopyFiles
+
+[ACEXUSB_Inst.CopyFiles]
+acexusb.sys
+
+[ACEXUSB_Inst.NTx86.Services]
+AddService=acexusb,0x00000002,ACEXUSB_Service
+
+[ACEXUSB_Service]
+DisplayName    = %ACEXUSB.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\acexusb.sys
+
+;-------------------------------
+; CoInstaller Installation
+;-------------------------------
+
+[ACEXUSB_Inst.NTx86.CoInstallers]
+AddReg=CoInstaller_AddReg
+CopyFiles=CoInstaller_CopyFiles
+
+[CoInstaller_CopyFiles]
+WdfCoInstaller01009.dll
+
+[CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller01009.dll,WdfCoInstaller"
+
+[ACEXUSB_Inst.NTx86.Wdf]
+KmdfService = acexusb, ACEXUSB_wdfsect
+
+[ACEXUSB_wdfsect]
+KmdfLibraryVersion = 1.5
+
+[Strings]
+DDC                          = "Data Device Corporation"
+DISK_NAME                    = "DDC MIL-STD-1553/ARINC 429 USB AceExtreme Device - Installation disk"
+DESC                         = "DDC Driver for ACEX USB Devices"
+ACEXUSB.SvcDesc              = "DDC MIL-STD-1553/ARINC-429 ACEXUSB Driver"
+
+VID_4DDC&PID_7102.DeviceDesc = "BU-67102U/BU-67103U USB AceXtreme MIL-STD-1553/ARINC 429 Device"
+VID_4DDC&PID_7103.DeviceDesc = "BU-67102U/BU-67103U USB AceXtreme MIL-STD-1553/ARINC 429 Device"
+VID_4DDC&PID_0100.DeviceDesc = "BU-67211U USB AceXtreme MIL-STD-1553/ARINC 429 Device/CAN Bus"
+VID_4DDC&PID_0200.DeviceDesc = "BU-67202U USB AceXtreme MF MIL-STD-1553 Device"
+VID_4DDC&PID_0300.DeviceDesc = "BU-67113U TACEX SFF USB AceXtreme MIL-STD-1553 Device"
+VID_4DDC&PID_0400.DeviceDesc = "BU-67123U TACEX SFF USB AceXtreme MIL-STD-1553 Device"
+VID_4DDC&PID_0500.DeviceDesc = "BU-67111U TACEX SFF USB AceXtreme MIL-STD-1553 Device"
+

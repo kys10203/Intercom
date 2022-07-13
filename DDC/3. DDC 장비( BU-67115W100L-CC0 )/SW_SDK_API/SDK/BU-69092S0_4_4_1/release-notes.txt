@@ -1,0 +1,6110 @@
+================================================================================
+              BU-69092S0 AceXtreme SDK and BU-69092D0 AceXtreme DDK
+                                    for
+                 WINDOWS XP (32 BIT), Vista/7/8/10 (32/64 BIT)
+                                Release Notes
+                           Copyright (c) 2000-2020
+                           Data Device Corporation
+                             All Rights Reserved
+================================================================================
+
+================================================================================
+4.4.1 (05-FEB-2020)
+================================================================================
+
+-------------------------------------------------------------------------------
+New Features
+--------------------------------------------------------------------------------
+1. There are no new features; bug fixes only
+
+--------------------------------------------------------------------------------
+New Hardware Supported in This Release
+--------------------------------------------------------------------------------
+1. None
+
+--------------------------------------------------------------------------------
+Fixed Defects
+--------------------------------------------------------------------------------
+1) DF1379 - ACE_RT_OPT_LOAD_TT doesn't load the mode code data word into the 
+            time tag on an acextreme device.
+2) DF1516 - AceXtreme SDK allows for EMACE Device to use GPFs greater than 7
+3) DF1621 - BU-65580M EBR driver support
+4) DF1646 - aceSetClockFreq() does not set the clock frequency correctly
+5) DF1663 - No method in SDK to enable external clock output
+6) DF1674 - voltage print out in Voltage sample should be taken out
+7) DF1738 - _acexMTDisableRTFilter causes crash
+8) DF1858 - Test Sim Translation Layer returns error 522 when calling 
+            ddcWrite_data()
+9) DF1899 - FW does not return the proper RT offset address
+10)DF1915 - _rtxDataBlkWrite not working properly for all channels above the 
+            first one
+11)DF2048 - Building Windows drivers using non-Free build option does not copy 
+            files to the output folder
+12)DF2050 - acexMRTEnableRT() doesn't properly allow RT to run in 1553A mode
+13)DF2052 - AceXtreme SDK doesn't allow for RT Address 31 to be used in 1553A 
+            mode
+
+--------------------------------------------------------------------------------
+Supported Hardware and Minimum Firmware Requirements
+--------------------------------------------------------------------------------
+The supported hardware and minimum firmware revisions required for this library
+release listed as follows:
+
+EMACE Based Cards           Minimum Firmware Revision
+-----------------------------------------------------
+    BU-65586N/H             N/A
+    BU-65596FM              N/A
+    BU-65580M1 EBR          1.2
+
+E2MA Based Cards            Minimum Firmware Revision
+-----------------------------------------------------
+    BU-65590U               33
+    BU-65591U               33
+
+AceXtreme Based Cards       Minimum Firmware Revision
+-----------------------------------------------------
+    BU-67101Q               9.5
+    BU-67102U               9.9
+    BU-67103U               9.9
+    BU-67104C               9.5
+    BU-67105C               9.5
+    BU-67106BK              9.10
+    BU-67107F/M             9.7
+    BU-67108C               9.7
+    BU-67109C               9.7
+    BU-67110F/M             9.6
+    BU-67112X               N/A
+    BU-67113U               N/A
+    BU-67114H               N/A
+    BU-67202U               10.7
+    BU-67206BK              10.4
+    BU-67210F/M             10.3
+    BU-67211U               10.7
+    BU-67301B               N/A
+    BU-67118F/M             3.12
+    BU-67118Y/Z             3.14
+    BU-67118Z310            3.14
+
+Advanced Bridging Devices   
+-----------------------------------------------------
+    BU-67115W (Rugged)      Remote Access
+    BU-67116W (Board)       Remote Access
+    BU-67119W (Lab)         Remote Access
+
+Avionics Computer 
+-----------------------------------------------------
+    BU-67121W (Lab)         Remote Access
+    BU-67124W (Rugged)      Remote Access
+    BU-67125W (Compact)     Remote Access
+
+A firmware upgrade will be required if your device reports an earlier
+different revision.  To upgrade your firmware on your device please
+see the firmware upgrade instructions that reside in the firmware
+folder.
+
+--------------------------------------------------------------------------------
+Software Test Configurations
+--------------------------------------------------------------------------------
+Software was tested using the following test configurations:
+
+Windows 10 64 bit
+    -ACEXPCI        -ACEXUSB        -E2MAUSB        -EMAPCI         -EMAEBRPCI
+      BU-67107F0      BU-67103U2      BU-65590U2      BU-65596F4      BU-65580M1
+      BU-67110F8      BU-67211U2
+      BU-67112Y8
+      BU-67118Y2
+      BU-67206BK4
+      BU-67210F4
+
+Windows 7 32 bit
+    -ACEXPCI        -ACEXUSB        -E2MAUSB        -EMAPCI         -EMAEBRPCI
+      BU-67107F0      BU-67103U2      BU-65590U2      BU-65596F4      BU-65580M1
+      BU-67110F8      BU-67211U2
+      BU-67112Y8
+      BU-67118Y2
+      BU-67206BK4
+      BU-67210F4
+
+--------------------------------------------------------------------------------
+Known Issues and Limitations
+--------------------------------------------------------------------------------
+- New (since the last release)
+  1. None
+
+- Pre-existing (as of previous release)
+  1. The BU-65590/91U will cause a software crash if the minor frame time in BC
+     mode is less than approximately 6ms.
+
+  2. Ace Test vectors and Protocol test do not operate on E2MA and AceXtreme
+     devices.
+
+  3. aceBCStart frame repeat count may execute more than expected on EMACE 
+     cards.
+
+  4. EMACE Protocol Test Transmits on the Bus.
+
+  5. BU-65590FM does not have software support for External Trigger inputs on
+     DIO's.
+
+  6. The BU-67101Q will not work in laptops with Vista unless Microsoft Service
+     Pack 1 or Hot Fix 929550 is installed
+
+  7. Error Injection will fail under the following conditions: RT-2-RT
+     transmission, where the card is configured to be both RT's, and
+     "wrong-bus" MRT error injection is applied.
+
+  8. When installing package version 4.3.1 you may encounter a dialog box that
+     says the following: "The setup has detected that version 3.06.015 of 
+     BU-69092S0 AceXtreme C SDK/DDK is already installed. This setup is not 
+     compatible with this version.  You will have to uninstall the previous 
+     version before installing this version". To correct issue open the Windows
+     control panel, click on programs and uninstall the previously installed 
+     DDC AceXtreme package.
+
+  9. The BU-67211U will not receive MTI messages in the bcopcode sample.
+
+
+================================================================================
+4.3.3 (14-OCT-2019)
+================================================================================
+
+--------------------------------------------------------------------------------
+New Features
+--------------------------------------------------------------------------------
+1. Bug fixes
+
+--------------------------------------------------------------------------------
+Supported Hardware
+--------------------------------------------------------------------------------
+EMACE Based Cards
+    BU-65586N/H         BU-65596FM          BU-65580M1 EBR
+
+E2MA Based Cards
+    BU-65590U           BU-65591U
+
+AceXtreme Based Cards
+    BU-67101Q           BU-67102U           BU-67103U
+    BU-67104C           BU-67105C           BU-67106K
+    BU-67107F/M         BU-67108C           BU-67109C
+    BU-67110F/M         BU-67112X           BU-67113U
+    BU-67114H           BU-67202U           BU-67206K
+    BU-67210F/M         BU-67211U           BU-67301B
+    BU-67116W           BU-67118M           BU-67118Z
+
+--------------------------------------------------------------------------------
+Minimum Firmware Requirements
+--------------------------------------------------------------------------------
+The minimum firmware revision required for this library
+release listed by hardware type are as follows:
+
+    PC/104+
+        BU-67108/9C     Version 9.7
+
+    PMC/XMC
+        BU-67107F/M     Version 9.7
+        BU-67110F/M     Version 9.6
+        BU-67118F/M     Version 3.12
+        BU-67118YZx     Version 3.14
+        BU-67118Z310    Version 3.14
+        BU-67210F/M     Version 10.3
+
+    PCI-104
+        BU-67104/5C     Version 9.5
+
+    PCIe
+        BU-67106K       Version 9.10
+        BU-67206K       Version 10.4
+
+    ExpressCard
+        BU-67101Q       Version 9.5
+
+    USB
+        BU-67102/3U     Version 9.9
+        BU-67211U       Version 10.7
+
+    Ethernet
+        BU-67115W       Version 1.1.2 (1)
+        BU-67116W       Version 1.1.2 (1)
+        BU-67119W       Version 1.1.2 (1)
+
+Notes:
+ (1) BU-69094S1 software version
+
+A firmware upgrade will be required if your device reports an earlier
+different revision.  To upgrade your firmware on your device please
+see the firmware upgrade instructions that reside in the firmware
+folder.
+
+--------------------------------------------------------------------------------
+Known Issues
+--------------------------------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to The BU-69092Sx SDK and
+USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+1.  The BU-65590/91U will cause a software crash if the minor frame time in BC
+    mode is less than approximately 6ms.
+
+2.  RT may lose messages with RTMTiDemo sample
+
+3.  Ace Test vectors and Protocol test do not operate on E2MA and AceXtreme
+    devices.
+
+4.  aceBCStart frame repeat count may execute more than expected.
+
+5.  EMACE Protocol Test Transmits on the Bus.
+
+6.  BU-65590FM does not have software support for External Trigger inputs on
+    DIO's.
+
+7.  The BU-67101Q will not work in laptops with Vista unless Microsoft Service
+    Pack 1 or Hot Fix 929550 is installed
+
+8.  RTMT demo for the BU-65550M2-602 is not supported.
+
+9.  Under 64-Bit Windows Vista and Windows 7, the DDC Card Manager must be
+    run as administrator.  This can be done by right clicking on the DDC
+    Card Manager and selecting "Run as Administrator".
+
+10. Error Injection will fail under the following conditions: RT-2-RT
+    transmission, where the card is configured to be both RT's, and
+    "wrong-bus" MRT error injection is applied.
+
+11. When using Windows Vista or 7 a manual driver update is required.
+    The manual driver update can be done via the DDC Card Manager.  The
+    manual update is necessary because the device drivers are digital
+    signed.
+
+12. When using the DDC Card Manager to update a device driver, the Card
+    Manager may show a Not Responding Windows Error message.  The driver
+    installation will complete with the Not Responding error.
+
+13. When using the DDC Card Manager to update a device driver, the
+    notification of a successful update will be displayed behind the card
+    manager.  The user will have to use the ALT+TAB keys to switch to the
+    hidden screen to complete the driver update.
+
+14. When installing package version 4.3.1 you may encounter a dialog box that
+    says the following: "The setup has detected that version 3.06.015 of BU-69092S0
+    AceXtreme C SDK/DDK is already installed. This setup is not compatible with
+    this version.  You will have to uninstall the previous version before
+    installing this version". To correct issue open the Windows control panel,
+    click on programs and uninstall the previously installed DDC AceXtreme
+    package.
+
+--------------------------------------------------------------------------------
+Fixed Defects
+--------------------------------------------------------------------------------
+1) DF2054 - Not enough memory for device error when creating RT data blocks
+2) DF2058 - Remote access on C-AIC does not work
+3) DF2059 - BusTrACEr/replaydemo crashes when replaying Chapter 10 file
+4) DF2060 - Remove customer name from comments in Ace ToEmace Library
+5) DF2061 - TT#1318 is missing from the Ace to Emace translation layer
+6) DF2062 - Ace to Emace sample projects need to have struct alignment set to 1 byte
+7) DF2063 - Test track 1638 needs to be added back to ace to Emace translation layer
+8) DF2064 - Mrtdemo2.c will crash when BuClose() is called
+9) DF2065 - Test track 1601 needs to be added back to ace to Emace translation layer
+10)DF2066 - BuSendData() and BuGetData() will send mode codes on only Bus B when SA 0 is used
+11)DF2067 - rtmtidemo will not retrieve data packets/messages
+12)DF2068 - Replay crashes if device number not 0
+
+================================================================================
+4.3.2 (13-SEP-2019)
+================================================================================
+
+--------------------------------------------------------------------------------
+New Features
+--------------------------------------------------------------------------------
+1. Bug fixes
+
+--------------------------------------------------------------------------------
+Supported Hardware
+--------------------------------------------------------------------------------
+EMACE Based Cards
+    BU-65586N/H         BU-65596FM          BU-65580M1 EBR
+
+E2MA Based Cards
+    BU-65590U           BU-65591U
+
+AceXtreme Based Cards
+    BU-67101Q           BU-67102U           BU-67103U
+    BU-67104C           BU-67105C           BU-67106K
+    BU-67107F/M         BU-67108C           BU-67109C
+    BU-67110F/M         BU-67112X           BU-67113U
+    BU-67114H           BU-67202U           BU-67206K
+    BU-67210F/M         BU-67211U           BU-67301B
+    BU-67116W           BU-67118M           BU-67118Z
+
+--------------------------------------------------------------------------------
+Minimum Firmware Requirements
+--------------------------------------------------------------------------------
+The minimum firmware revision required for this library
+release listed by hardware type are as follows:
+
+    PC/104+
+        BU-67108/9C     Version 9.7
+
+    PMC/XMC
+        BU-67107F/M     Version 9.7
+        BU-67110F/M     Version 9.6
+        BU-67118F/M     Version 3.12
+        BU-67118YZx     Version 3.14
+        BU-67118Z310    Version 3.14
+        BU-67210F/M     Version 10.3
+
+    PCI-104
+        BU-67104/5C     Version 9.5
+
+    PCIe
+        BU-67106K       Version 9.10
+        BU-67206K       Version 10.4
+
+    ExpressCard
+        BU-67101Q       Version 9.5
+
+    USB
+        BU-67102/3U     Version 9.9
+        BU-67211U       Version 10.7
+
+    Ethernet
+        BU-67115W       Version 1.1.2 (1)
+        BU-67116W       Version 1.1.2 (1)
+        BU-67119W       Version 1.1.2 (1)
+
+Notes:
+ (1) BU-69094S1 software version
+
+A firmware upgrade will be required if your device reports an earlier
+different revision.  To upgrade your firmware on your device please
+see the firmware upgrade instructions that reside in the firmware
+folder.
+
+--------------------------------------------------------------------------------
+Known Issues
+--------------------------------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to The BU-69092Sx SDK and
+USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+1.  The BU-65590/91U will cause a software crash if the minor frame time in BC
+    mode is less than approximately 6ms.
+
+2.  RT may lose messages with RTMTiDemo sample
+
+3.  Ace Test vectors and Protocol test do not operate on E2MA and AceXtreme
+    devices.
+
+4.  aceBCStart frame repeat count may execute more than expected.
+
+5.  EMACE Protocol Test Transmits on the Bus.
+
+6.  BU-65590FM does not have software support for External Trigger inputs on
+    DIO's.
+
+7.  The BU-67101Q will not work in laptops with Vista unless Microsoft Service
+    Pack 1 or Hot Fix 929550 is installed
+
+8.  RTMT demo for the BU-65550M2-602 is not supported.
+
+9.  Under 64-Bit Windows Vista and Windows 7, the DDC Card Manager must be
+    run as administrator.  This can be done by right clicking on the DDC
+    Card Manager and selecting "Run as Administrator".
+
+10. Error Injection will fail under the following conditions: RT-2-RT
+    transmission, where the card is configured to be both RT's, and
+    "wrong-bus" MRT error injection is applied.
+
+11. When using Windows Vista or 7 a manual driver update is required.
+    The manual driver update can be done via the DDC Card Manager.  The
+    manual update is necessary because the device drivers are digital
+    signed.
+
+12. When using the DDC Card Manager to update a device driver, the Card
+    Manager may show a Not Responding Windows Error message.  The driver
+    installation will complete with the Not Responding error.
+
+13. When using the DDC Card Manager to update a device driver, the
+    notification of a successful update will be displayed behind the card
+    manager.  The user will have to use the ALT+TAB keys to switch to the
+    hidden screen to complete the driver update.
+
+14. When installing package version 4.3.1 you may encounter a dialog box that
+    says the following: "The setup has detected that version 3.06.015 of BU-69092S0
+    AceXtreme C SDK/DDK is already installed. This setup is not compatible with
+    this version.  You will have to uninstall the previous version before
+    installing this version". To correct issue open the Windows control panel,
+    click on programs and uninstall the previously installed DDC AceXtreme
+    package.
+
+--------------------------------------------------------------------------------
+Fixed Defects
+--------------------------------------------------------------------------------
+1) DF2040 - MTI Samples will not retrieve data packets / messages from hardware
+2) DF2041 - DDC Card Manager under Windows doesn't show Recommended Firmware
+            version (Rec Fw. Version)
+3) DF2049 - Packaging update
+
+
+================================================================================
+4.3.1 (17-JUL-2019)
+================================================================================
+
+--------------------------------------------------------------------------------
+New Features
+--------------------------------------------------------------------------------
+1. New file structure layout
+2. Bug fixes
+3. RTL improvements
+    - Release based on common code tree
+
+--------------------------------------------------------------------------------
+Supported Hardware
+--------------------------------------------------------------------------------
+EMACE Based Cards
+    BU-65586N/H         BU-65596FM          BU-65580M1 EBR
+
+E2MA Based Cards
+    BU-65590U           BU-65591U
+
+AceXtreme Based Cards
+    BU-67101Q           BU-67102U           BU-67103U
+    BU-67104C           BU-67105C           BU-67106K
+    BU-67107F/M         BU-67108C           BU-67109C
+    BU-67110F/M         BU-67112X           BU-67113U
+    BU-67114H           BU-67202U           BU-67206K
+    BU-67210F/M         BU-67211U           BU-67301B
+    BU-67116W           BU-67118M           BU-67118Z
+
+--------------------------------------------------------------------------------
+Minimum Firmware Requirements
+--------------------------------------------------------------------------------
+The minimum firmware revision required for this library
+release listed by hardware type are as follows:
+
+    PC/104+
+        BU-67108/9C     Version 9.7
+
+    PMC/XMC
+        BU-67107F/M     Version 9.7
+        BU-67110F/M     Version 9.6
+        BU-67118F/M     Version 3.12
+        BU-67118YZx     Version 3.14
+        BU-67118Z310    Version 3.14
+        BU-67210F/M     Version 10.3
+
+    PCI-104
+        BU-67104/5C     Version 9.5
+
+    PCIe
+        BU-67106K       Version 9.10
+        BU-67206K       Version 10.4
+
+    ExpressCard
+        BU-67101Q       Version 9.5
+
+    USB
+        BU-67102/3U     Version 9.9
+        BU-67211U       Version 10.7
+
+    Ethernet
+        BU-67115W       Version 1.1.2 (1)
+        BU-67116W       Version 1.1.2 (1)
+        BU-67119W       Version 1.1.2 (1)
+
+Notes:
+ (1) BU-69094S1 software version
+
+A firmware upgrade will be required if your device reports an earlier
+different revision.  To upgrade your firmware on your device please
+see the firmware upgrade instructions that reside in the firmware
+folder.
+
+--------------------------------------------------------------------------------
+Known Issues
+--------------------------------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to The BU-69092Sx SDK and
+USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+1.  The BU-65590/91U will cause a software crash if the minor frame time in BC
+    mode is less than approximately 6ms.
+
+2.  RT may lose messages with RTMTiDemo sample
+
+3.  Ace Test vectors and Protocol test do not operate on E2MA and AceXtreme
+    devices.
+
+4.  aceBCStart frame repeat count may execute more than expected.
+
+5.  EMACE Protocol Test Transmits on the Bus.
+
+6.  BU-65590FM does not have software support for External Trigger inputs on
+    DIO's.
+
+7.  The BU-67101Q will not work in laptops with Vista unless Microsoft Service
+    Pack 1 or Hot Fix 929550 is installed
+
+8.  RTMT demo for the BU-65550M2-602 is not supported.
+
+9.  Under 64-Bit Windows Vista and Windows 7, the DDC Card Manager must be
+    run as administrator.  This can be done by right clicking on the DDC
+    Card Manager and selecting "Run as Administrator".
+
+10. Error Injection will fail under the following conditions: RT-2-RT
+    transmission, where the card is configured to be both RT's, and
+    "wrong-bus" MRT error injection is applied.
+
+11. When using Windows Vista or 7 a manual driver update is required.
+    The manual driver update can be done via the DDC Card Manager.  The
+    manual update is necessary because the device drivers are digital
+    signed.
+
+12. When using the DDC Card Manager to update a device driver, the Card
+    Manager may show a Not Responding Windows Error message.  The driver
+    installation will complete with the Not Responding error.
+
+13. When using the DDC Card Manager to update a device driver, the
+    notification of a successful update will be displayed behind the card
+    manager.  The user will have to use the ALT+TAB keys to switch to the
+    hidden screen to complete the driver update.
+
+14. When installing package version 4.3.1 you may encounter a dialog box that
+    says the following: "The setup has detected that version 3.06.015 of BU-69092S0
+    AceXtreme C SDK/DDK is already installed. This setup is not compatible with
+    this version.  You will have to uninstall the previous version before
+    installing this version". To correct issue open the Windows control panel,
+    click on programs and uninstall the previously installed DDC AceXtreme
+    package.
+
+--------------------------------------------------------------------------------
+Fixed Defects
+--------------------------------------------------------------------------------
+1) BU-67102U locks up on Windows 10
+2) Issues with stopping BC when wait for trigger opcode is used
+3) Emulated RTs do not respond when a different RT is turned off
+4) RT host buffer returns incorrect messages
+5) Transmit Inhibit / BC Disable application doesn't work with 67210F
+6) BSOD with BU-67102/3U and BU-67202U
+7) aceBCDataBlkRead() returns invalid data buffer when offset parameter is a odd value
+8) aceRTGetStkMsgsRaw adds extra word to each message
+9) Acetoemace functions BuBCSendData() and BuBCGetData() can send more than one message
+10) acexMRTEnableRT() doesn't allow RT to run in 1553A mode
+11) RT cannot receive bcst-data on bus B
+12) aceBCExtTriggerEnable() on BU-67110F/M/I returned ACE_ERR_NOT_SUPPORTED
+13) Ace to Emace Translation layer MT is dropping messages
+
+
+================================================================================
+3.6.15 (30-MAR-2018)
+================================================================================
+
+-----------------------------------------------------------
+New Features
+-----------------------------------------------------------
+1. Windows 10 secure boot support
+2. Bug fixes
+
+-----------------------------------------------------------
+  **Special Note**
+-----------------------------------------------------------
+Support for the following cards has been discontinued.
+Version 3.5.3 will be the last version to support these cards.
+
+EMACE Based Cards
+1.  BU-65550M/53M
+2.  BU-65569I
+3.  BU-65569T/B
+4.  BU-65565F/M
+5.  BU-65566G/M
+6.  BU-65566R
+7.  BU-65550M2-602
+8.  BU-65568
+
+E2MA Based Cards
+1.  BU-65590A
+2.  BU-65590C/91C
+3.  BU-65590F/M
+4.  BU-65590BF/M
+5.  BU-65590I
+6.  BU-65578F/M
+7.  BU-65577C/78C
+
+-----------------------------------------------------------
+Supported Hardware
+-----------------------------------------------------------
+EMACE Based Cards
+1.  BU-65586N/H
+2.  BU-65596FM
+3.  BU-65580M1 EBR
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65591U
+
+AceXtreme Based Cards
+1.  BU-67101Q      ExpressCard
+2.  BU-67102U      Rugged USB
+3.  BU-67103U      Lab USB
+4.  BU-67104C      PCI/104+
+5.  BU-67105C      PC/104+
+6.  BU-67106K      PCI Express
+7.  BU-67107F/M    PMC
+8.  BU-67108C      PCI/104+
+9.  BU-67109C      PC/104+
+10. BU-67110F/M    HD PMC
+11. BU-67112X      XMC
+12. BU-67113U      USB
+13. BU-67114H      miniPCIe
+14  BU-67202U      USB (AceXtreme Multi-Function)
+15. BU-67206K      PCI Express (AceXtreme Multi-Function)
+16. BU-67210F/M    HD PMC (AceXtreme Multi-Function)
+17. BU-67211U      USB with CAN, ARINC 717 and Serial (AceXtreme Multi-Function)
+18. BU-67301B      ASIC
+19. BU-67116W      ABD
+20. BU-67118M      PMC
+21. BU-67118Z      XMC
+
+-----------------------------------------------------------
+Minimum Firmware Requirements
+-----------------------------------------------------------
+For firmware based hardware, the minimum firmware revision required for
+this library release are as follows:
+
+1. Express Card
+--------------------------------
+- BU-67101Q    - Version 9.5
+
+2. PC-104+
+--------------------------------
+- BU-67105C    - Version 9.5
+- BU-67109C    - Version 9.7
+
+3. PCI-104
+--------------------------------
+- BU-67104C    - Version 9.5
+- BU-67108C    - Version 9.7
+
+4. PCI-Express
+--------------------------------
+- BU-67106K    - Version 8.1  (Rev A)
+- BU-67106K    - Version 9.10 (Rev B)
+- BU-67206K    - Version 10.4
+
+5. PMC
+--------------------------------
+- BU-67107F/M  - Version 9.7
+- BU-67110F/M  - Version 9.6
+- BU-67118F/M  - Version 3.7
+- BU-67210F/M  - Version 10.3
+- BU-65580M1   - Version 1.2
+
+6. USB
+--------------------------------
+- BU-65590UX   - Version 33
+- BU-65591Ux   - Version 33
+- BU-67102Ux   - Version 9.9
+- BU-67103Ux   - Version 9.9
+- BU-67202Ux   - Version 10.7
+- BU-67211Ux   - Version 10.7
+
+7. XMC
+--------------------------------
+- BU-67118Y/Z  - Version 3.8
+
+8. Ethernet
+--------------------------------
+- BU-67115W    - Version 9.5*/17**/1.1.2***
+- BU-67116W    - Version 9.5*/17**/1.1.2***
+- BU-67119W    - Version 9.5*/17**/1.1.2***
+
+Notes
+* ABD FW SFP version
+** ABD FW Ethernet version
+*** ABD 69094S1 Software version
+
+A firmware upgrade will be required if your device reports a different revision
+than shown above.  To upgrade your firmware on your device please see the
+firmware upgrade instructions that reside in the same directory as the
+flash utility.
+
+
+-----------------------------------------------------------
+Known Issues
+-----------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to The BU-69092Sx SDK and
+USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+1.  The BU-65590/91U will cause a software crash if the minor frame time in BC
+    mode is less than approximately 6ms.
+
+2.  RT may lose messages with RTMTiDemo sample
+
+3.  Ace Test vectors and Protocol test do not operate on E2MA and AceXtreme
+    devices.
+
+4.  aceBCStart frame repeat count may execute more than expected.
+
+5.  EMACE Protocol Test Transmits on the Bus.
+
+6.  BU-65590FM does not have software support for External Trigger inputs on
+    DIO's.
+
+7.  The BU-67101Q will not work in laptops with Vista unless Microsoft Service
+    Pack 1 or Hot Fix 929550 is installed
+
+8.  RTMT demo for the BU-65550M2-602 is not supported.
+
+9.  Under 64-Bit Windows Vista and Windows 7, the DDC Card Manager must be
+    run as administrator.  This can be done by right clicking on the DDC
+    Card Manager and selecting "Run as Administrator".
+
+10. Error Injection will fail under the following conditions: RT-2-RT
+    transmission, where the card is configured to be both RT's, and
+    "wrong-bus" MRT error injection is applied.
+
+11. When using Windows Vista or 7 a manual driver update is required.
+    The manual driver update can be done via the DDC Card Manager.  The
+    manual update is necessary because the device drivers are digital
+    signed.
+
+12. When using the DDC Card Manager to update a device driver, the Card
+    Manager may show a Not Responding Windows Error message.  The driver
+    installation will complete with the Not Responding error.
+
+13. When using the DDC Card Manager to update a device driver, the
+    notification of a successful update will be displayed behind the card
+    manager.  The user will have to use the ALT+TAB keys to switch to the
+    hidden screen to complete the driver update.
+
+
+-----------------------------------------------------------
+Fixed Defects
+-----------------------------------------------------------
+1. TT-1880 - Driver signing updates
+2. TT-1901 - Support new driver signing procedure for Windows 10
+3. TT-1902 - Support of the Secure Boot in Windows 10
+
+================================================================================
+3.6.14.1 (6/16/2017)
+
+New Features
+--------------------------------------------------------------------------------
+1. Bug fixes
+
+  **Special Note**
+--------------------------------------------------------------------------------
+Support for the following cards has been discontinued.
+Version 3.5.3 will be the last version to support these cards.
+
+EMACE Based Cards
+1.  BU-65550M/53M
+2.  BU-65569I
+3.  BU-65569T/B
+4.  BU-65565F/M
+5.  BU-65566G/M
+6.  BU-65566R
+7.  BU-65550M2-602
+8.  BU-65568
+
+E2MA Based Cards
+1.  BU-65590A
+2.  BU-65590C/91C
+3.  BU-65590F/M
+4.  BU-65590BF/M
+5.  BU-65590I
+6.  BU-65578F/M
+7.  BU-65577C/78C
+
+Supported Hardware
+--------------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65586N/H
+2.  BU-65596FM
+3.  BU-65580M1 EBR
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65591U
+
+AceXtreme Based Cards
+1.  BU-67101Q      ExpressCard
+2.  BU-67102U      Rugged USB
+3.  BU-67103U      Lab USB
+4.  BU-67104C      PCI/104+
+5.  BU-67105C      PC/104+
+6.  BU-67106K      PCI Express
+7.  BU-67107F/M    PMC
+8.  BU-67108C      PCI/104+
+9.  BU-67109C      PC/104+
+10. BU-67110F/M    HD PMC
+11. BU-67112X      XMC
+12. BU-67113U      USB
+13. BU-67114H      miniPCIe
+14  BU-67202U      USB (AceXtreme Multi-Function)
+15. BU-67206K      PCI Express (AceXtreme Multi-Function)
+16. BU-67210F/M    HD PMC (AceXtreme Multi-Function)
+17. BU-67211U      USB with CAN, ARINC 717 and Serial (AceXtreme Multi-Function)
+18. BU-67301B      ASIC
+19. BU-67116W      ABD
+20. BU-67118M      PMC
+21. BU-67118Z      XMC
+
+Minimum Firmware Requirements
+--------------------------------------------------------------------------------
+For firmware based hardware, the minimum firmware revision required for
+this library release are as follows:
+
+1. Express Card
+--------------------------------
+- BU-67101Q    - Version 9.5
+
+2. PC-104+
+--------------------------------
+- BU-67105C    - Version 9.5
+- BU-67109C    - Version 9.7
+
+3. PCI-104
+--------------------------------
+- BU-67104C    - Version 9.5
+- BU-67108C    - Version 9.7
+
+4. PCI-Express
+--------------------------------
+- BU-67106K    - Version 8.1  (Rev A)
+- BU-67106K    - Version 9.10 (Rev B)
+- BU-67206K    - Version 10.4
+
+5. PMC
+--------------------------------
+- BU-67107F/M  - Version 9.7
+- BU-67110F/M  - Version 9.6
+- BU-67118F/M  - Version 3.7
+- BU-67210F/M  - Version 10.3
+- BU-65580M1   - Version 1.2
+
+6. USB
+--------------------------------
+- BU-65590UX   - Version 33
+- BU-65591Ux   - Version 33
+- BU-67102Ux   - Version 9.9
+- BU-67103Ux   - Version 9.9
+- BU-67202Ux   - Version 10.7
+- BU-67211Ux   - Version 10.7
+
+7. XMC
+--------------------------------
+- BU-67118Y/Z  - Version 3.8
+
+8. Ethernet
+--------------------------------
+- BU-67115W    - Version 9.5*/17**/1.1.2***
+- BU-67116W    - Version 9.5*/17**/1.1.2***
+- BU-67119W    - Version 9.5*/17**/1.1.2***
+
+Notes
+* ABD FW SFP version
+** ABD FW Ethernet version
+*** ABD 69094S1 Software version
+
+A firmware upgrade will be required if your device reports a different revision
+than shown above.  To upgrade your firmware on your device please see the
+firmware upgrade instructions that reside in the same directory as the
+flash utility.
+
+
+Known Issues
+--------------------------------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to The BU-69092Sx SDK and
+USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+1.  The BU-65590/91U will cause a software crash if the minor frame time in BC
+    mode is less than approximately 6ms.
+
+2.  RT may lose messages with RTMTiDemo sample
+
+3.  Ace Test vectors and Protocol test do not operate on E2MA and AceXtreme
+    devices.
+
+4.  aceBCStart frame repeat count may execute more than expected.
+
+5.  EMACE Protocol Test Transmits on the Bus.
+
+6.  BU-65590FM does not have software support for External Trigger inputs on
+    DIO's.
+
+7.  The BU-67101Q will not work in laptops with Vista unless Microsoft Service
+    Pack 1 or Hot Fix 929550 is installed
+
+8.  RTMT demo for the BU-65550M2-602 is not supported.
+
+9.  Under 64-Bit Windows Vista and Windows 7, the DDC Card Manager must be
+    run as administrator.  This can be done by right clicking on the DDC
+    Card Manager and selecting "Run as Administrator".
+
+10. Error Injection will fail under the following conditions: RT-2-RT
+    transmission, where the card is configured to be both RT's, and
+    "wrong-bus" MRT error injection is applied.
+
+11. When using Windows Vista or 7 a manual driver update is required.
+    The manual driver update can be done via the DDC Card Manager.  The
+    manual update is necessary because the device drivers are digital
+    signed.
+
+12. When using the DDC Card Manager to update a device driver, the Card
+    Manager may show a Not Responding Windows Error message.  The driver
+    installation will complete with the Not Responding error.
+
+13. When using the DDC Card Manager to update a device driver, the
+    notification of a successful update will be displayed behind the card
+    manager.  The user will have to use the ALT+TAB keys to switch to the
+    hidden screen to complete the driver update.
+
+
+Fixed Defects
+--------------------------------------------------------------------------------
+1. TT-1903 - RT host buffer returns incorrect messages.
+
+================================================================================
+3.6.13 (3/3/2017)
+
+New Features
+--------------------------------------------------------------------------------
+1. Bug fixes
+
+  **Special Note**
+--------------------------------------------------------------------------------
+Support for the following cards has been discontinued.
+Version 3.5.3 will be the last version to support these cards.
+
+EMACE Based Cards
+1.  BU-65550M/53M
+2.  BU-65569I
+3.  BU-65569T/B
+4.  BU-65565F/M
+5.  BU-65566G/M
+6.  BU-65566R
+7.  BU-65550M2-602
+8.  BU-65568
+
+E2MA Based Cards
+1.  BU-65590A
+2.  BU-65590C/91C
+3.  BU-65590F/M
+4.  BU-65590BF/M
+5.  BU-65590I
+6.  BU-65578F/M
+7.  BU-65577C/78C
+
+Supported Hardware
+--------------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65586N/H
+2.  BU-65596FM
+3.  BU-65580M1 EBR
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65591U
+
+AceXtreme Based Cards
+1.  BU-67101Q      ExpressCard
+2.  BU-67102U      Rugged USB
+3.  BU-67103U      Lab USB
+4.  BU-67104C      PCI/104+
+5.  BU-67105C      PC/104+
+6.  BU-67106K      PCI Express
+7.  BU-67107F/M    PMC
+8.  BU-67108C      PCI/104+
+9.  BU-67109C      PC/104+
+10. BU-67110F/M    HD PMC
+11. BU-67112X      XMC
+12. BU-67113U      USB
+13. BU-67114H      miniPCIe
+14  BU-67202U      USB (AceXtreme Multi-Function)
+15. BU-67206K      PCI Express (AceXtreme Multi-Function)
+16. BU-67210F/M    HD PMC (AceXtreme Multi-Function)
+17. BU-67211U      USB with CAN, ARINC 717 and Serial (AceXtreme Multi-Function)
+18. BU-67301B      ASIC
+19. BU-67116W      ABD
+20. BU-67118M      PMC
+21. BU-67118Z      XMC
+
+Minimum Firmware Requirements
+--------------------------------------------------------------------------------
+For firmware based hardware, the minimum firmware revision required for
+this library release are as follows:
+
+1. Express Card
+--------------------------------
+- BU-67101Q    - Version 9.5
+
+2. PC-104+
+--------------------------------
+- BU-67105C    - Version 9.5
+- BU-67109C    - Version 9.7
+
+3. PCI-104
+--------------------------------
+- BU-67104C    - Version 9.5
+- BU-67108C    - Version 9.7
+
+4. PCI-Express
+--------------------------------
+- BU-67106K    - Version 8.1  (Rev A)
+- BU-67106K    - Version 9.10 (Rev B)
+- BU-67206K    - Version 10.4
+
+5. PMC
+--------------------------------
+- BU-67107F/M  - Version 9.7
+- BU-67110F/M  - Version 9.6
+- BU-67118F/M  - Version 3.7
+- BU-67210F/M  - Version 10.3
+- BU-65580M1   - Version 1.2
+
+6. USB
+--------------------------------
+- BU-65590UX   - Version 33
+- BU-65591Ux   - Version 33
+- BU-67102Ux   - Version 9.9
+- BU-67103Ux   - Version 9.9
+- BU-67202Ux   - Version 10.7
+- BU-67211Ux   - Version 10.7
+
+7. XMC
+--------------------------------
+- BU-67118Y/Z  - Version 3.8
+
+8. Ethernet
+--------------------------------
+- BU-67115W    - Version 9.5*/17**/1.1.2***
+- BU-67116W    - Version 9.5*/17**/1.1.2***
+- BU-67119W    - Version 9.5*/17**/1.1.2***
+
+Notes
+* ABD FW SFP version
+** ABD FW Ethernet version
+*** ABD 69094S1 Software version
+
+A firmware upgrade will be required if your device reports a different revision
+than shown above.  To upgrade your firmware on your device please see the
+firmware upgrade instructions that reside in the same directory as the
+flash utility.
+
+
+Known Issues
+--------------------------------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to The BU-69092Sx SDK and
+USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+1.  The BU-65590/91U will cause a software crash if the minor frame time in BC
+    mode is less than approximately 6ms.
+
+2.  RT may lose messages with RTMTiDemo sample
+
+3.  Ace Test vectors and Protocol test do not operate on E2MA and AceXtreme
+    devices.
+
+4.  aceBCStart frame repeat count may execute more than expected.
+
+5.  EMACE Protocol Test Transmits on the Bus.
+
+6.  BU-65590FM does not have software support for External Trigger inputs on
+    DIO's.
+
+7.  The BU-67101Q will not work in laptops with Vista unless Microsoft Service
+    Pack 1 or Hot Fix 929550 is installed
+
+8.  RTMT demo for the BU-65550M2-602 is not supported.
+
+9.  Under 64-Bit Windows Vista and Windows 7, the DDC Card Manager must be
+    run as administrator.  This can be done by right clicking on the DDC
+    Card Manager and selecting "Run as Administrator".
+
+10. Error Injection will fail under the following conditions: RT-2-RT
+    transmission, where the card is configured to be both RT's, and
+    "wrong-bus" MRT error injection is applied.
+
+11. When using Windows Vista or 7 a manual driver update is required.
+    The manual driver update can be done via the DDC Card Manager.  The
+    manual update is necessary because the device drivers are digital
+    signed.
+
+12. When using the DDC Card Manager to update a device driver, the Card
+    Manager may show a Not Responding Windows Error message.  The driver
+    installation will complete with the Not Responding error.
+
+13. When using the DDC Card Manager to update a device driver, the
+    notification of a successful update will be displayed behind the card
+    manager.  The user will have to use the ALT+TAB keys to switch to the
+    hidden screen to complete the driver update.
+
+
+Fixed Defects
+--------------------------------------------------------------------------------
+1. TT-1638 - MT mode with Ace to Emace translation layer doesn't read messages
+             from stack when advBuMTReadStk() is used.
+2. TT-1888 - Unplugging the USB device while computer is in sleep causes BSOD
+
+================================================================================
+
+3.6.12 (1/24/2017)
+
+New Features
+--------------------------------------------------------------------------------
+1. Re-spin of package to address versioning issues.
+
+  **Special Note**
+--------------------------------------------------------------------------------
+Support for the following cards has been discontinued.
+Version 3.5.3 will be the last version to support these cards.
+
+EMACE Based Cards
+1.  BU-65550M/53M
+2.  BU-65569I
+3.  BU-65569T/B
+4.  BU-65565F/M
+5.  BU-65566G/M
+6.  BU-65566R
+7.  BU-65550M2-602
+8.  BU-65568
+
+E2MA Based Cards
+1.  BU-65590A
+2.  BU-65590C/91C
+3.  BU-65590F/M
+4.  BU-65590BF/M
+5.  BU-65590I
+6.  BU-65578F/M
+7.  BU-65577C/78C
+
+Supported Hardware
+--------------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65586N/H
+2.  BU-65596FM
+3.  BU-65580M1 EBR
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65591U
+
+AceXtreme Based Cards
+1.  BU-67101Q      ExpressCard
+2.  BU-67102U      Rugged USB
+3.  BU-67103U      Lab USB
+4.  BU-67104C      PCI/104+
+5.  BU-67105C      PC/104+
+6.  BU-67106K      PCI Express
+7.  BU-67107F/M    PMC
+8.  BU-67108C      PCI/104+
+9.  BU-67109C      PC/104+
+10. BU-67110F/M    HD PMC
+11. BU-67112X      XMC
+12. BU-67113U      USB
+13. BU-67114H      miniPCIe
+14  BU-67202U      USB (AceXtreme Multi-Function)
+15. BU-67206K      PCI Express (AceXtreme Multi-Function)
+16. BU-67210F/M    HD PMC (AceXtreme Multi-Function)
+17. BU-67211U      USB with CAN, ARINC 717 and Serial (AceXtreme Multi-Function)
+18. BU-67301B      ASIC
+19. BU-67116W      ABD
+20. BU-67118M      PMC
+21. BU-67118Z      XMC
+
+Minimum Firmware Requirements
+--------------------------------------------------------------------------------
+For firmware based hardware, the minimum firmware revision required for
+this library release are as follows:
+
+1. Express Card
+--------------------------------
+- BU-67101Q    - Version 9.5
+
+2. PC-104+
+--------------------------------
+- BU-67105C    - Version 9.5
+- BU-67109C    - Version 9.7
+
+3. PCI-104
+--------------------------------
+- BU-67104C    - Version 9.5
+- BU-67108C    - Version 9.7
+
+4. PCI-Express
+--------------------------------
+- BU-67106K    - Version 8.1  (Rev A)
+- BU-67106K    - Version 9.10 (Rev B)
+- BU-67206K    - Version 10.4
+
+5. PMC
+--------------------------------
+- BU-67107F/M  - Version 9.7
+- BU-67110F/M  - Version 9.6
+- BU-67118F/M  - Version 3.7
+- BU-67210F/M  - Version 10.3
+- BU-65580M1   - Version 1.2
+
+6. USB
+--------------------------------
+- BU-65590UX   - Version 33
+- BU-65591Ux   - Version 33
+- BU-67102Ux   - Version 9.9
+- BU-67103Ux   - Version 9.9
+- BU-67202Ux   - Version 10.7
+- BU-67211Ux   - Version 10.7
+
+7. XMC
+--------------------------------
+- BU-67118Y/Z  - Version 3.8
+
+8. Ethernet
+--------------------------------
+- BU-67115W    - Version 9.5*/17**/1.1.2***
+- BU-67116W    - Version 9.5*/17**/1.1.2***
+- BU-67119W    - Version 9.5*/17**/1.1.2***
+
+Notes
+* ABD FW SFP version
+** ABD FW Ethernet version
+*** ABD 69094S1 Software version
+
+A firmware upgrade will be required if your device reports a different revision
+than shown above.  To upgrade your firmware on your device please see the
+firmware upgrade instructions that reside in the same directory as the
+flash utility.
+
+
+Known Issues
+--------------------------------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to The BU-69092Sx SDK and
+USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+1.  The BU-65590/91U will cause a software crash if the minor frame time in BC
+    mode is less than approximately 6ms.
+
+2.  RT may lose messages with RTMTiDemo sample
+
+3.  Ace Test vectors and Protocol test do not operate on E2MA and AceXtreme
+    devices.
+
+4.  aceBCStart frame repeat count may execute more than expected.
+
+5.  EMACE Protocol Test Transmits on the Bus.
+
+6.  BU-65590FM does not have software support for External Trigger inputs on
+    DIO's.
+
+7.  The BU-67101Q will not work in laptops with Vista unless Microsoft Service
+    Pack 1 or Hot Fix 929550 is installed
+
+8.  RTMT demo for the BU-65550M2-602 is not supported.
+
+9.  Under 64-Bit Windows Vista and Windows 7, the DDC Card Manager must be
+    run as administrator.  This can be done by right clicking on the DDC
+    Card Manager and selecting "Run as Administrator".
+
+10. Error Injection will fail under the following conditions: RT-2-RT
+    transmission, where the card is configured to be both RT's, and
+    "wrong-bus" MRT error injection is applied.
+
+11. When using Windows Vista or 7 a manual driver update is required.
+    The manual driver update can be done via the DDC Card Manager.  The
+    manual update is necessary because the device drivers are digital
+    signed.
+
+12. When using the DDC Card Manager to update a device driver, the Card
+    Manager may show a Not Responding Windows Error message.  The driver
+    installation will complete with the Not Responding error.
+
+13. When using the DDC Card Manager to update a device driver, the
+    notification of a successful update will be displayed behind the card
+    manager.  The user will have to use the ALT+TAB keys to switch to the
+    hidden screen to complete the driver update.
+
+
+Fixed Defects
+--------------------------------------------------------------------------------
+1.  None
+
+================================================================================
+
+3.6.11 (12/16/2016)
+
+New Features
+--------------------------------------------------------------------------------
+1. Bug fixes
+
+  **Special Note**
+--------------------------------------------------------------------------------
+Support for the following cards has been discontinued.
+Version 3.5.3 will be the last version to support these cards.
+
+EMACE Based Cards
+1.  BU-65550M/53M
+2.  BU-65569I
+3.  BU-65569T/B
+4.  BU-65565F/M
+5.  BU-65566G/M
+6.  BU-65566R
+7.  BU-65550M2-602
+8.  BU-65568
+
+E2MA Based Cards
+1.  BU-65590A
+2.  BU-65590C/91C
+3.  BU-65590F/M
+4.  BU-65590BF/M
+5.  BU-65590I
+6.  BU-65578F/M
+7.  BU-65577C/78C
+
+Supported Hardware
+--------------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65586N/H
+2.  BU-65596FM
+3.  BU-65580M1 EBR
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65591U
+
+AceXtreme Based Cards
+1.  BU-67101Q      ExpressCard
+2.  BU-67102U      Rugged USB
+3.  BU-67103U      Lab USB
+4.  BU-67104C      PCI/104+
+5.  BU-67105C      PC/104+
+6.  BU-67106K      PCI Express
+7.  BU-67107F/M    PMC
+8.  BU-67108C      PCI/104+
+9.  BU-67109C      PC/104+
+10. BU-67110F/M    HD PMC
+11. BU-67112X      XMC
+12. BU-67113U      USB
+13. BU-67114H      miniPCIe
+14  BU-67202U      USB (AceXtreme Multi-Function)
+15. BU-67206K      PCI Express (AceXtreme Multi-Function)
+16. BU-67210F/M    HD PMC (AceXtreme Multi-Function)
+17. BU-67211U      USB with CAN, ARINC 717 and Serial (AceXtreme Multi-Function)
+18. BU-67301B      ASIC
+19. BU-67116W      ABD
+20. BU-67118M      PMC
+21. BU-67118Z      XMC
+
+Minimum Firmware Requirements
+--------------------------------------------------------------------------------
+For firmware based hardware, the minimum firmware revision required for
+this library release are as follows:
+
+1. Express Card
+--------------------------------
+- BU-67101Q    - Version 9.5
+
+2. PC-104+
+--------------------------------
+- BU-67105C    - Version 9.5
+- BU-67109C    - Version 9.7
+
+3. PCI-104
+--------------------------------
+- BU-67104C    - Version 9.5
+- BU-67108C    - Version 9.7
+
+4. PCI-Express
+--------------------------------
+- BU-67106K    - Version 8.1  (Rev A)
+- BU-67106K    - Version 9.10 (Rev B)
+- BU-67206K    - Version 10.4
+
+5. PMC
+--------------------------------
+- BU-67107F/M  - Version 9.7
+- BU-67110F/M  - Version 9.6
+- BU-67118F/M  - Version 3.7
+- BU-67210F/M  - Version 10.3
+- BU-65580M1   - Version 1.2
+
+6. USB
+--------------------------------
+- BU-65590UX   - Version 33
+- BU-65591Ux   - Version 33
+- BU-67102Ux   - Version 9.9
+- BU-67103Ux   - Version 9.9
+- BU-67202Ux   - Version 10.7
+- BU-67211Ux   - Version 10.7
+
+7. XMC
+--------------------------------
+- BU-67118Y/Z  - Version 3.8
+
+8. Ethernet
+--------------------------------
+- BU-67115W    - Version 9.5*/17**/1.1.2***
+- BU-67116W    - Version 9.5*/17**/1.1.2***
+- BU-67119W    - Version 9.5*/17**/1.1.2***
+
+Notes
+* ABD FW SFP version
+** ABD FW Ethernet version
+*** ABD 69094S1 Software version
+
+A firmware upgrade will be required if your device reports a different revision
+than shown above.  To upgrade your firmware on your device please see the
+firmware upgrade instructions that reside in the same directory as the
+flash utility.
+
+
+Known Issues
+--------------------------------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to The BU-69092Sx SDK and
+USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+1.  The BU-65590/91U will cause a software crash if the minor frame time in BC
+    mode is less than approximately 6ms.
+
+2.  RT may lose messages with RTMTiDemo sample
+
+3.  Ace Test vectors and Protocol test do not operate on E2MA and AceXtreme
+    devices.
+
+4.  aceBCStart frame repeat count may execute more than expected.
+
+5.  EMACE Protocol Test Transmits on the Bus.
+
+6.  BU-65590FM does not have software support for External Trigger inputs on
+    DIO's.
+
+7.  The BU-67101Q will not work in laptops with Vista unless Microsoft Service
+    Pack 1 or Hot Fix 929550 is installed
+
+8.  RTMT demo for the BU-65550M2-602 is not supported.
+
+9.  Under 64-Bit Windows Vista and Windows 7, the DDC Card Manager must be
+    run as administrator.  This can be done by right clicking on the DDC
+    Card Manager and selecting "Run as Administrator".
+
+10. Error Injection will fail under the following conditions: RT-2-RT
+    transmission, where the card is configured to be both RT's, and
+    "wrong-bus" MRT error injection is applied.
+
+11. When using Windows Vista or 7 a manual driver update is required.
+    The manual driver update can be done via the DDC Card Manager.  The
+    manual update is necessary because the device drivers are digital
+    signed.
+
+12. When using the DDC Card Manager to update a device driver, the Card
+    Manager may show a Not Responding Windows Error message.  The driver
+    installation will complete with the Not Responding error.
+
+13. When using the DDC Card Manager to update a device driver, the
+    notification of a successful update will be displayed behind the card
+    manager.  The user will have to use the ALT+TAB keys to switch to the
+    hidden screen to complete the driver update.
+
+
+Fixed Defects
+--------------------------------------------------------------------------------
+1.  TT-1885 - BSOD with BU-67106BK under Windows 10/7.
+
+================================================================================
+
+3.6.9 (07/19/2016)
+
+New Features
+--------------------------------------------------------------------------------
+1. Bug fixes
+
+  **Special Note**
+--------------------------------------------------------------------------------
+Support for the following cards has been discontinued.
+Version 3.5.3 will be the last version to support these cards.
+
+EMACE Based Cards
+1.  BU-65550M/53M
+2.  BU-65569I
+3.  BU-65569T/B
+4.  BU-65565F/M
+5.  BU-65566G/M
+6.  BU-65566R
+7.  BU-65550M2-602
+8.  BU-65568
+
+E2MA Based Cards
+1.  BU-65590A
+2.  BU-65590C/91C
+3.  BU-65590F/M
+4.  BU-65590BF/M
+5.  BU-65590I
+6.  BU-65578F/M
+7.  BU-65577C/78C
+
+Supported Hardware
+--------------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65586N/H
+2.  BU-65596FM
+3.  BU-65580M1 EBR
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65591U
+
+AceXtreme Based Cards
+1.  BU-67101Q      ExpressCard
+2.  BU-67102U      Rugged USB
+3.  BU-67103U      Lab USB
+4.  BU-67104C      PCI/104+
+5.  BU-67105C      PC/104+
+6.  BU-67106K      PCI Express
+7.  BU-67107F/M    PMC
+8.  BU-67108C      PCI/104+
+9.  BU-67109C      PC/104+
+10. BU-67110F/M    HD PMC
+11. BU-67112X      XMC
+12. BU-67113U      USB
+13. BU-67114H      miniPCIe
+14  BU-67202U      USB (AceXtreme Multi-Function)
+15. BU-67206K      PCI Express (AceXtreme Multi-Function)
+16. BU-67210F/M    HD PMC (AceXtreme Multi-Function)
+17. BU-67211U      USB with CAN, ARINC 717 and Serial (AceXtreme Multi-Function)
+18. BU-67301B      ASIC
+19. BU-67116W      ABD
+20. BU-67118M      PMC
+21. BU-67118Z      XMC
+
+Minimum Firmware Requirements
+--------------------------------------------------------------------------------
+For firmware based hardware, the minimum firmware revision required for
+this library release are as follows:
+
+1. Express Card
+--------------------------------
+- BU-67101Q    - Version 9.5
+
+2. PC-104+
+--------------------------------
+- BU-67105C    - Version 9.5
+- BU-67109C    - Version 9.7
+
+3. PCI-104
+--------------------------------
+- BU-67104C    - Version 9.5
+- BU-67108C    - Version 9.7
+
+4. PCI-Express
+--------------------------------
+- BU-67106K    - Version 8.1  (Rev A)
+- BU-67106K    - Version 9.10 (Rev B)
+- BU-67206K    - Version 10.4
+
+5. PMC
+--------------------------------
+- BU-67107F/M  - Version 9.7
+- BU-67110F/M  - Version 9.6
+- BU-67118F/M  - Version 3.7
+- BU-67210F/M  - Version 10.3
+- BU-65580M1   - Version 1.2
+
+6. USB
+--------------------------------
+- BU-65590UX   - Version 33
+- BU-65591Ux   - Version 33
+- BU-67102Ux   - Version 9.9
+- BU-67103Ux   - Version 9.9
+- BU-67202Ux   - Version 10.7
+- BU-67211Ux   - Version 10.7
+
+7. XMC
+--------------------------------
+- BU-67118Y/Z  - Version 3.8
+
+8. Ethernet
+--------------------------------
+- BU-67115W    - Version 9.5*/17**/1.1.2***
+- BU-67116W    - Version 9.5*/17**/1.1.2***
+- BU-67119W    - Version 9.5*/17**/1.1.2***
+
+Notes
+* ABD FW SFP version
+** ABD FW Ethernet version
+*** ABD 69094S1 Software version
+
+A firmware upgrade will be required if your device reports a different revision
+than shown above.  To upgrade your firmware on your device please see the
+firmware upgrade instructions that reside in the same directory as the
+flash utility.
+
+
+Known Issues
+--------------------------------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to The BU-69092Sx SDK and
+USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+1.  The BU-65590/91U will cause a software crash if the minor frame time in BC
+    mode is less than approximately 6ms.
+
+2.  RT may lose messages with RTMTiDemo sample
+
+3.  Ace Test vectors and Protocol test do not operate on E2MA and AceXtreme
+    devices.
+
+4.  aceBCStart frame repeat count may execute more than expected.
+
+5.  EMACE Protocol Test Transmits on the Bus.
+
+6.  BU-65590FM does not have software support for External Trigger inputs on
+    DIO's.
+
+7.  The BU-67101Q will not work in laptops with Vista unless Microsoft Service
+    Pack 1 or Hot Fix 929550 is installed
+
+8.  RTMT demo for the BU-65550M2-602 is not supported.
+
+9.  Under 64-Bit Windows Vista and Windows 7, the DDC Card Manager must be
+    run as administrator.  This can be done by right clicking on the DDC
+    Card Manager and selecting "Run as Administrator".
+
+10. Error Injection will fail under the following conditions: RT-2-RT
+    transmission, where the card is configured to be both RT's, and
+    "wrong-bus" MRT error injection is applied.
+
+11. When using Windows Vista or 7 a manual driver update is required.
+    The manual driver update can be done via the DDC Card Manager.  The
+    manual update is necessary because the device drivers are digital
+    signed.
+
+12. When using the DDC Card Manager to update a device driver, the Card
+    Manager may show a Not Responding Windows Error message.  The driver
+    installation will complete with the Not Responding error.
+
+13. When using the DDC Card Manager to update a device driver, the
+    notification of a successful update will be displayed behind the card
+    manager.  The user will have to use the ALT+TAB keys to switch to the
+    hidden screen to complete the driver update.
+
+
+Fixed Defects
+--------------------------------------------------------------------------------
+1.  TT-1851 - ddccm.exe isn't installed in user specified directory.
+
+================================================================================
+3.6.8 (02/16/2015)
+
+New Features
+--------------------------------------------------------------------------------
+1. Version bump
+
+  **Special Note**
+--------------------------------------------------------------------------------
+Support for the following cards has been discontinued.
+Version 3.5.3 will be the last version to support these cards.
+
+EMACE Based Cards
+1.  BU-65550M/53M
+2.  BU-65569I
+3.  BU-65569T/B
+4.  BU-65565F/M
+5.  BU-65566G/M
+6.  BU-65566R
+7.  BU-65550M2-602
+8.  BU-65568
+
+E2MA Based Cards
+1.  BU-65590A
+2.  BU-65590C/91C
+3.  BU-65590F/M
+4.  BU-65590BF/M
+5.  BU-65590I
+6.  BU-65578F/M
+7.  BU-65577C/78C
+
+Supported Hardware
+--------------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65586N/H
+2.  BU-65596FM
+3.  BU-65580M1 EBR
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65591U
+
+AceXtreme Based Cards
+1.  BU-67101Q      ExpressCard
+2.  BU-67102U      Rugged USB
+3.  BU-67103U      Lab USB
+4.  BU-67104C      PCI/104+
+5.  BU-67105C      PC/104+
+6.  BU-67106K      PCI Express
+7.  BU-67107F/M    PMC
+8.  BU-67108C      PCI/104+
+9.  BU-67109C      PC/104+
+10. BU-67110F/M    HD PMC
+11. BU-67112X      XMC
+12. BU-67113U      USB
+13. BU-67114H      miniPCIe
+14  BU-67202U      USB (AceXtreme Multi-Function)
+15. BU-67206K      PCI Express (AceXtreme Multi-Function)
+16. BU-67210F/M    HD PMC (AceXtreme Multi-Function)
+17. BU-67211U      USB with CAN, ARINC 717 and Serial (AceXtreme Multi-Function)
+18. BU-67301B      ASIC
+19. BU-67116W      ABD
+20. BU-67118M      PMC
+21. BU-67118Z      XMC
+
+Minimum Firmware Requirements
+--------------------------------------------------------------------------------
+For firmware based hardware, the minimum firmware revision required for
+this library release are as follows:
+
+1. Express Card
+--------------------------------
+- BU-67101Q    - Version 9.5
+
+2. PC-104+
+--------------------------------
+- BU-67105C    - Version 9.5
+- BU-67109C    - Version 9.7
+
+3. PCI-104
+--------------------------------
+- BU-67104C    - Version 9.5
+- BU-67108C    - Version 9.7
+
+4. PCI-Express
+--------------------------------
+- BU-67106K    - Version 8.1  (Rev A)
+- BU-67106K    - Version 9.10 (Rev B)
+- BU-67206K    - Version 10.4
+
+5. PMC
+--------------------------------
+- BU-67107F/M  - Version 9.7
+- BU-67110F/M  - Version 9.6
+- BU-67118F/M  - Version 3.7
+- BU-67210F/M  - Version 10.3
+- BU-65580M1   - Version 1.2
+
+6. USB
+--------------------------------
+- BU-65590UX   - Version 33
+- BU-65591Ux   - Version 33
+- BU-67102Ux   - Version 9.9
+- BU-67103Ux   - Version 9.9
+- BU-67202Ux   - Version 10.7
+- BU-67211Ux   - Version 10.7
+
+7. XMC
+--------------------------------
+- BU-67118Y/Z  - Version 3.8
+
+8. Ethernet
+--------------------------------
+- BU-67116W    - Version 17
+
+A firmware upgrade will be required if your device reports a different revision
+than shown above.  To upgrade your firmware on your device please see the
+firmware upgrade instructions that reside in the same directory as the
+flash utility.
+
+
+Known Issues
+--------------------------------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to The BU-69092Sx SDK and
+USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+1.  The BU-65590/91U will cause a software crash if the minor frame time in BC
+    mode is less than approximately 6ms.
+
+2.  RT may lose messages with RTMTiDemo sample
+
+3.  Ace Test vectors and Protocol test do not operate on E2MA and AceXtreme
+    devices.
+
+4.  aceBCStart frame repeat count may execute more than expected.
+
+5.  EMACE Protocol Test Transmits on the Bus.
+
+6.  BU-65590FM does not have software support for External Trigger inputs on
+    DIO's.
+
+7.  The BU-67101Q will not work in laptops with Vista unless Microsoft Service
+    Pack 1 or Hot Fix 929550 is installed
+
+8.  RTMT demo for the BU-65550M2-602 is not supported.
+
+9.  Under 64-Bit Windows Vista and Windows 7, the DDC Card Manager must be
+    run as administrator.  This can be done by right clicking on the DDC
+    Card Manager and selecting "Run as Administrator".
+
+10. Error Injection will fail under the following conditions: RT-2-RT
+    transmission, where the card is configured to be both RT's, and
+    "wrong-bus" MRT error injection is applied.
+
+11. When using Windows Vista or 7 a manual driver update is required.
+    The manual driver update can be done via the DDC Card Manager.  The
+    manual update is necessary because the device drivers are digital
+    signed.
+
+12. When using the DDC Card Manager to update a device driver, the Card
+    Manager may show a Not Responding Windows Error message.  The driver
+    installation will complete with the Not Responding error.
+
+13. When using the DDC Card Manager to update a device driver, the
+    notification of a successful update will be displayed behind the card
+    manager.  The user will have to use the ALT+TAB keys to switch to the
+    hidden screen to complete the driver update.
+
+
+Fixed Defects
+--------------------------------------------------------------------------------
+None.
+
+================================================================================
+3.6.7 (11/26/2014)
+
+New Features
+--------------------------------------------------------------------------------
+1. Bug Fixes
+2. Added support for all models of the BU-67118 device
+   - CAN Bus and Serial IO included
+   - getBoardStatus API (only supports thermal detection)
+
+  **Special Note**
+--------------------------------------------------------------------------------
+Support for the following cards has been discontinued.
+Version 3.5.3 will be the last version to support these cards.
+
+EMACE Based Cards
+1.  BU-65550M/53M
+2.  BU-65569I
+3.  BU-65569T/B
+4.  BU-65565F/M
+5.  BU-65566G/M
+6.  BU-65566R
+7.  BU-65550M2-602
+8.  BU-65568
+
+E2MA Based Cards
+1.  BU-65590A
+2.  BU-65590C/91C
+3.  BU-65590F/M
+4.  BU-65590BF/M
+5.  BU-65590I
+6.  BU-65578F/M
+7.  BU-65577C/78C
+
+Supported Hardware
+--------------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65586N/H
+2.  BU-65596FM
+3.  BU-65580M1 EBR
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65591U
+
+AceXtreme Based Cards
+1.  BU-67101Q      ExpressCard
+2.  BU-67102U      Rugged USB
+3.  BU-67103U      Lab USB
+4.  BU-67104C      PCI/104+
+5.  BU-67105C      PC/104+
+6.  BU-67106K      PCI Express
+7.  BU-67107F/M    PMC
+8.  BU-67108C      PCI/104+
+9.  BU-67109C      PC/104+
+10. BU-67110F/M    HD PMC
+11. BU-67112X      XMC
+12. BU-67113U      USB
+13. BU-67114H      miniPCIe
+14  BU-67202U      USB (AceXtreme Multi-Function)
+15. BU-67206K      PCI Express (AceXtreme Multi-Function)
+16. BU-67210F/M    HD PMC (AceXtreme Multi-Function)
+17. BU-67211U      USB with CAN, ARINC 717 and Serial (AceXtreme Multi-Function)
+18. BU-67301B      ASIC
+19. BU-67116W      ABD
+20. BU-67118M      PMC
+21. BU-67118Z      XMC
+
+Minimum Firmware Requirements
+--------------------------------------------------------------------------------
+For firmware based hardware, the minimum firmware revision required for
+this library release are as follows:
+
+1. Express Card
+--------------------------------
+- BU-67101Q    - Version 9.5
+
+2. PC-104+
+--------------------------------
+- BU-67105C    - Version 9.5
+- BU-67109C    - Version 9.7
+
+3. PCI-104
+--------------------------------
+- BU-67104C    - Version 9.5
+- BU-67108C    - Version 9.7
+
+4. PCI-Express
+--------------------------------
+- BU-67106K    - Version 8.1  (Rev A)
+- BU-67106K    - Version 9.10 (Rev B)
+- BU-67206K    - Version 10.4
+
+5. PMC
+--------------------------------
+- BU-67107F/M  - Version 9.7
+- BU-67110F/M  - Version 9.6
+- BU-67118F/M  - Version 3.7
+- BU-67210F/M  - Version 10.3
+- BU-65580M1   - Version 1.2
+
+6. USB
+--------------------------------
+- BU-65590UX   - Version 33
+- BU-65591Ux   - Version 33
+- BU-67102Ux   - Version 9.9
+- BU-67103Ux   - Version 9.9
+- BU-67202Ux   - Version 10.7
+- BU-67211Ux   - Version 10.7
+
+7. XMC
+--------------------------------
+- BU-67118Y/Z  - Version 3.8
+
+8. Ethernet
+--------------------------------
+- BU-67116W    - Version 17
+
+A firmware upgrade will be required if your device reports a different revision
+than shown above.  To upgrade your firmware on your device please see the
+firmware upgrade instructions that reside in the same directory as the
+flash utility.
+
+
+Known Issues
+--------------------------------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to The BU-69092Sx SDK and
+USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+1.  The BU-65590/91U will cause a software crash if the minor frame time in BC
+    mode is less than approximately 6ms.
+
+2.  RT may lose messages with RTMTiDemo sample
+
+3.  Ace Test vectors and Protocol test do not operate on E2MA and AceXtreme
+    devices.
+
+4.  aceBCStart frame repeat count may execute more than expected.
+
+5.  EMACE Protocol Test Transmits on the Bus.
+
+6.  BU-65590FM does not have software support for External Trigger inputs on
+    DIO's.
+
+7.  The BU-67101Q will not work in laptops with Vista unless Microsoft Service
+    Pack 1 or Hot Fix 929550 is installed
+
+8.  RTMT demo for the BU-65550M2-602 is not supported.
+
+9.  Under 64-Bit Windows Vista and Windows 7, the DDC Card Manager must be
+    run as administrator.  This can be done by right clicking on the DDC
+    Card Manager and selecting "Run as Administrator".
+
+10. Error Injection will fail under the following conditions: RT-2-RT
+    transmission, where the card is configured to be both RT's, and
+    "wrong-bus" MRT error injection is applied.
+
+11. When using Windows Vista or 7 a manual driver update is required.
+    The manual driver update can be done via the DDC Card Manager.  The
+    manual update is necessary because the device drivers are digital
+    signed.
+
+12. When using the DDC Card Manager to update a device driver, the Card
+    Manager may show a Not Responding Windows Error message.  The driver
+    installation will complete with the Not Responding error.
+
+13. When using the DDC Card Manager to update a device driver, the
+    notification of a successful update will be displayed behind the card
+    manager.  The user will have to use the ALT+TAB keys to switch to the
+    hidden screen to complete the driver update.
+
+
+Fixed Defects
+--------------------------------------------------------------------------------
+1.  TT-1641 - BC messages retrieved from the host buffer are corrupted.
+
+2.  TT-1679 - BC double buffering with Broadcast command on channels 3 and 4
+              of BU-67106BK.
+
+3.  TT-1692 - aceRTGetStkMsgDecoded() does not return all messages in stack.
+
+4.  TT-1693 - Reading RT Circular Buffer with odd BufferSize causes data to
+              be returned with 0000s.
+
+================================================================================
+3.6.5 (04/03/2014)
+
+New Features
+--------------------------------------------------------------------------------
+1. Bug Fixes
+
+  **Special Note**
+--------------------------------------------------------------------------------
+Support for the following cards has been discontinued.
+Version 3.5.3 will be the last version to support these cards.
+
+EMACE Based Cards
+1.  BU-65550M/53M
+2.  BU-65569I
+3.  BU-65569T/B
+4.  BU-65565F/M
+5.  BU-65566G/M
+6.  BU-65566R
+7.  BU-65550M2-602
+8.  BU-65568
+
+E2MA Based Cards
+1.  BU-65590A
+2.  BU-65590C/91C
+3.  BU-65590F/M
+4.  BU-65590BF/M
+5.  BU-65590I
+6.  BU-65578F/M
+7.  BU-65577C/78C
+
+Supported Hardware
+--------------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65586N/H
+2.  BU-65596FM
+3.  BU-65580M1 EBR
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65591U
+
+AceXtreme Based Cards
+1.  BU-67101Q      ExpressCard
+2.  BU-67102U      Rugged USB
+3.  BU-67103U      Lab USB
+4.  BU-67104C      PCI/104+
+5.  BU-67105C      PC/104+
+6.  BU-67106K      PCI Express
+7.  BU-67107F/M    PMC
+8.  BU-67108C      PCI/104+
+9.  BU-67109C      PC/104+
+10. BU-67110F/M    HD PMC
+11. BU-67112X      XMC
+12. BU-67113U      USB
+13. BU-67114H      miniPCIe
+14  BU-67202U      USB (AceXtreme Multi-Function)
+15. BU-67206K      PCI Express (AceXtreme Multi-Function)
+16. BU-67210F/M    HD PMC (AceXtreme Multi-Function)
+17. BU-67211U      USB with CAN, ARINC 717 and Serial (AceXtreme Multi-Function)
+18. BU-67301B      ASIC
+19. BU-67116W      ABD
+
+Minimum Firmware Requirements
+--------------------------------------------------------------------------------
+For firmware based hardware, the minimum firmware revision required for
+this library release are as follows:
+
+1. Express Card
+--------------------------------
+- BU-67101Q    - Version 9.5
+
+2. PC-104+
+--------------------------------
+- BU-67105C    - Version 9.5
+- BU-67109C    - Version 9.5
+
+3. PCI-104
+--------------------------------
+- BU-67104C    - Version 9.5
+- BU-67108C    - Version 9.5
+
+4. PCI-Express
+--------------------------------
+- BU-67106K    - Version 8.1  (Rev A)
+- BU-67106K    - Version 9.10 (Rev B)
+- BU-67206K    - Version 9.10
+
+5. PMC
+--------------------------------
+- BU-67107F/M  - Version 9.6
+- BU-67110F/M  - Version 9.6
+- BU-67210F/M  - Version 10.3
+- BU-65580M1   - Version 1.2
+
+6. USB
+--------------------------------
+- BU-65590UX   - Version 33
+- BU-65591Ux   - Version 33
+- BU-67102Ux   - Version 9.5
+- BU-67103Ux   - Version 9.5
+- BU-67202Ux   - Version 10.3
+- BU-67211Ux   - Version 9.6
+
+7. Ethernet
+--------------------------------
+- BU-67116W    - Version 17
+
+A firmware upgrade will be required if your device reports a different revision
+than shown above.  To upgrade your firmware on your device please see the
+firmware upgrade instructions that reside in the same directory as the
+flash utility.
+
+
+Known Issues
+--------------------------------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to The BU-69092Sx SDK and
+USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+1.  The BU-65590/91U will cause a software crash if the minor frame time in BC
+    mode is less than approximately 6ms.
+
+2.  RT may lose messages with RTMTiDemo sample
+
+3.  Ace Test vectors and Protocol test do not operate on E2MA and AceXtreme
+    devices.
+
+4.  aceBCStart frame repeat count may execute more than expected.
+
+5.  EMACE Protocol Test Transmits on the Bus.
+
+6.  BU-65590FM does not have software support for External Trigger inputs on
+    DIO's.
+
+7.  The BU-67101Q will not work in laptops with Vista unless Microsoft Service
+    Pack 1 or Hot Fix 929550 is installed
+
+8.  RTMT demo for the BU-65550M2-602 is not supported.
+
+9.  Under 64-Bit Windows Vista and Windows 7, the DDC Card Manager must be
+    run as administrator.  This can be done by right clicking on the DDC
+    Card Manager and selecting "Run as Administrator".
+
+10. Error Injection will fail under the following conditions: RT-2-RT
+    transmission, where the card is configured to be both RT's, and
+    "wrong-bus" MRT error injection is applied.
+
+11. When using Windows Vista or 7 a manual driver update is required.
+    The manual driver update can be done via the DDC Card Manager.  The
+    manual update is necessary because the device drivers are digital
+    signed.
+
+12. When using the DDC Card Manager to update a device driver, the Card
+    Manager may show a Not Responding Windows Error message.  The driver
+    installation will complete with the Not Responding error.
+
+13. When using the DDC Card Manager to update a device driver, the
+    notification of a successful update will be displayed behind the card
+    manager.  The user will have to use the ALT+TAB keys to switch to the
+    hidden screen to complete the driver update.
+
+
+Fixed Defects
+--------------------------------------------------------------------------------
+1.  TT-1568 - "Ghost" messages appear on bus for BU-67206BK4.
+
+2.  TT-1601 - BuBCReadMsgNum() returns -1 with Ace to Emace translation layer.
+
+3.  TT-1628 - BuBCReadStk() does not return all messages in frame.
+
+================================================================================
+3.6.4 (11/14/2013)
+
+New Features
+--------------------------------------------------------------------------------
+1. All software installations are prefixed with "DDC", followed by the name of
+   the product, the part number, and the version number. This is visible in the
+   "Add/Remove Programs" or "Programs and Features" dialog windows on Windows
+   operating systems.
+
+2. Bug Fixes
+
+  **Special Note**
+--------------------------------------------------------------------------------
+Support for the following cards has been discontinued.
+Version 3.5.3 will be the last version to support these cards.
+
+EMACE Based Cards
+1.  BU-65550M/53M
+2.  BU-65569I
+3.  BU-65569T/B
+4.  BU-65565F/M
+5.  BU-65566G/M
+6.  BU-65566R
+7.  BU-65550M2-602
+8.  BU-65568
+
+E2MA Based Cards
+1.  BU-65590A
+2.  BU-65590C/91C
+3.  BU-65590F/M
+4.  BU-65590BF/M
+5.  BU-65590I
+6.  BU-65578F/M
+7.  BU-65577C/78C
+
+Supported Hardware
+--------------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65586N/H
+2.  BU-65596FM
+3.  BU-65580M1 EBR
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65591U
+
+AceXtreme Based Cards
+1.  BU-67101Q      ExpressCard
+2.  BU-67102U      Rugged USB
+3.  BU-67103U      Lab USB
+4.  BU-67104C      PCI/104+
+5.  BU-67105C      PC/104+
+6.  BU-67106K      PCI Express
+7.  BU-67107F/M    PMC
+8.  BU-67108C      PCI/104+
+9.  BU-67109C      PC/104+
+10. BU-67110F/M    HD PMC
+11. BU-67112X      XMC
+12. BU-67113U      USB
+13. BU-67114H      miniPCIe
+14  BU-67202U      USB (AceXtreme Multi-Function)
+15. BU-67206K      PCI Express (AceXtreme Multi-Function)
+16. BU-67210F/M    HD PMC (AceXtreme Multi-Function)
+17. BU-67211U      USB with CAN, ARINC 717 and Serial (AceXtreme Multi-Function)
+18. BU-67301B      ASIC
+19. BU-67116W      ABD
+
+Minimum Firmware Requirements
+--------------------------------------------------------------------------------
+For firmware based hardware, the minimum firmware revision required for
+this library release are as follows:
+
+1. Express Card
+--------------------------------
+- BU-67101Q    - Version 9.5
+
+2. PC-104+
+--------------------------------
+- BU-67105C    - Version 9.5
+- BU-67109C    - Version 9.5
+
+3. PCI-104
+--------------------------------
+- BU-67104C    - Version 9.5
+- BU-67108C    - Version 9.5
+
+4. PCI-Express
+--------------------------------
+- BU-67106K    - Version 8.1  (Rev A)
+- BU-67106K    - Version 9.10 (Rev B)
+- BU-67206K    - Version 9.10
+
+5. PMC
+--------------------------------
+- BU-67107F/M  - Version 9.6
+- BU-67110F/M  - Version 9.6
+- BU-67210F/M  - Version 10.3
+- BU-65580M1   - Version 1.2
+
+6. USB
+--------------------------------
+- BU-65590UX   - Version 33
+- BU-65591Ux   - Version 33
+- BU-67102Ux   - Version 9.5
+- BU-67103Ux   - Version 9.5
+- BU-67202Ux   - Version 10.3
+- BU-67211Ux   - Version 9.6
+
+7. Ethernet
+--------------------------------
+- BU-67116W    - Version 17
+
+A firmware upgrade will be required if your device reports a different revision
+than shown above.  To upgrade your firmware on your device please see the
+firmware upgrade instructions that reside in the same directory as the
+flash utility.
+
+
+Known Issues
+--------------------------------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to The BU-69092Sx SDK and
+USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+1.  The BU-65590/91U will cause a software crash if the minor frame time in BC
+    mode is less than approximately 6ms.
+
+2.  RT may lose messages with RTMTiDemo sample
+
+3.  Ace Test vectors and Protocol test do not operate on E2MA and AceXtreme
+    devices.
+
+4.  aceBCStart frame repeat count may execute more than expected.
+
+5.  EMACE Protocol Test Transmits on the Bus.
+
+6.  BU-65590FM does not have software support for External Trigger inputs on
+    DIO's.
+
+7.  The BU-67101Q will not work in laptops with Vista unless Microsoft Service
+    Pack 1 or Hot Fix 929550 is installed
+
+8.  RTMT demo for the BU-65550M2-602 is not supported.
+
+9.  Under 64-Bit Windows Vista and Windows 7, the DDC Card Manager must be
+    run as administrator.  This can be done by right clicking on the DDC
+    Card Manager and selecting "Run as Administrator".
+
+10. Error Injection will fail under the following conditions: RT-2-RT
+    transmission, where the card is configured to be both RT's, and
+    "wrong-bus" MRT error injection is applied.
+
+11. When using Windows Vista or 7 a manual driver update is required.
+    The manual driver update can be done via the DDC Card Manager.  The
+    manual update is necessary because the device drivers are digital
+    signed.
+
+12. When using the DDC Card Manager to update a device driver, the Card
+    Manager may show a Not Responding Windows Error message.  The driver
+    installation will complete with the Not Responding error.
+
+13. When using the DDC Card Manager to update a device driver, the
+    notification of a successful update will be displayed behind the card
+    manager.  The user will have to use the ALT+TAB keys to switch to the
+    hidden screen to complete the driver update.
+
+
+Fixed Defects
+--------------------------------------------------------------------------------
+1.  TT-1294 - ACE_BCCTRL_1553A isn't used for Acextreme device.
+
+2.  TT-1440 - Bu-67106BK drops messages in MT mode with Ace to Emace translation
+              layer.
+
+3.  TT-1441 - BU-67106BK card running three channels with Ace to Emace
+              translation layer.
+
+4.  TT-1497 - ACE_RT_OPT_LOAD_TT | ACE_RT_OPT_CLEAR_TT options do not work with
+              broadcast mode codes - Child of TT1478.
+
+5.  TT-1535 - AceXtreme and E2MA devices cannot use Response timeout value of
+              130 µseconds as SKD returns ACE_ERR_RESPTIME.
+
+6.  TT-1561 - aceBCDecodeRawMsg does not correctly populate message structure.
+
+7.  TT-1590 - RT messages are displayed on channels that aren't connected to
+              1553 bus when using a multi-channel card.
+
+================================================================================
+3.6.3 (10/14/2013)
+
+New Features
+--------------------------------------------------------------------------------
+1. The SDK package now contains 32-bit and 64-bit, debug and release, libraries
+   and sample executables. All Visual Studio project files have been updated.
+
+2. All software installations are now prefixed with "DDC". This is visible in
+   the "Add/Remove Programs" or "Programs and Features" dialog windows on
+   Windows operating systems.
+
+3. The "Flash Utility" folder has been renamed to "Firmware". All firmware files
+   are now directly accessible in this folder.
+
+4. The "flash.ddc" file has been removed from the "Utilities" folder. This file
+   is now only available in "C:\Windows\System32".
+
+5. The "txBcInit.exe" and "txBcInitGen.exe" utilities are now available in both
+   32-bit and 64-bit.
+
+6. Bug Fixes
+
+7. Support has been added for Windows 8 32-bit and Windows 8 64-bit.
+
+  **Special Note**
+--------------------------------------------------------------------------------
+Support for the following cards has been discontinued.
+Version 3.5.3 will be the last version to support these cards.
+
+EMACE Based Cards
+1.  BU-65550M/53M
+2.  BU-65569I
+3.  BU-65569T/B
+4.  BU-65565F/M
+5.  BU-65566G/M
+6.  BU-65566R
+7.  BU-65550M2-602
+8.  BU-65568
+
+E2MA Based Cards
+1.  BU-65590A
+2.  BU-65590C/91C
+3.  BU-65590F/M
+4.  BU-65590BF/M
+5.  BU-65590I
+6.  BU-65578F/M
+7.  BU-65577C/78C
+
+Supported Hardware
+--------------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65586N/H
+2.  BU-65596FM
+3.  BU-65580M1 EBR
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65591U
+
+AceXtreme Based Cards
+1.  BU-67101Q      ExpressCard
+2.  BU-67102U      Rugged USB
+3.  BU-67103U      Lab USB
+4.  BU-67104C      PCI/104+
+5.  BU-67105C      PC/104+
+6.  BU-67106K      PCI Express
+7.  BU-67107F/M    PMC
+8.  BU-67108C      PCI/104+
+9.  BU-67109C      PC/104+
+10. BU-67110F/M    HD PMC
+11. BU-67112X      XMC
+12. BU-67113U      USB
+13. BU-67114H      miniPCIe
+14  BU-67202U      USB (AceXtreme Multi-Function)
+15. BU-67206K      PCI Express (AceXtreme Multi-Function)
+16. BU-67210F/M    HD PMC (AceXtreme Multi-Function)
+17. BU-67211U      USB with CAN, ARINC 717 and Serial (AceXtreme Multi-Function)
+18. BU-67301B      ASIC
+19. BU-67116W      ABD
+
+Minimum Firmware Requirements
+--------------------------------------------------------------------------------
+For firmware based hardware, the minimum firmware revision required for
+this library release are as follows:
+
+1. Express Card
+--------------------------------
+- BU-67101Q    - Version 9.5
+
+2. PC-104+
+--------------------------------
+- BU-67105C    - Version 9.5
+- BU-67109C    - Version 9.5
+
+3. PCI-104
+--------------------------------
+- BU-67104C    - Version 9.5
+- BU-67108C    - Version 9.5
+
+4. PCI-Express
+--------------------------------
+- BU-67106K    - Version 8.1  (Rev A)
+- BU-67106K    - Version 9.10 (Rev B)
+- BU-67206K    - Version 9.10
+
+5. PMC
+--------------------------------
+- BU-67107F/M  - Version 9.6
+- BU-67110F/M  - Version 9.6
+- BU-67210F/M  - Version 10.3
+- BU-65580M1   - Version 1.2
+
+6. USB
+--------------------------------
+- BU-65590UX   - Version 33
+- BU-65591Ux   - Version 33
+- BU-67102Ux   - Version 9.5
+- BU-67103Ux   - Version 9.5
+- BU-67202Ux   - Version 10.3
+- BU-67211Ux   - Version 9.6
+
+7. Ethernet
+--------------------------------
+- BU-67116W    - Version 17
+
+A firmware upgrade will be required if your device reports a different revision
+than shown above.  To upgrade your firmware on your device please see the
+firmware upgrade instructions that reside in the same directory as the
+flash utility.
+
+
+Known Issues
+--------------------------------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to The BU-69092Sx SDK and
+USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+1.  The BU-65590/91U will cause a software crash if the minor frame time in BC
+    mode is less than approximately 6ms.
+
+2.  RT may lose messages with RTMTiDemo sample
+
+3.  Ace Test vectors and Protocol test do not operate on E2MA and AceXtreme
+    devices.
+
+4.  aceBCStart frame repeat count may execute more than expected.
+
+5.  EMACE Protocol Test Transmits on the Bus.
+
+6.  BU-65590FM does not have software support for External Trigger inputs on
+    DIO's.
+
+7.  The BU-67101Q will not work in laptops with Vista unless Microsoft Service
+    Pack 1 or Hot Fix 929550 is installed
+
+8.  RTMT demo for the BU-65550M2-602 is not supported.
+
+9.  Under 64-Bit Windows Vista and Windows 7, the DDC Card Manager must be
+    run as administrator.  This can be done by right clicking on the DDC
+    Card Manager and selecting "Run as Administrator".
+
+10. Error Injection will fail under the following conditions: RT-2-RT
+    transmission, where the card is configured to be both RT's, and
+    "wrong-bus" MRT error injection is applied.
+
+11. When using Windows Vista or 7 a manual driver update is required.
+    The manual driver update can be done via the DDC Card Manager.  The
+    manual update is necessary because the device drivers are digital
+    signed.
+
+12. When using the DDC Card Manager to update a device driver, the Card
+    Manager may show a Not Responding Windows Error message.  The driver
+    installation will complete with the Not Responding error.
+
+13. When using the DDC Card Manager to update a device driver, the
+    notification of a successful update will be displayed behind the card
+    manager.  The user will have to use the ALT+TAB keys to switch to the
+    hidden screen to complete the driver update.
+
+
+Fixed Defects
+--------------------------------------------------------------------------------
+1.  TT-1171 - bcmrtmti (32-bit) sample application periodically returns
+              "FUNCTION NOT SUPPORTED" Error.
+
+2.  TT-1193 - BuBCwriteMsgNum() doesn't update the message with the Ace to Emace
+              translation Layer
+
+3.  TT-1237 - aceFree does not reset channels on BU-671xx and BU-672xx Devices.
+
+4.  TT-1293 - BU 67103/67102: Messages in stack  being overwritten.
+
+5.  TT-1294 - ACE_BCCTRL_1553A isn't used for Acextreme device.
+
+6.  TT-1316 - BU-67110F/M 8-channel driver install will cause crash in Windows
+              XP.
+
+7.  TT-1336 - BusTrACEr reported invalid Buffer with BU-65591U in Win 7 64-bit.
+
+8.  TT-1341 - Ace to Emace Translation layer does not use subaddress Control
+              word when configuring interrupts.
+
+9.  TT-1346 - aceRTGetStkMsgsRaw adds extra word to each message.
+
+10. TT-1368 - T/S translation layer returns card busy error on call to
+              ddcRun_bc().
+
+11. TT-1403 - ACE to Emace Translation BuBCSendData() and BuBCGetData()
+              incorrectly decode raw message.
+
+12. TT-1411 - Tester Simulator Translation layer, BC doesn't restart after
+              calling ddcRun_bc().
+
+13. TT-1412 - TestSim Translation layer Interrupt handlers aren't initialized.
+
+14. TT-1414 - Unplugging BU-67102U USB cable while running RTMT or MT mode will
+              cause system crash.
+
+15. TT-1415 - AceRTMTInitialize command only loads the first 16 data words with
+              0's.
+
+16. TT-1416 - BU-67106 running as BC with Host buffer cause BSOD.
+
+17. TT-1424 - aceGetChannelCount() does not return correct number of channels.
+
+18. TT-1436 - BCDemo7 sample provided with ace translation layer crashes when it
+              gets to the point of freeing frames.
+
+19. TT-1442 - advBuMtRun() returns error and being called after advBuMtHalt().
+
+20. TT-1458 - Device name of the BU-67107 series.
+
+21. TT-1460 - T/S RT Status Word incorrectly initialized.
+
+22. TT-1471 - Unexpected data will be sent RT-BC in TestSim Translation Layer.
+
+23. TT-1484 - aceMTISetExternalClk() missing from def file.
+
+24. TT-1498 - BusTrACEr Hangs when used in both RT/MT and BC/MT mode.
+
+25. TT-1520 - BuBCSend/GetData() do not create correct mode code message.
+
+26. TT-1521 - aceMTIDecodeRawMsg() needs to return status word for Invalid Mode
+              codes in the decode message.
+
+27. TT-1524 - BuBCSend/GetData() return -1 when length parameter is zero.
+
+28. TT-1533 - BC Double buffering with 67202U transmits mix of old and new data.
+
+29. TT-1540 - Card manager detects 67202U0 when 67202U100L is connected.
+
+30. TT-1557 - AceXtreme MF running in BC/MRT/MTI mode stops bc transmission
+              after 1553 cable pull, using BU-67202. Child of TT-1522.
+
+31. TT-1558 - AceXtreme MF running in BC/MRT/MTI mode stops bc transmission
+              after 1553 cable pull, using BU-67210. Child of TT-1522.
+
+================================================================================
+3.6.2 (7/30/2013)
+
+New Features
+--------------------------------------------------------------------------------
+1. Bug Fixes
+
+Supported Hardware
+--------------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65553M
+2.  BU-65569i
+3.  BU-65569T/B
+4.  BU-65565F/M
+5.  BU-65566G/M
+6.  BU-65566R
+7.  BU-65550M2-602
+8.  BU-65586N/H
+9.  BU-65580M1 EBR
+10. BU-65596FM
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65591U
+3.  BU-65577C
+4.  BU-65578C
+5.  BU-65578F/M
+6.  BU-65590C
+7.  BU-65591C
+8.  BU-65590F/M
+9.  BU-65590BF/M
+10. BU-65590A
+
+AceXtreme Based Cards
+1.  BU-67101Q      ExpressCard
+2.  BU-67102U      Rugged USB
+3.  BU-67103U      Lab USB
+4.  BU-67104C      PCI/104+
+5.  BU-67105C      PC/104+
+6.  BU-67106K      PCI Express
+7.  BU-67107F/M    PMC
+8.  BU-67108C      PCI/104+
+9.  BU-67109C      PC/104+
+10. BU-67110F/M    HD PMC
+11. BU-67112X      XMC
+12. BU-67113U      USB
+13. BU-67114H      miniPCIe
+14  BU-67202U      USB (AceXtreme Multi-Function)
+15. BU-67206K      PCI Express (AceXtreme Multi-Function)
+16. BU-67210F/M    HD PMC (AceXtreme Multi-Function)
+17. BU-67211U      USB with CAN, ARINC 717 and Serial (AceXtreme Multi-Function)
+18. BU-67301B      ASIC
+19. BU-67116W      ABD
+
+Minimum Firmware Requirements
+--------------------------------------------------------------------------------
+For firmware based hardware, the minimum firmware revision required for
+this library release are as follows:
+
+1. AMC
+--------------------------------
+- BU-65590A    - Version 15
+
+2. Express Card
+--------------------------------
+- BU-67101Q    - Version 9.5
+
+3. PC-104+
+--------------------------------
+- BU-65578C    - Version 15
+- BU-65590C    - Version 15
+- BU-67105C    - Version 9.5
+- BU-67109C    - Version 9.5
+
+4. PCI-104
+--------------------------------
+- BU-65577C    - Version 15
+- BU-65591C    - Version 15
+- BU-67104C    - Version 9.5
+- BU-67108C    - Version 9.5
+
+5. PCI-Express
+--------------------------------
+- BU-67106K    - Version 8.1  (Rev A)
+- BU-67106K    - Version 9.10 (Rev B)
+- BU-67206K    - Version 9.10
+
+6. PMC
+--------------------------------
+- BU-65578F/M  - Version 20
+- BU-65590F/M  - Version 15
+- BU-67107F/M  - Version 9.6
+- BU-67110F/M  - Version 9.6
+- BU-67210F/M  - Version 10.0
+- BU-65580M1   - Version 1.2
+
+7. USB
+--------------------------------
+- BU-65590UX   - Version 33
+- BU-65591Ux   - Version 33
+- BU-67102Ux   - Version 9.5
+- BU-67103Ux   - Version 9.5
+- BU-67202Ux   - Version 9.5
+- BU-67211Ux   - Version 9.6
+
+8. Ethernet
+--------------------------------
+- BU-67116W    - Version 17
+
+A firmware upgrade will be required if your device reports a different revision
+than shown above.  To upgrade your firmware on your device please see the
+firmware upgrade instructions that reside in the same directory as the
+flash utility.
+
+
+Known Issues
+--------------------------------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to The BU-69092Sx SDK and
+USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+1.  The BU-65590/91U will cause a software crash if the minor frame time in BC
+    mode is less than approximately 6ms.
+
+2.  RT may lose messages with RTMTiDemo sample
+
+3.  Ace Test vectors and Protocol test do not operate on E2MA and AceXtreme
+    devices.
+
+4.  aceBCStart frame repeat count may execute more than expected.
+
+5.  EMACE Protocol Test Transmits on the Bus.
+
+6.  BU-65590FM does not have software support for External Trigger inputs on
+    DIO's.
+
+7.  The BU-67101Q will not work in laptops with Vista unless Microsoft Service
+    Pack 1 or Hot Fix 929550 is installed
+
+8.  RTMT demo for the BU-65550M2-602 is not supported.
+
+9.  Under 64-Bit Windows Vista and Windows 7, the DDC Card Manager must be
+    run as administrator.  This can be done by right clicking on the DDC
+    Card Manager and selecting "Run as Administrator".
+
+10. Error Injection will fail under the following conditions: RT-2-RT
+    transmission, where the card is configured to be both RT's, and
+    "wrong-bus" MRT error injection is applied.
+
+11. When using Windows Vista or 7 a manual driver update is required.
+    The manual driver update can be done via the DDC Card Manager.  The
+    manual update is necessary because the device drivers are digital
+    signed.
+
+12. When using the DDC Card Manager to update a device driver, the Card
+    Manager may show a Not Responding Windows Error message.  The driver
+    installation will complete with the Not Responding error.
+
+13. When using the DDC Card Manager to update a device driver, the
+    notification of a successful update will be displayed behind the card
+    manager.  The user will have to use the ALT+TAB keys to switch to the
+    hidden screen to complete the driver update.
+
+
+Fixed Defects
+--------------------------------------------------------------------------------
+1.  TT-1446 - DataSIMS crashes when replay/recording file can't be found.
+
+2.  TT-1522 - AceXtreme MF running in BC/MRT/MTI mode stops BC transmission
+              after 1553 cable pull.
+
+================================================================================
+3.6.1 (7/24/2013)
+
+New Features
+--------------------------------------------------------------------------------
+1. Bug Fixes
+
+Supported Hardware
+--------------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65553M
+2.  BU-65569i
+3.  BU-65569T/B
+4.  BU-65565F/M
+5.  BU-65566G/M
+6.  BU-65566R
+7.  BU-65550M2-602
+8.  BU-65586N/H
+9.  BU-65580M1 EBR
+10. BU-65596FM
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65591U
+3.  BU-65577C
+4.  BU-65578C
+5.  BU-65578F/M
+6.  BU-65590C
+7.  BU-65591C
+8.  BU-65590F/M
+9.  BU-65590BF/M
+10. BU-65590A
+
+AceXtreme Based Cards
+1.  BU-67101Q      ExpressCard
+2.  BU-67102U      Rugged USB
+3.  BU-67103U      Lab USB
+4.  BU-67104C      PCI/104+
+5.  BU-67105C      PC/104+
+6.  BU-67106K      PCI Express
+7.  BU-67107F/M    PMC
+8.  BU-67108C      PCI/104+
+9.  BU-67109C      PC/104+
+10. BU-67110F/M    HD PMC
+11. BU-67112X      XMC
+12. BU-67113U      USB
+13. BU-67114H      miniPCIe
+14  BU-67202U      USB (AceXtreme Multi-Function)
+15. BU-67206K      PCI Express (AceXtreme Multi-Function)
+16. BU-67210F/M    HD PMC (AceXtreme Multi-Function)
+17. BU-67211U      USB with CAN, ARINC 717 and Serial (AceXtreme Multi-Function)
+18. BU-67301B      ASIC
+19. BU-67116W      ABD
+
+Minimum Firmware Requirements
+--------------------------------------------------------------------------------
+For firmware based hardware, the minimum firmware revision required for
+this library release are as follows:
+
+1. AMC
+--------------------------------
+- BU-65590A    - Version 15
+
+2. Express Card
+--------------------------------
+- BU-67101Q    - Version 9.5
+
+3. PC-104+
+--------------------------------
+- BU-65578C    - Version 15
+- BU-65590C    - Version 15
+- BU-67105C    - Version 9.5
+- BU-67109C    - Version 9.5
+
+4. PCI-104
+--------------------------------
+- BU-65577C    - Version 15
+- BU-65591C    - Version 15
+- BU-67104C    - Version 9.5
+- BU-67108C    - Version 9.5
+
+5. PCI-Express
+--------------------------------
+- BU-67106K    - Version 8.1  (Rev A)
+- BU-67106K    - Version 9.10 (Rev B)
+- BU-67206K    - Version 9.10
+
+6. PMC
+--------------------------------
+- BU-65578F/M  - Version 20
+- BU-65590F/M  - Version 15
+- BU-67107F/M  - Version 9.6
+- BU-67110F/M  - Version 9.6
+- BU-67210F/M  - Version 10.0
+- BU-65580M1   - Version 1.2
+
+7. USB
+--------------------------------
+- BU-65590UX   - Version 33
+- BU-65591Ux   - Version 33
+- BU-67102Ux   - Version 9.5
+- BU-67103Ux   - Version 9.5
+- BU-67202Ux   - Version 9.5
+- BU-67211Ux   - Version 9.6
+
+8. Ethernet
+--------------------------------
+- BU-67116W    - Version 17
+
+A firmware upgrade will be required if your device reports a different revision
+than shown above.  To upgrade your firmware on your device please see the
+firmware upgrade instructions that reside in the same directory as the
+flash utility.
+
+
+Known Issues
+--------------------------------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to The BU-69092Sx SDK and
+USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+1.  The BU-65590/91U will cause a software crash if the minor frame time in BC
+    mode is less than approximately 6ms.
+
+2.  RT may lose messages with RTMTiDemo sample
+
+3.  Ace Test vectors and Protocol test do not operate on E2MA and AceXtreme
+    devices.
+
+4.  aceBCStart frame repeat count may execute more than expected.
+
+5.  EMACE Protocol Test Transmits on the Bus.
+
+6.  BU-65590FM does not have software support for External Trigger inputs on
+    DIO's.
+
+7.  The BU-67101Q will not work in laptops with Vista unless Microsoft Service
+    Pack 1 or Hot Fix 929550 is installed
+
+8.  RTMT demo for the BU-65550M2-602 is not supported.
+
+9.  Under 64-Bit Windows Vista and Windows 7, the DDC Card Manager must be
+    run as administrator.  This can be done by right clicking on the DDC
+    Card Manager and selecting "Run as Administrator".
+
+10. Error Injection will fail under the following conditions: RT-2-RT
+    transmission, where the card is configured to be both RT's, and
+    "wrong-bus" MRT error injection is applied.
+
+11. When using Windows Vista or 7 a manual driver update is required.
+    The manual driver update can be done via the DDC Card Manager.  The
+    manual update is necessary because the device drivers are digital
+    signed.
+
+12. When using the DDC Card Manager to update a device driver, the Card
+    Manager may show a Not Responding Windows Error message.  The driver
+    installation will complete with the Not Responding error.
+
+13. When using the DDC Card Manager to update a device driver, the
+    notification of a successful update will be displayed behind the card
+    manager.  The user will have to use the ALT+TAB keys to switch to the
+    hidden screen to complete the driver update.
+
+
+Fixed Defects
+--------------------------------------------------------------------------------
+1.  TT-1525 - XQF incorrect functionality.
+
+2.  TT-1533 - BC Double buffering with 67202U transmits mix of old and new data.
+
+3.  TT-1541 - RT does not properly read back messages.
+
+4.  TT-1545 - BU-67105C external address does not work.
+
+================================================================================
+3.5.2 (6/10/2013)
+
+New Features
+--------------------------------------------------------------------------------
+1. Updated to Version 3.5.2 drivers and library
+
+Supported Hardware
+--------------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65553M
+2.  BU-65569i
+3.  BU-65569T/B
+4.  BU-65565F/M
+5.  BU-65566G/M
+6.  BU-65566R
+7.  BU-65550M2-602
+8.  BU-65586N/H
+9.  BU-65580M1 EBR
+10. BU-65596FM
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65591U
+3.  BU-65577C
+4.  BU-65578C
+5.  BU-65578F/M
+6.  BU-65590C
+7.  BU-65591C
+8.  BU-65590F/M
+9.  BU-65590BF/M
+10. BU-65590A
+
+AceXtreme Based Cards
+1.  BU-67101Q      ExpressCard
+2.  BU-67102U      Rugged USB
+3.  BU-67103U      Lab USB
+4.  BU-67104C      PCI/104+
+5.  BU-67105C      PC/104+
+6.  BU-67106K      PCI Express
+7.  BU-67107F/M    PMC
+8.  BU-67108C      PCI/104+
+9.  BU-67109C      PC/104+
+10. BU-67110F/M    HD PMC
+11. BU-67112X      XMC
+12. BU-67113U      USB
+13. BU-67114H      miniPCIe
+14  BU-67202U      USB (AceXtreme Multi-Function)
+15. BU-67206K      PCI Express (AceXtreme Multi-Function)
+16. BU-67210F/M    HD PMC (AceXtreme Multi-Function)
+17. BU-67211U      USB with CAN, ARINC 717 and Serial (AceXtreme Multi-Function)
+18. BU-67301B      ASIC
+19. BU-67116W      ABD
+
+Minimum Firmware Requirements
+--------------------------------------------------------------------------------
+For firmware based hardware, the minimum firmware revision required for
+this library release are as follows:
+
+1. AMC
+--------------------------------
+- BU-65590A    - Version 15
+
+2. Express Card
+--------------------------------
+- BU-67101Q    - Version 9.5
+
+3. PC-104+
+--------------------------------
+- BU-65578C    - Version 15
+- BU-65590C    - Version 15
+- BU-67105C    - Version 9.5
+- BU-67109C    - Version 9.5
+
+4. PCI-104
+--------------------------------
+- BU-65577C    - Version 15
+- BU-65591C    - Version 15
+- BU-67104C    - Version 9.5
+- BU-67108C    - Version 9.5
+
+5. PCI-Express
+--------------------------------
+- BU-67106K    - Version 8.1  (Rev A)
+- BU-67106K    - Version 9.10 (Rev B)
+- BU-67206K    - Version 9.10
+
+6. PMC
+--------------------------------
+- BU-65578F/M  - Version 20
+- BU-65590F/M  - Version 15
+- BU-67107F/M  - Version 9.6
+- BU-67110F/M  - Version 9.6
+- BU-67210F/M  - Version 10.0
+- BU-65580M1   - Version 1.2
+
+7. USB
+--------------------------------
+- BU-65590UX   - Version 33
+- BU-65591Ux   - Version 33
+- BU-67102Ux   - Version 9.5
+- BU-67103Ux   - Version 9.5
+- BU-67202Ux   - Version 9.5
+- BU-67211Ux   - Version 9.6
+
+8. Ethernet
+--------------------------------
+- BU-67116W    - Version 17
+
+A firmware upgrade will be required if your device reports a different revision
+than shown above.  To upgrade your firmware on your device please see the
+firmware upgrade instructions that reside in the same directory as the
+flash utility.
+
+
+Known Issues
+--------------------------------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to The BU-69092Sx SDK and
+USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+1.  The BU-65590/91U will cause a software crash if the minor frame time in BC
+    mode is less than approximately 6ms.
+
+2.  RT may lose messages with RTMTiDemo sample
+
+3.  Ace Test vectors and Protocol test do not operate on E2MA and AceXtreme
+    devices.
+
+4.  aceBCStart frame repeat count may execute more than expected.
+
+5.  EMACE Protocol Test Transmits on the Bus.
+
+6.  BU-65590FM does not have software support for External Trigger inputs on
+    DIO's.
+
+7.  The BU-67101Q will not work in laptops with Vista unless Microsoft Service
+    Pack 1 or Hot Fix 929550 is installed
+
+8.  RTMT demo for the BU-65550M2-602 is not supported.
+
+9.  Under 64-Bit Windows Vista and Windows 7, the DDC Card Manager must be
+    run as administrator.  This can be done by right clicking on the DDC
+    Card Manager and selecting "Run as Administrator".
+
+10. Error Injection will fail under the following conditions: RT-2-RT
+    transmission, where the card is configured to be both RT's, and
+    "wrong-bus" MRT error injection is applied.
+
+11. When using Windows Vista or 7 a manual driver update is required.
+    The manual driver update can be done via the DDC Card Manager.  The
+    manual update is necessary because the device drivers are digital
+    signed.
+
+12. When using the DDC Card Manager to update a device driver, the Card
+    Manager may show a Not Responding Windows Error message.  The driver
+    installation will complete with the Not Responding error.
+
+13. When using the DDC Card Manager to update a device driver, the
+    notification of a successful update will be displayed behind the card
+    manager.  The user will have to use the ALT+TAB keys to switch to the
+    hidden screen to complete the driver update.
+
+
+Fixed Defects
+--------------------------------------------------------------------------------
+None.
+
+================================================================================
+3.5.0 (5/30/2013)
+
+New Features
+--------------------------------------------------------------------------------
+1. Added remote access support for the BU-67116W AceXtreme Bridge Device.
+
+2. Added support for DIO Time Tags, with a new sample, "diott".
+   *NOTE* DIO TIME TAG IS ONLY AVAILABLE ON THE BU-67210F/M
+
+3. Bug Fixes
+
+Supported Hardware
+--------------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65553M
+2.  BU-65569i
+3.  BU-65569T/B
+4.  BU-65565F/M
+5.  BU-65566G/M
+6.  BU-65566R
+7.  BU-65550M2-602
+8.  BU-65586N/H
+9.  BU-65580M1 EBR
+10. BU-65596FM
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65591U
+3.  BU-65577C
+4.  BU-65578C
+5.  BU-65578F/M
+6.  BU-65590C
+7.  BU-65591C
+8.  BU-65590F/M
+9.  BU-65590BF/M
+10. BU-65590A
+
+AceXtreme Based Cards
+1.  BU-67101Q      ExpressCard
+2.  BU-67102U      Rugged USB
+3.  BU-67103U      Lab USB
+4.  BU-67104C      PCI/104+
+5.  BU-67105C      PC/104+
+6.  BU-67106K      PCI Express
+7.  BU-67107F/M    PMC
+8.  BU-67108C      PCI/104+
+9.  BU-67109C      PC/104+
+10. BU-67110F/M    HD PMC
+11. BU-67112X      XMC
+12. BU-67113U      USB
+13. BU-67114H      miniPCIe
+14  BU-67202U      USB (AceXtreme Multi-Function)
+15. BU-67206K      PCI Express (AceXtreme Multi-Function)
+16. BU-67210F/M    HD PMC (AceXtreme Multi-Function)
+17. BU-67211U      USB with CAN, ARINC 717 and Serial (AceXtreme Multi-Function)
+18. BU-67301B      ASIC
+19. BU-67116W      ABD
+
+Minimum Firmware Requirements
+--------------------------------------------------------------------------------
+For firmware based hardware, the minimum firmware revision required for
+this library release are as follows:
+
+1. AMC
+--------------------------------
+- BU-65590A    - Version 15
+
+2. Express Card
+--------------------------------
+- BU-67101Q    - Version 9.5
+
+3. PC-104+
+--------------------------------
+- BU-65578C    - Version 15
+- BU-65590C    - Version 15
+- BU-67105C    - Version 9.5
+- BU-67109C    - Version 9.5
+
+4. PCI-104
+--------------------------------
+- BU-65577C    - Version 15
+- BU-65591C    - Version 15
+- BU-67104C    - Version 9.5
+- BU-67108C    - Version 9.5
+
+5. PCI-Express
+--------------------------------
+- BU-67106K    - Version 8.1  (Rev A)
+- BU-67106K    - Version 9.10 (Rev B)
+- BU-67206K    - Version 9.10
+
+6. PMC
+--------------------------------
+- BU-65578F/M  - Version 20
+- BU-65590F/M  - Version 15
+- BU-67107F/M  - Version 9.6
+- BU-67110F/M  - Version 9.6
+- BU-67210F/M  - Version 10.0
+- BU-65580M1   - Version 1.2
+
+7. USB
+--------------------------------
+- BU-65590UX   - Version 33
+- BU-65591Ux   - Version 33
+- BU-67102Ux   - Version 9.5
+- BU-67103Ux   - Version 9.5
+- BU-67202Ux   - Version 9.5
+- BU-67211Ux   - Version 9.6
+
+8. Ethernet
+--------------------------------
+- BU-67116W    - Version 17
+
+A firmware upgrade will be required if your device reports a different revision
+than shown above.  To upgrade your firmware on your device please see the
+firmware upgrade instructions that reside in the same directory as the
+flash utility.
+
+
+Known Issues
+--------------------------------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to The BU-69092Sx SDK and
+USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+1.  The BU-65590/91U will cause a software crash if the minor frame time in BC
+    mode is less than approximately 6ms.
+
+2.  RT may lose messages with RTMTiDemo sample
+
+3.  Ace Test vectors and Protocol test do not operate on E2MA and AceXtreme
+    devices.
+
+4.  aceBCStart frame repeat count may execute more than expected.
+
+5.  EMACE Protocol Test Transmits on the Bus.
+
+6.  BU-65590FM does not have software support for External Trigger inputs on
+    DIO's.
+
+7.  The BU-67101Q will not work in laptops with Vista unless Microsoft Service
+    Pack 1 or Hot Fix 929550 is installed
+
+8.  RTMT demo for the BU-65550M2-602 is not supported.
+
+9.  Under 64-Bit Windows Vista and Windows 7, the DDC Card Manager must be
+    run as administrator.  This can be done by right clicking on the DDC
+    Card Manager and selecting "Run as Administrator".
+
+10. Error Injection will fail under the following conditions: RT-2-RT
+    transmission, where the card is configured to be both RT's, and
+    "wrong-bus" MRT error injection is applied.
+
+11. When using Windows Vista or 7 a manual driver update is required.
+    The manual driver update can be done via the DDC Card Manager.  The
+    manual update is necessary because the device drivers are digital
+    signed.
+
+12. When using the DDC Card Manager to update a device driver, the Card
+    Manager may show a Not Responding Windows Error message.  The driver
+    installation will complete with the Not Responding error.
+
+13. When using the DDC Card Manager to update a device driver, the
+    notification of a successful update will be displayed behind the card
+    manager.  The user will have to use the ALT+TAB keys to switch to the
+    hidden screen to complete the driver update.
+
+
+Fixed Defects
+--------------------------------------------------------------------------------
+1.  TT-1272 - RT Configure options aren't used by Acextreme Device.
+
+2.  TT-1519 - BU-67106BK and BU67206BK using Legacy interrupts even if the
+              system supports MSI interrupts.
+
+================================================================================
+3.2.15 (2/7/2012)
+
+New Features
+--------------------------------------------------------------------------------
+1. Bug fixes -- See Fixed Defects section.
+
+2. Added new function acexSetValidBusyBitNoData().  This function sets the
+   VAILD BUSY BIT/NO DATA bit of configuration register 4 (bit 5).
+
+Special Notes:
+--------------------------------------------------------------------------------
+Several Device Drivers have been combined into one driver.  The two new unified
+drivers are the acexpci and acexusb.
+
+The acexpci-e and acexasic driver has been replaced with the new acexpci driver.
+This affects the BU-67106BK, BU-67206BK, BU-67301B, BU-67114.
+
+The acexusb_can driver has been replaced with the acexusb driver.  This affects
+the BU-67211U device.
+
+Supported Hardware
+--------------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65553M
+2.  BU-65569i
+3.  BU-65569T/B
+4.  BU-65565F/M
+5.  BU-65566G/M
+6.  BU-65566R
+7.  BU-65550M2-602
+8.  BU-65586N/H
+9.  BU-65580M1 EBR
+10. BU-65596FM
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65591U
+3.  BU-65577C
+4.  BU-65578C
+5.  BU-65578F/M
+6.  BU-65590C
+7.  BU-65591C
+8.  BU-65590F/M
+9.  BU-65590BF/M
+10. BU-65590A
+
+AceXtreme Based Cards
+1.  BU-67101Q      ExpressCard
+2.  BU-67102U      Rugged USB
+3.  BU-67103U      Lab USB
+4.  BU-67104C      PCI/104+
+5.  BU-67105C      PC/104+
+6.  BU-67106K      PCI Express
+7.  BU-67107F/M    PMC
+8.  BU-67108C      PCI/104+
+9.  BU-67109C      PC/104+
+10. BU-67110F/M    HD PMC
+11. BU-67112X      XMC
+12. BU-67113U      USB
+13. BU-67114H      miniPCIe
+14  BU-67202U      USB (AceXtreme Multi-Function)
+15. BU-67206K      PCI Express (AceXtreme Multi-Function)
+16. BU-67210F/M    HD PMC (AceXtreme Multi-Function)
+17. BU-67211U      USB with CAN, ARINC 717 and Serial (AceXtreme Multi-Function)
+18. BU-67301B      ASIC
+
+
+Minimum Firmware Requirements
+--------------------------------------------------------------------------------
+For firmware based hardware, the minimum firmware revision required for
+this library release are as follows:
+
+1. AMC
+--------------------------------
+- BU-65590A    - Version 15
+
+2. Express Card
+--------------------------------
+- BU-67101Q    - Version 9.0
+
+3. PC-104+
+--------------------------------
+- BU-65578C    - Version 15
+- BU-65590C    - Version 15
+- BU-67105C    - Version 9.0
+- BU-67109C    - Version 9.5
+
+4. PCI-104
+--------------------------------
+- BU-65577C    - Version 15
+- BU-65591C    - Version 15
+- BU-67104C    - Version 9.0
+- BU-67108C    - Version 9.5
+
+5. PCI-Express
+--------------------------------
+- BU-67106K    - Version 8.1 (Rev A)
+- BU-67106K    - Version 9.0 (Rev B)
+- BU-67206K    - Version 9.0
+
+6. PMC
+--------------------------------
+- BU-65578F/M  - Version 20
+- BU-65590F/M  - Version 15
+- BU-67107F/M  - Version 9.0 **
+- BU-67110F/M  - Version 9.0
+- BU-67210F/M  - Version 9.0
+- BU-65580M1   - Version 1.0
+
+** BU-67107F1/M1 use fimrware Version 7.0
+
+7. USB
+--------------------------------
+- BU-65590UX   - Version 33
+- BU-65591Ux   - Version 33
+- BU-67102Ux   - Version 9.0
+- BU-67103Ux   - Version 9.0
+- BU-67202Ux   - Version 9.0
+- BU-67211Ux   - Version 9.2
+
+A firmware upgrade will be required if your device reports a different revision
+than shown above.  To upgrade your firmware on your device please see the
+firmware upgrade instructions that reside in the same directory as the
+flash utility.
+
+
+Known Issues
+--------------------------------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to The BU-69092Sx SDK and
+USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+1.  The BU-65590/91U will cause a software crash if the minor frame time in BC
+    mode is less than approximately 6ms.
+
+2.  RT may lose messages with RTMTiDemo sample
+
+3.  Ace Test vectors and Protocol test do not operate on E2MA and AceXtreme
+    devices.
+
+4.  aceBCStart frame repeat count may execute more than expected.
+
+5.  EMACE Protocol Test Transmits on the Bus.
+
+6.  BU-65590FM does not have software support for External Trigger inputs on
+    DIO's.
+
+7.  The BU-67101Q will not work in laptops with Vista unless Microsoft Service
+    Pack 1 or Hot Fix 929550 is installed
+
+8.  RTMT demo for the BU-65550M2-602 is not supported.
+
+9.  Under 64-Bit Windows Vista and Windows 7, the DDC Card Manager must be
+    run as administrator.  This can be done by right clicking on the DDC
+    Card Manager and selecting "Run as Administrator".
+
+10. Error Injection will fail under the following conditions: RT-2-RT
+    transmission, where the card is configured to be both RT's, and
+    "wrong-bus" MRT error injection is applied.
+
+11. When using Windows Vista or 7 a manual driver update is required.
+    The manual driver update can be done via the DDC Card Manager.  The
+    manual update is necessary because the device drivers are digital
+    signed.
+
+12. When using the DDC Card Manager to update a device driver, the Card
+    Manager may show a Not Responding Windows Error message.  The driver
+    installation will complete with the Not Responding error.
+
+13. When using the DDC Card Manager to update a device driver, the
+    notification of a successful update will be displayed behind the card
+    manager.  The user will have to use the ALT+TAB keys to switch to the
+    hidden screen to complete the driver update.
+
+
+
+Fixed Defects
+--------------------------------------------------------------------------------
+1.  TT-1279 - aceRTDataBlkCircBufInfo returns wrong AceRWOffset with AceXtreme
+              Device for Global Circular Buffer.
+
+2.  TT-1280 - Ability to set Bit 5 of Configuration Register 5 on AcXtreme
+              Device (VAILD BUSY BIT/NO DATA).
+
+3.  TT-1318 - advBuIrqEnable will not enable events for interrupts with the Ace
+              to Emace translation layer
+
+4.  TT-1329 - RT Configure options aren't used by Acextreme Device - BU-67108C.
+
+5.  TT-1330 - RT Configure options aren't used by Acextreme Device - BU-67109C.
+
+================================================================================
+3.2.8 (4/22/2011)
+
+New Features
+--------------------------------------------------------------------------------
+1. Added support for BU-67211U, BU-67201I, BU-67202U, BU-67114H
+
+3. Mode Code IMR support for BU-67202U and BU-67210F.
+
+4. Added Replay support for BU-67102/3U.
+
+5. Added Tester Simulator Translation layer for AceXtreme Multi-Function boards.
+
+6. Bug Fixes
+
+7. Windows 2000 Support for the BU-69092S0 has ended with version 3.2.3.
+
+
+Supported Hardware
+--------------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65553M
+2.  BU-65569i
+3.  BU-65569T/B
+4.  BU-65565F/M
+5.  BU-65566G/M
+6.  BU-65566R
+7.  BU-65550M2-602
+8.  BU-65586N/H
+9.  BU-65580M1 EBR
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65591U
+3.  BU-65577C
+4.  BU-65578C
+5.  BU-65578F/M
+6.  BU-65590C
+7.  BU-65591C
+8.  BU-65590F/M
+9.  BU-65590BF/M
+10. BU-65590A
+
+AceXtreme Based Cards
+1.  BU-67101Q      ExpressCard
+2.  BU-67102U      Rugged USB
+3.  BU-67103U      Lab USB
+4.  BU-67104C      PCI/104+
+5.  BU-67105C      PC/104+
+6.  BU-67106K      PCI Express
+7.  BU-67107F/M    PMC
+8.  BU-67108C      PCI/104+
+9.  BU-67109C      PC/104+
+10. BU-67110F/M    HD PMC
+11. BU-67114H      miniPCIe
+12  BU-67202U      USB (AceXtreme Multi-Function)
+13. BU-67206K      PCI Express (AceXtreme Multi-Function)
+14. BU-67210F/M    HD PMC (AceXtreme Multi-Function)
+15. BU-67211U      USB with CAN, ARINC 717 and Serial (AceXtreme Multi-Function)
+16. BU-67301B      ASIC
+
+
+Minimum Firmware Requirements
+--------------------------------------------------------------------------------
+For firmware based hardware, the minimum firmware revision required for
+this library release are as follows:
+
+1. AMC
+--------------------------------
+- BU-65590A    - Version 15
+
+2. Express Card
+--------------------------------
+- BU-67101Q    - Version 5.0
+
+3. PC-104+
+--------------------------------
+- BU-65578C    - Version 15
+- BU-65590C    - Version 15
+- BU-67105C    - Version 5.0
+- BU-67109C    - Version 7.0
+
+4. PCI-104
+--------------------------------
+- BU-65577C    - Version 15
+- BU-65591C    - Version 15
+- BU-67104C    - Version 5.0
+- BU-67108C    - Version 7.0
+
+5. PCI-Express
+--------------------------------
+- BU-67106K    - Version 8.1 (Rev A)
+- BU-67106K    - Version 2.0 (Rev B)
+- BU-67206K    - Version 6.1
+
+6. PMC
+--------------------------------
+- BU-65578F/M  - Version 20
+- BU-65590F/M  - Version 15
+- BU-67107F/M  - Version 7.0
+- BU-67110F/M  - Version 6.1
+- BU-67210F/M  - Version 6.0
+- BU-65580M1   - Version 1.0
+
+7. USB
+--------------------------------
+- BU-65590UX   - Version 33
+- BU-65591Ux   - Version 33
+- BU-67102Ux   - Version 8.1
+- BU-67103Ux   - Version 8.1
+- BU-67202Ux   - Version 6.0
+- BU-67211Ux   - Version 6.1
+
+A firmware upgrade will be required if your device reports a different revision
+than shown above.  To upgrade your firmware on your device please see the
+firmware upgrade instructions that reside in the same directory as the
+flash utility.
+
+
+Known Issues
+--------------------------------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to The BU-69092Sx SDK and
+USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+1. The BU-65590/91U will cause a software crash if the minor frame time in BC
+   mode is less than approximately 6ms.
+
+2. RT may lose messages with RTMTiDemo sample
+
+3. Ace Test vectors and Protocol test do not operate on E2MA and AceXtreme
+   devices.
+
+4. aceBCStart frame repeat count may execute more than expected.
+
+5. EMACE Protocol Test Transmits on the Bus.
+
+6. BU-65590FM does not have software support for External Trigger inputs on
+   DIO's.
+
+7.  The BU-67101Q will not work in laptops with Vista unless Microsoft Service
+    Pack 1 or Hot Fix 929550 is installed
+
+8.  RTMT demo for the BU-65550M2-602 is not supported.
+
+9. Under 64-Bit Windows Vista and Windows 7, the DDC Card Manager must be
+    run as administrator.  This can be done by right clicking on the DDC
+    Card Manager and selecting "Run as Administrator".
+
+10. Intermessage routines for Mode codes are not supported.
+
+11. Error Injection will fail under the following conditions: RT-2-RT
+    transmission, where the card is configured to be both RT's, and
+    "wrong-bus" MRT error injection is applied.
+
+12. When using Windows Vista or 7 a manual driver update is required.
+    The manual driver update can be done via the DDC Card Manager.  The
+    manual update is necessary because the device drivers are digital
+    signed.
+
+13. When using the DDC Card Manager to update a device driver, the Card
+    Manager may show a Not Responding Windows Error message.  The driver
+    installation will complete with the Not Responding error.
+
+14. When using the DDC Card Manager to update a device driver, the
+    notification of a successful update will be displayed behind the card
+    manager.  The user will have to use the ALT+TAB keys to switch to the
+    hidden screen to complete the driver update.
+
+15. Using an EMACE based board in RTMT mode with option ACE_RTMT_COMBO_HBUF will
+    cause the system to crash once the channel is started.
+
+16. Using an AceXtreme device as an RT will cause the RT to start responding to
+    commands before call aceRTStart() or acexMRTStart().
+
+
+Fixed Defects
+--------------------------------------------------------------------------------
+1.  TT-1107 - RT-toRT Broadcast data not recovered from aceRTGetStkMsgDecoded.
+
+2.  TT-1122 - RT-to-BC (Tx) message double buffer implementation in software is
+              incomplete.
+
+3.  TT-1141 - Status set masks do not work using aceBCMsgCreate().
+
+4.  TT-1145 - AceXtreme Multi-Function undesired replay behavior.
+
+5.  TT-1164 - Multi-RTs respond with BUSY Bit set in status when responding to
+              "Send Last Status" Mode code.
+
+6.  TT-1181 - Emulated RT cannot be re-enabled once disabled.
+
+7.  TT-1205 - TxBcinit (TX Inhibit/BC Disable Flash Utility) fails to operate on
+              BU-67110F/M8.
+
+================================================================================
+3.2.7 (12/20/2010)
+
+New Features
+--------------------------------------------------------------------------------
+1. MSI interrupt support for the BU-67x06B Boards.
+
+2. Support of 32-Bit applications in a 64-Bit Windows Operation System.
+
+3. Support of FW Verification in DDC Card Manager.
+
+4. Upgrade Library Projects to Visual Studio 2010.
+
+5. New DDC Card Manager executable for Vista and Windows7 that will be installed
+   in the DDC directory.
+
+6. AceXtreme ASIC now supports 64-bit OS.
+
+7. The software suite has been updated to support up to 16 avionic IO signals.
+
+
+Supported Hardware
+--------------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65553M
+2.  BU-65569i
+3.  BU-65569T/B
+4.  BU-65565F/M
+5.  BU-65566G/M
+6.  BU-65566R
+7.  BU-65550M2-602
+8.  BU-65586N/H
+9.  BU-65580M1 EBR
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65591U
+3.  BU-65577C
+4.  BU-65578C
+5.  BU-65578F/M
+6.  BU-65590C
+7.  BU-65591C
+8.  BU-65590F/M
+9.  BU-65590BF/M
+10. BU-65590A
+
+AceXtreme Based Cards
+1.  BU-67101Q      ExpressCard
+2.  BU-67102U      Rugged USB
+3.  BU-67103U      Lab USB
+4.  BU-67104C      PCI/104+
+5.  BU-67105C      PC/104+
+6.  BU-67106K      PCI Express
+7.  BU-67107F/M    PMC
+8.  BU-67108C      PCI/104+
+9.  BU-67109C      PC/104+
+10. BU-67110F/M    HD PMC
+11. BU-67206K      PCI Express (AceXtreme Multi-Function)
+12. BU-67210F/M    HD PMC (AceXtreme Multi-Function)
+13. BU-67301B      ASIC
+
+
+Minimum Firmware Requirements
+--------------------------------------------------------------------------------
+For firmware based hardware, the minimum firmware revision required for
+this library release are as follows:
+
+1. AMC
+--------------------------------
+- BU-65590A    - Version 15
+
+2. Express Card
+--------------------------------
+- BU-67101Q    - Version 5.0
+
+3. PC-104+
+--------------------------------
+- BU-65578C    - Version 15
+- BU-65590C    - Version 15
+- BU-67105C    - Version 5.0
+- BU-67109C    - Version 7.0
+
+4. PCI-104
+--------------------------------
+- BU-65577C    - Version 15
+- BU-65591C    - Version 13
+- BU-67104C    - Version 5.0
+- BU-67108C    - Version 7.0
+
+5. PCI-Express
+--------------------------------
+- BU-67106K    - Version 5.0 (Rev A)
+- BU-67106K    - Version 2.0 (Rev B)
+- BU-67206K    - Version 4.0
+
+6. PMC
+--------------------------------
+- BU-65578F/M  - Version 20
+- BU-65590F/M  - Version 15
+- BU-67107F/M  - Version 7.0
+- BU-67110F/M  - Version 5.0
+- BU-67210F/M  - Version 4.0
+- BU-65580M1   - Version 1.0
+
+7. USB
+--------------------------------
+- BU-65590UX   - Version 33
+- BU-65591Ux   - Version 33
+- BU-67102Ux   - Version 8.1
+- BU-67103Ux   - Version 8.1
+
+A firmware upgrade will be required if your device reports a different revision
+than shown above.  To upgrade your firmware on your device please see the
+firmware upgrade instructions that reside in the same directory as the
+flash utility.
+
+
+Known Issues
+--------------------------------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to The BU-69092Sx SDK and
+USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+
+1. The BU-65590/91U will cause a software crash if the minor frame time in BC
+   mode is less than approximately 6ms.
+
+2. RT may lose messages with RTMTiDemo sample
+
+3. Ace Test vectors and Protocol test do not operate on E2MA and AceXtreme
+   devices.
+
+4. aceBCStart frame repeat count may execute more than expected.
+
+5. Memory leak from aceBCFrameCreate.
+
+6. EMACE Protocol Test Transmits on the Bus.
+
+7. BU-65590FM does not have software support for External Trigger inputs on
+   DIO's.
+
+8. Mapping a TX data block to an RT subaddress does not function properly
+   when using ACE_RT_MSGTYPE_TX and the message type parameter passed to
+   aceRTDataBlkMapToSA.
+
+9. RTMT mode sample shows different number of messages received from the BC.
+
+10. The BU-67101Q will not work in laptops with Vista unless Microsoft Service
+    Pack 1 or Hot Fix 929550 is installed
+
+11. RTMT demo for the BU-65550M2-602 is not supported.
+
+12. Under 64-Bit Windows Vista and Windows 7, the DDC Card Manager must be
+    run as administrator.  This can be done by right clicking on the DDC
+    Card Manager and selecting "Run as Administrator".
+
+13. Replay mode on a AceXtreme Multi-Function device may terminate prematurely.
+
+14. Intermessage routines for Mode codes are not supported.
+
+15. Injection will fail under the following conditions: RT-2-RT transmission,
+    where the card is configured to be both RT's, and "wrong-bus" MRT error
+    injection is applied.
+
+16. When using Windows Vista or 7 a manual driver update is required.
+    The manual driver update can be done via the DDC Card Manager.  The
+    manual update is necessary because the device drivers are digital
+    signed.
+
+17. When using the DDC Card Manager to update a device driver, the Card
+    Manager may show a Not Responding Windows Error message.  The driver
+    installation will complete with the Not Responding error.
+
+18.  When using the DDC Card Manager to update a device driver, the
+    notification of a successful update will be displayed behind the card
+    manager.  The user will have to use the ALT+TAB keys to switch to the
+    hidden screen to complete the driver update.
+
+
+Fixed Defects
+--------------------------------------------------------------------------------
+1.  TT-871  - Current generation fast X86 CPUs cause failure of test vectors
+    in "tester.exe" for EMACE devices.
+
+2.  TT-892  - BC Message Count off by one while running BC-MRT-MTI sample
+    application.
+
+3.  TT-940  - BU-67103 with BusTrACEr and Mode codes.
+
+4.  TT-1093 - Add MSI support to BU-67106 (Rev B) and BU-67206 device drivers.
+
+
+================================================================================
+3.2.5 (9/30/10)
+
+New Features
+--------------------------------------------------------------------------------
+Driver and RTL improvements.
+
+1. Updated firmware for the BU-67206K andd BU-67210F/M Boards.
+
+2. Fixed driver issue with BU-65578F/M.
+--------------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65553M
+2.  BU-65569i
+3.  BU-65569T
+4.  BU-65565F/M
+5.  BU-65566G/M
+6.  BU-65550M2-602
+7.  BU-65586N2
+8.  BU-65580M1 EBR
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65591U
+3.  BU-65577C
+4.  BU-65578C
+5.  BU-65578F/M
+6.  BU-65590C
+7.  BU-65590F/M
+8.  BU-65591C
+9.  BU-65590A
+
+AceXtreme Based Cards
+1.  BU-67101Qx      Express Card
+2.  BU-67102Ux      Rugged USB
+3.  BU-67103Ux      Lab USB
+4.  BU-67104Cx      PCI/104+
+5.  BU-67105Cx      PC/104+
+6.  BU-67106Kx      PCI Express
+7.  BU-67107F/Mx    PMC
+7.  BU-67108Cx      PCI/104+
+9.  BU-67109Cx      PC/104+
+10. BU-67110F/M     HD PMC.
+11. BU-67206K       PCI Express (AceXtreme Multi-Function)
+12. BU-67210F/M     HD PMC (AceXtreme Multi-Function)
+
+
+Minimum E2Ma Firmware Requirements
+--------------------------------------------------------------------------------
+The minimum firmware revision required for this library release listed by
+hardware type are as follows:
+
+1. AMC
+--------------------------------
+- BU-65590A    - Version 14
+
+2. Express Card
+--------------------------------
+- BU-67101Q    - Version 5.0
+
+3. PC-104+
+--------------------------------
+- BU-65578C    - Version 14
+- BU-65590C    - Version 13
+- BU-67105C    - Version 5.0
+- BU-67109C    - Version 7.0
+
+4. PCI-104
+--------------------------------
+- BU-65577C    - Version 14
+- BU-65591C    - Version 13
+- BU-67104C    - Version 5.0
+- BU-67108C    - Version 7.0
+
+5. PCI-Express
+--------------------------------
+- BU-67106K    - Version 5.0 (Rev A)
+- BU-67106K    - Version 2.0
+- BU-67206K    - Version 3.5
+
+6. PMC
+--------------------------------
+- BU-65578F/M  - Version 16
+- BU-65590F/M  - Version 14
+- BU-67107F/M  - Version 7.0
+- BU-67110F/M  - Version 5.0
+- BU-67210F/M  - Version 3.5
+- BU-65580M1   - Version 1.0
+
+7. USB
+--------------------------------
+- BU-65590UX   - Version 32
+- BU-65591Ux   - Version 32
+- BU-67102Ux   - Version 7.0
+- BU-67103Ux   - Version 7.0
+
+
+A firmware upgrade will be required if your device reports a different revision
+than shown above.  To upgrade your firmware on your device please see the
+firmware upgrade instructions that reside in the same directory as the flash
+utility.
+
+
+Known Issues
+--------------------------------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to The BU-69092Sx SDK and
+USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+
+1. The BU-65590/91U will cause a software crash if the minor frame time in BC
+   mode is less than approximately 6ms.
+
+2. RT may lose messages with RTMTiDemo sample
+
+3. Ace Test vectors and Protocol test do not operate on E2MA devices.
+
+4. aceBCStart frame repeat count executes more than expected.
+
+5. Memory leak from aceBCFrameCreate.
+
+6. EMACE Protocol Test Transmits on the Bus.
+
+7. BU-65590FM does not have software support for External Trigger inputs on
+   DIO's.
+
+8. Mapping a TX data block to an RT subaddress does not function properly
+   when using ACE_RT_MSGTYPE_TX and the message type parameter passed to
+   aceRTDataBlkMapToSA.
+
+9. Occasionally BC Message Count lags MTi and MRT by 1.
+
+10. RTMT mode sample shows different number of messages received from the BC.
+
+11. The BU-67101Q will not work in laptops with Vista unless Microsoft Service
+    Pack 1 or Hot Fix 929550 is installed
+
+12. RTMT demo for the BU-65550M2-602 is not supported.
+
+13. Under 64-Bit Windows Vista and Windows 7, the DDC Card Manager must be
+    run as administrator.  This can be done by right clicking on the DDC
+    Card Manager and selecting "Run as Administrator".
+
+14. MSI interrupts are not supported on BU-67106K and BU-67206K.
+
+15. Replay mode on a AceXtreme Multi-Function device may terminate prematurely.
+
+16. Intermessage routines for Mode codes are not supported.
+
+17. Injection will fail under the following conditions: RT-2-RT transmission,
+    where the card is configured to be both RT's, and "wrong-bus" MRT error
+    injection is applied.
+
+Fixed Defects
+--------------------------------------------------------------------------------
+1.  TT-1134 - Loading driver for BU-65578F will cause BSOD
+
+================================================================================
+3.2.4 (9/24/10)
+
+New Features
+--------------------------------------------------------------------------------
+Driver and RTL improvements.
+
+1. Emaebrpci driver to support BU-65580M1
+
+2. Emapci driver now supports BU-65586N2
+
+3. 32 bit DLL's now installed on 64 bit machines for 32 bit applicaitons support
+
+Supported Hardware
+--------------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65553M
+2.  BU-65569i
+3.  BU-65569T
+4.  BU-65565F/M
+5.  BU-65566G/M
+6.  BU-65550M2-602
+7.  BU-65586N2
+8.  BU-65580M1 EBR
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65591U
+3.  BU-65577C
+4.  BU-65578C
+5.  BU-65578F/M
+6.  BU-65590C
+7.  BU-65590F/M
+8.  BU-65591C
+9.  BU-65590A
+
+AceXtreme Based Cards
+1.  BU-67101Qx      Express Card
+2.  BU-67102Ux      Rugged USB
+3.  BU-67103Ux      Lab USB
+4.  BU-67104Cx      PCI/104+
+5.  BU-67105Cx      PC/104+
+6.  BU-67106Kx      PCI Express
+7.  BU-67107F/Mx    PMC
+7.  BU-67108Cx      PCI/104+
+9.  BU-67109Cx      PC/104+
+10. BU-67110F/M     HD PMC.
+11. BU-67206K       PCI Express (AceXtreme Multi-Function)
+12. BU-67210F/M     HD PMC (AceXtreme Multi-Function)
+
+
+Minimum E2Ma Firmware Requirements
+--------------------------------------------------------------------------------
+The minimum firmware revision required for this library release listed by
+hardware type are as follows:
+
+1. AMC
+--------------------------------
+- BU-65590A    - Version 14
+
+2. Express Card
+--------------------------------
+- BU-67101Q    - Version 5.0
+
+3. PC-104+
+--------------------------------
+- BU-65578C    - Version 14
+- BU-65590C    - Version 13
+- BU-67105C    - Version 5.0
+- BU-67109C    - Version 7.0
+
+4. PCI-104
+--------------------------------
+- BU-65577C    - Version 14
+- BU-65591C    - Version 13
+- BU-67104C    - Version 5.0
+- BU-67108C    - Version 7.0
+
+5. PCI-Express
+--------------------------------
+- BU-67106K    - Version 5.0 (Rev A)
+- BU-67106K    - Version 2.0
+- BU-67206K    - Version 2.1
+
+6. PMC
+--------------------------------
+- BU-65578F/M  - Version 16
+- BU-65590F/M  - Version 14
+- BU-67107F/M  - Version 7.0
+- BU-67110F/M  - Version 5.0
+- BU-67210F/M  - Version 2.0
+- BU-65580M1   - Version 1.0
+
+7. USB
+--------------------------------
+- BU-65590UX   - Version 32
+- BU-65591Ux   - Version 32
+- BU-67102Ux   - Version 7.0
+- BU-67103Ux   - Version 7.0
+
+
+A firmware upgrade will be required if your device reports a different revision
+than shown above.  To upgrade your firmware on your device please see the
+firmware upgrade instructions that reside in the same directory as the flash
+utility.
+
+
+Known Issues
+--------------------------------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to The BU-69092Sx SDK and
+USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+
+1. The BU-65590/91U will cause a software crash if the minor frame time in BC
+   mode is less than approximately 6ms.
+
+2. RT may lose messages with RTMTiDemo sample
+
+3. Ace Test vectors and Protocol test do not operate on E2MA devices.
+
+4. aceBCStart frame repeat count executes more than expected.
+
+5. Memory leak from aceBCFrameCreate.
+
+6. EMACE Protocol Test Transmits on the Bus.
+
+7. BU-65590FM does not have software support for External Trigger inputs on
+   DIO's.
+
+8. Mapping a TX data block to an RT subaddress does not function properly
+   when using ACE_RT_MSGTYPE_TX and the message type parameter passed to
+   aceRTDataBlkMapToSA.
+
+9. Occasionally BC Message Count lags MTi and MRT by 1.
+
+10. RTMT mode sample shows different number of messages received from the BC.
+
+11. The BU-67101Q will not work in laptops with Vista unless Microsoft Service
+    Pack 1 or Hot Fix 929550 is installed
+
+12. RTMT demo for the BU-65550M2-602 is not supported.
+
+13. Under 64-Bit Windows Vista and Windows 7, the DDC Card Manager must be
+    run as administrator.  This can be done by right clicking on the DDC
+    Card Manager and selecting "Run as Administrator".
+
+14. MSI interrupts are not supported on BU-67106K and BU-67206K.
+
+15. Replay mode on a AceXtreme Multi-Function device may terminate prematurely.
+
+16. Intermessage routines for Mode codes are not supported.
+
+17. Injection will fail under the following conditions: RT-2-RT transmission,
+    where the card is configured to be both RT's, and "wrong-bus" MRT error
+    injection is applied.
+
+Fixed Defects
+--------------------------------------------------------------------------------
+NONE
+
+================================================================================
+
+3.2.3 (7/30/10)
+
+New Features
+--------------------------------------------------------------------------------
+Driver and RTL improvements.
+1. Added support for AceXtreme Multi-Function devices BU-67206K and BU-67210K.
+
+2. New Samples for AceXtreme Multi-Function
+
+3. Bug Fixes
+
+Supported Hardware
+--------------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65553M
+2.  BU-65569i
+3.  BU-65569T
+4.  BU-65565F/M
+5.  BU-65566G/M
+6.  BU-65550M2-602
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65591U
+3.  BU-65577C
+4.  BU-65578C
+5.  BU-65578F/M
+6.  BU-65590C
+7.  BU-65590F/M
+8.  BU-65591C
+9.  BU-65590A
+
+AceXtreme Based Cards
+1.  BU-67101Qx      Express Card
+2.  BU-67102Ux      Rugged USB
+3.  BU-67103Ux      Lab USB
+4.  BU-67104Cx      PCI/104+
+5.  BU-67105Cx      PC/104+
+6.  BU-67106Kx      PCI Express
+7.  BU-67107F/Mx    PMC
+7.  BU-67108Cx      PCI/104+
+9.  BU-67109Cx      PC/104+
+10. BU-67110F/M     HD PMC.
+11. BU-67206K       PCI Express (AceXtreme Multi-Function)
+12. BU-67210F/M     HD PMC (AceXtreme Multi-Function)
+
+
+Minimum E2Ma Firmware Requirements
+--------------------------------------------------------------------------------
+The minimum firmware revision required for this library release listed by
+hardware type are as follows:
+
+1. AMC
+--------------------------------
+- BU-65590A    - Version 14
+
+2. Express Card
+--------------------------------
+- BU-67101Q    - Version 5.0
+
+3. PC-104+
+--------------------------------
+- BU-65578C    - Version 14
+- BU-65590C    - Version 13
+- BU-67105C    - Version 5.0
+- BU-67109C    - Version 7.0
+
+4. PCI-104
+--------------------------------
+- BU-65577C    - Version 14
+- BU-65591C    - Version 13
+- BU-67104C    - Version 5.0
+- BU-67108C    - Version 7.0
+
+5. PCI-Express
+--------------------------------
+- BU-67106K    - Version 5.0 (Rev A)
+- BU-67106K    - Version 2.0
+- BU-67206K    - Version 2.1
+
+6. PMC
+--------------------------------
+- BU-65578F/M  - Version 16
+- BU-65590F/M  - Version 14
+- BU-67107F/M  - Version 7.0
+- BU-67110F/M  - Version 5.0
+- BU-67210F/M  - Version 2.0
+
+7. USB
+--------------------------------
+- BU-65590UX   - Version 32
+- BU-65591Ux   - Version 32
+- BU-67102Ux   - Version 7.0
+- BU-67103Ux   - Version 7.0
+
+
+A firmware upgrade will be required if your device reports a different revision
+than shown above.  To upgrade your firmware on your device please see the
+firmware upgrade instructions that reside in the same directory as the flash
+utility.
+
+
+Known Issues
+--------------------------------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to The BU-69092Sx SDK and
+USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+
+1. The BU-65590/91U will cause a software crash if the minor frame time in BC
+   mode is less than approximately 6ms.
+
+2. RT may lose messages with RTMTiDemo sample
+
+3. Ace Test vectors and Protocol test do not operate on E2MA devices.
+
+4. aceBCStart frame repeat count executes more than expected.
+
+5. Memory leak from aceBCFrameCreate.
+
+6. EMACE Protocol Test Transmits on the Bus.
+
+7. BU-65590FM does not have software support for External Trigger inputs on
+   DIO's.
+
+8. Mapping a TX data block to an RT subaddress does not function properly
+   when using ACE_RT_MSGTYPE_TX and the message type parameter passed to
+   aceRTDataBlkMapToSA.
+
+9. Occasionally BC Message Count lags MTi and MRT by 1.
+
+10. RTMT mode sample shows different number of messages received from the BC.
+
+11. The BU-67101Q will not work in laptops with Vista unless Microsoft Service
+    Pack 1 or Hot Fix 929550 is installed
+
+12. RTMT demo for the BU-65550M2-602 is not supported.
+
+13. Under 64-Bit Windows Vista and Windows 7, the DDC Card Manager must be
+    run as administrator.  This can be done by right clicking on the DDC
+    Card Manager and selecting "Run as Administrator".
+
+14. MSI interrupts are not supported on BU-67106K and BU-67206K.
+
+15. Replay mode on a AceXtreme Multi-Function device may terminate prematurely.
+
+16. Intermessage routines for Mode codes are not supported.
+
+17. Injection will fail under the following conditions: RT-2-RT transmission,
+    where the card is configured to be both RT's, and "wrong-bus" MRT error
+    injection is applied.
+
+Fixed Defects
+--------------------------------------------------------------------------------
+1.  TT-1032 - BU-65591Ux Locks RT when running two 1553 channels.
+
+2.  TT-1052 - BU-65591Ux in RTMT mode with interrupts.
+
+3.  TT-1054 - BU-69092 BC Opcode XQF not working as required.
+
+4.  TT-1058 - BU-65590/91U running both 1553 channels wont always see data in
+              mti mode.
+
+5.  TT-1066 - MTI Configuration Incorrect for ACEX Cards.
+
+6.  TT-1070 - Error constants use same numerical value.
+
+7.  TT-1072 - RT polling of messages is not reliable.
+
+8.  TT-1089 - Issue with rollover interrupts
+
+================================================================================
+3.2.2 (7/15/10)
+
+New Features
+--------------------------------------------------------------------------------
+Driver and RTL improvements.
+1. Added support for AceXtreme Multi-Function devices BU-67206K and BU-67210K.
+
+2. New Samples for AceXtreme Multi-Function
+
+3. Bug Fixes
+
+Supported Hardware
+--------------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65553M
+2.  BU-65569i
+3.  BU-65569T
+4.  BU-65565F/M
+5.  BU-65566G/M
+6.  BU-65550M2-602
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65591U
+3.  BU-65577C
+4.  BU-65578C
+5.  BU-65578F/M
+6.  BU-65590C
+7.  BU-65590F/M
+8.  BU-65591C
+9.  BU-65590A
+
+AceXtreme Based Cards
+1.  BU-67101Qx      Express Card
+2.  BU-67102Ux      Rugged USB
+3.  BU-67103Ux      Lab USB
+4.  BU-67104Cx      PCI/104+
+5.  BU-67105Cx      PC/104+
+6.  BU-67106Kx      PCI Express
+7.  BU-67107F/Mx    PMC
+7.  BU-67108Cx      PCI/104+
+9.  BU-67109Cx      PC/104+
+10. BU-67110F/M     HD PMC.
+11. BU-67206K       PCI Express (AceXtreme Multi-Function)
+12. BU-67210F/M     HD PMC (AceXtreme Multi-Function)
+
+
+Minimum E2Ma Firmware Requirements
+--------------------------------------------------------------------------------
+The minimum firmware revision required for this library release listed by
+hardware type are as follows:
+
+1. AMC
+--------------------------------
+- BU-65590A    - Version 14
+
+2. Express Card
+--------------------------------
+- BU-67101Q    - Version 5.0
+
+3. PC-104+
+--------------------------------
+- BU-65578C    - Version 14
+- BU-65590C    - Version 13
+- BU-67105C    - Version 5.0
+- BU-67109C    - Version 7.0
+
+4. PCI-104
+--------------------------------
+- BU-65577C    - Version 14
+- BU-65591C    - Version 13
+- BU-67104C    - Version 5.0
+- BU-67108C    - Version 7.0
+
+5. PCI-Express
+--------------------------------
+- BU-67106K    - Version 5.0 (Rev A)
+- BU-67106K    - Version 1.14
+- BU-67206K    - Version 1.13
+
+6. PMC
+--------------------------------
+- BU-65578F/M  - Version 16
+- BU-65590F/M  - Version 14
+- BU-67107F/M  - Version 7.0
+- BU-67110F/M  - Version 5.0
+- BU-67210F/M  - Version 1.1
+
+7. USB
+--------------------------------
+- BU-65590UX   - Version 32
+- BU-65591Ux   - Version 32
+- BU-67102Ux   - Version 7.0
+- BU-67103Ux   - Version 7.0
+
+
+A firmware upgrade will be required if your device reports a different revision
+than shown above.  To upgrade your firmware on your device please see the
+firmware upgrade instructions that reside in the same directory as the flash
+utility.
+
+
+Known Issues
+--------------------------------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to The BU-69092Sx SDK and
+USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+
+1. The BU-65590/91U will cause a software crash if the minor frame time in BC
+   mode is less than approximately 6ms.
+
+2. RT may lose messages with RTMTiDemo sample
+
+3. Ace Test vectors and Protocol test do not operate on E2MA devices.
+
+4. aceBCStart frame repeat count executes more than expected.
+
+5. Memory leak from aceBCFrameCreate.
+
+6. EMACE Protocol Test Transmits on the Bus.
+
+7. BU-65590FM does not have software support for External Trigger inputs on
+   DIO's.
+
+8. Mapping a TX data block to an RT subaddress does not function properly
+   when using ACE_RT_MSGTYPE_TX and the message type parameter passed to
+   aceRTDataBlkMapToSA.
+
+9. Occasionally BC Message Count lags MTi and MRT by 1.
+
+10. RTMT mode sample shows different number of messages received from the BC.
+
+11. The BU-67101Q will not work in laptops with Vista unless Microsoft Service
+    Pack 1 or Hot Fix 929550 is installed
+
+12. RTMT demo for the BU-65550M2-602 is not supported.
+
+13. Under 64-Bit Windows Vista and Windows 7, the DDC Card Manager must be
+    run as administrator.  This can be done by right clicking on the DDC
+	Card Manager and selecting "Run as Administrator".
+
+14. MSI interrupts are not supported on BU-67106K and BU-67206K.
+
+15. Replay mode on a AceXtreme Multi-Function device may terminate prematurely.
+
+16. BU-67106K devices may cause a system crash.
+
+17. The following functions are not supported by the BU-67102/3U.
+    acexBCGetHBufMsgDecoded()
+    acexBCGetHBufMsgRaw()
+    acexBCGetMsgFromIDDecoded()
+    acexBCGetMsgFromIDRaw()
+    acexBCGetMsgFromHdrFromIDRaw()
+
+18. Intermessage routines for Mode codes are not supported.
+
+19. Replay will fail when trigger marker bits are presetn in AES packet.
+
+20. Injection will fail under the following conditions: RT-2-RT transmission,
+    where the card is configured to be both RT's, and "wrong-bus" MRT error
+    injection is applied.
+
+Fixed Defects
+--------------------------------------------------------------------------------
+1.  TT-1032 - BU-65591Ux Locks RT when running two 1553 channels.
+
+2.  TT-1052 - BU-65591Ux in RTMT mode with interrupts.
+
+3.  TT-1054 - BU-69092 BC Opcode XQF not working as required.
+
+4.  TT-1058 - BU-65590/91U running both 1553 channels wont always see data in
+              mti mode.
+
+5.  TT-1066 - MTI Configuration Incorrect for ACEX Cards.
+
+6.  TT-1070 - Error constants use same numerical value.
+
+7.  TT-1072 - RT polling of messages is not reliable.
+
+8.  TT-1089 - Issue with rollover interrupts
+
+================================================================================
+3.1.4 (3/30/10)
+
+New Features
+--------------------------------------------------------------------------------
+Driver and RTL improvements.
+1. Added support for Windows 64-Bit Operating Systems.
+
+2. Digital Cross-signing for all exe, dll .cat and .cpl files.
+
+3. Bug Fixes
+
+Supported Hardware
+--------------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65553M
+2.  BU-65569i
+3.  BU-65569T
+4.  BU-65565F/M
+5.  BU-65566G/M
+6.  BU-65550M2-602
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65591U
+3.  BU-65577C
+4.  BU-65578C
+5.  BU-65578F/M
+6.  BU-65590C
+7.  BU-65590F/M
+8.  BU-65591C
+9.  BU-65590A
+
+AceXtreme Based Cards
+1.  BU-67101Qx		Express Card
+2.  BU-67102Ux	 	Rugged USB
+3.  BU-67103Ux 		Lab USB
+4.  BU-67104Cx 		PCI/104+
+5.  BU-67105Cx 		PC/104+
+6.  BU-67106Kx		PCI Express
+7.  BU-67107F/Mx 	PMC
+7.  BU-67108Cx		PCI/104+
+9.  BU-67109Cx		PC/104+
+10. BU-67110F/M		HD PMC.
+
+Minimum E2Ma Firmware Requirements
+--------------------------------------------------------------------------------
+The minimum firmware revision required for this library release listed by
+hardware type are as follows:
+
+1. AMC
+--------------------------------
+- BU-65590A    - Version 13
+
+2. PC-104+
+--------------------------------
+- BU-65578C    - Version 14
+- BU-65590C    - Version 13
+- BU-67105C    - Version 5.0
+- BU-67109C    - Version 7.0
+
+3. PCI-104
+--------------------------------
+- BU-65577C    - Version 14
+- BU-65591C    - Version 13
+- BU-67104C    - Version 5.0
+- BU-67108C    - Version 7.0
+
+4. PCI-Express
+--------------------------------
+- BU-67106K    - Version 5.0
+
+5. PMC
+--------------------------------
+- BU-65578F/M  - Version 16
+- BU-65590F/M  - Version 14
+- BU-67107F/M  - Version 7.0
+- BU-67110F/M  - Version 5.0
+
+6. USB
+--------------------------------
+- BU-65590UX   - Version 32
+- BU-65591Ux   - Version 32
+- BU-67102Ux   - Version 7.0
+- BU-67103Ux   - Version 7.0
+
+
+A firmware upgrade will be required if your device reports a different revision
+than shown above.  To upgrade your firmware on your device please see the
+firmware upgrade instructions that reside in the same directory as the flash
+utility.
+
+
+Known Issues
+--------------------------------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to The BU-69092Sx SDK and
+USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+
+1. The BU-65590/91U will cause a software crash if the minor frame time in BC
+   mode is less than approximately 6ms.
+
+2. RT may lose messages with RTMTiDemo sample
+
+3. Ace Test vectors and Protocol test do not operate on E2MA devices.
+
+4. aceBCStart frame repeat count executes more than expected.
+
+5. Memory leak from aceBCFrameCreate.
+
+6. EMACE Protocol Test Transmits on the Bus.
+
+7. BU-65590FM does not have software support for External Trigger inputs on
+   DIO's.
+
+8. Mapping a TX data block to an RT subaddress does not function properly
+   when using ACE_RT_MSGTYPE_TX and the message type parameter passed to
+   aceRTDataBlkMapToSA.
+
+9. Occasionally BC Message Count lags MTi and MRT by 1.
+
+10. RTMT mode sample shows different number of messages received from the BC.
+
+11. The BU-67101Q will not work in laptops with Vista unless Microsoft Service
+    Pack 1 or Hot Fix 929550 is installed
+
+12. RTMT demo for the BU-65550M2-602 is not supported.
+
+13. Under 64-Bit Windows Vista and Windows 7, the DDC Card Manager must be
+    run as administrator.  This can be done by right clicking on the DDC
+	Card Manager and selecting "Run as Administrator".
+
+
+Fixed Defects
+--------------------------------------------------------------------------------
+1.  TT-1040 - AceXtreme Devices do not use BC selective message Interrupt.
+
+2.  TT-1043 - Ace to Emace Translation Layer returns an error with function
+              BuIrqAutoClear.
+
+3.  TT-1049 - Driver for BU-65566 incorrectly reports number of channels.
+
+4.  TT-1051 - BU-65553 as a BC with Translation layer sends twice the number of
+              cmds than requested.
+
+5.  TT-1062 - BU-67102/3U returns error -150 when using MTI_DEVBUF_SIZE_512K.
+
+================================================================================
+3.1.3 (12/11/09)
+
+New Features
+--------------------------------------------------------------------------------
+Driver and RTL improvements.
+1. Added support for the BU-67104/5Cx, BU-67107F/Mx, BU-67108/9Cx, BU-67110F/Mx,
+   and BU-65586H.
+
+2. Added 32-Bit Windows Vista Support for the BU-65553, BU-65569i, BU-65578F/M,
+   BU-65590/91U, BU-67106K, BU-65550M2-602, BU-67101Q, and mini-PCIe.
+
+3. Added Transmit Inhibit/BC Disable configuration utilities for the
+   BU-67104/5Cx, BU-67107F/Mx, BU-67108/9Cx, andBU-67110F/Mx
+
+Supported Hardware
+--------------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65553M
+2.  BU-65569i
+3.  BU-65569T
+4.  BU-65565F/M
+5.  BU-65566G/M
+6.  BU-65550M2-602
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65591U
+3.  BU-65577C
+4.  BU-65578C
+5.  BU-65578F/M
+6.  BU-65590C
+7.  BU-65590F/M
+8.  BU-65591C
+9.  BU-65590A
+
+AceXtreme Based Cards
+1.  BU-67101Qx		Express Card
+2.  BU-67102Ux	 	Rugged USB
+3.  BU-67103Ux 		Lab USB
+4.  BU-67104Cx 		PCI/104+
+5.  BU-67105Cx 		PC/104+
+6.  BU-67106Kx		PCI Express
+7.  BU-67107F/Mx 	PMC
+7.  BU-67108Cx		PCI/104+
+9.  BU-67109Cx		PC/104+
+10. BU-67110F/M		HD PMC.
+
+Minimum E2Ma Firmware Requirements
+--------------------------------------------------------------------------------
+The minimum firmware revision required for this library release listed by
+hardware type are as follows:
+
+1. AMC
+--------------------------------
+- BU-65590A    - Version 13
+
+2. PC-104+
+--------------------------------
+- BU-65578C    - Version 14
+- BU-65590C    - Version 12
+- BU-67105C    - Version 5.0
+- BU-67109C    - Version 6.0
+
+3. PCI-104
+--------------------------------
+- BU-65577C    - Version 14
+- BU-65591C    - Version 12
+- BU-67104C    - Version 5.0
+- BU-67108C    - Version 6.0
+
+4. PCI-Express
+--------------------------------
+- BU-67106K    - Version 5.0
+
+5. PMC
+--------------------------------
+- BU-65578F/M  - Version 16
+- BU-65590F/M  - Version 13
+- BU-67107F/M  - Version 6.0
+- BU-67110F/M  - Version 5.0
+
+6. USB
+--------------------------------
+- BU-65590UX   - Version 31
+- BU-65591Ux   - Version 31
+- BU-67102Ux   - Version 6.0
+- BU-67103Ux   - Version 3.0
+
+
+A firmware upgrade will be required if your device reports a different revision
+than shown above.  To upgrade your firmware on your device please see the
+firmware upgrade instructions that reside in the same directory as the flash
+utility.
+
+
+Known Issues
+--------------------------------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to The BU-69092Sx SDK and
+USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+
+1. The BU-65590/91U will cause a software crash if the minor frame time in BC
+   mode is less than approximately 6ms.
+
+2. RT may lose messages with RTMTiDemo sample
+
+3. Ace Test vectors and Protocol test do not operate on E2MA devices.
+
+4. aceBCStart frame repeat count executes more than expected.
+
+5. Memory leak from aceBCFrameCreate.
+
+6. EMACE Protocol Test Transmits on the Bus.
+
+7. BU-65590FM does not have software support for External Trigger inputs on
+   DIO's.
+
+8. Mapping a TX data block to an RT subaddress does not function properly
+   when using ACE_RT_MSGTYPE_TX and the message type parameter passed to
+   aceRTDataBlkMapToSA.
+
+9. Occasionally BC Message Count lags MTi and MRT by 1.
+
+10. RTMT mode sample shows different number of messages received from the BC.
+
+11. The BU-67101Q will not work in laptops with Vista unless Microsoft Service
+    Pack 1 or Hot Fix 929550 is installed
+
+12. RTMT demo for the BU-65550M2-602 is not supported.
+
+
+Fixed Defects
+--------------------------------------------------------------------------------
+1.  TT-691 - Need ability to enable "Monitor your own RT address" feature via
+             EMACE SDK.
+
+2.  TT-780 - System exception happened during functional test loop after 284
+             runs using legacy cards such as 65569 and 65566.
+
+3.  TT-802 - aceSetTimeTagRes doesn't allow the user to set the res to 1 microsecond
+             for a BU-65590/91 USB device.
+
+4.  TT-823 - Mapping a TX data block to an RT subaddress does not function
+             properly when using ACE_RT_MSGTYPE_TX as the message type parameter
+             passed to aceRTDataBlkMapToSA.
+
+5.  TT-849 - In Windows and VxWorks, the MSB bit of the global time data
+             (64 bits), of an IRIGB Chapter 10 packet is used by the firmware to
+             indicate loss of sync.
+
+6.  TT-898 - BU-65590Ux (MT mode) stops receiving monitor messages.
+
+7.  TT-933 - MTI Does not allow for setting of IRIG Channel id for time packets.
+
+8.  TT-948 - aceMTPause() is not available in RTMT mode.
+
+9.  TT-953 - BU-65590U driver install on a clean system.
+
+10. TT-963 - aceBCGetMsgFromIDDecoded / aceBCGetMsgFromIDRaw does not support
+             the use of XQF or double buffering.
+
+11. TT-972 - Memory leak from aceBcFrameCreate.
+
+12. TT-980 - aceBCSetGPFState does not work in Ready state.
+
+13. TT-995 - RT Broadcast data not recovered from aceRTGetStkMsgDecoded.
+
+14. TT-1000 - Cannot create more than 2048 messages with Ace Translation layer.
+
+15. TT-1009 - Multi-RT mode interrupts activate before acexMRTStart is called.
+
+16. TT-1016 - BU-69092 AceXtreme: GP Queues do not operate correctly.
+
+17. TT-1027 - advBuStopOnFrame() doesn't return when used with the Ace2Emace
+              Translation layer.
+
+================================================================================
+3.1.2 (7/31/09)
+
+New Features
+--------------------------------------------------------------------------------
+Driver and RTL improvements.
+1. Update to EMACE Drivers
+
+2. Fixed E2MAUSB.inf file installation issue
+
+Supported Hardware
+--------------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65553M
+2.  BU-65569i
+3.  BU-65569T
+4.  BU-65565F/M
+5.  BU-65566G/M
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65591U
+3.  BU-65577C
+4.  BU-65578C
+5.  BU-65578F/M
+6.  BU-65590C
+7.  BU-65590F/M
+8.  BU-65591C
+9.  BU-65590A
+
+AceXtreme Based Cards
+
+1.  BU-67102 Rugged USB
+2.  BU-67103 Lab USB
+3.  BU-67104 PCI/104+
+4.  BU-67105 PC/104+
+5.  BU-67106 PCI Express
+
+Minimum E2Ma Firmware Requirements
+--------------------------------------------------------------------------------
+The minimum firmware revision required for this library release listed by
+hardware type are as follows:
+
+1. USB
+--------------------------------
+- BU-65590UX   - Version 31
+- BU-65591Ux   - Version 31
+- BU-67102Ux   - Version 3.0
+- BU-67103Ux   - Version 3.0
+
+2. PC-104+
+--------------------------------
+- BU-65578C    - Version 14
+- BU-65590C    - Version 12
+- BU-67105C    - Version 3.0
+
+3. PMC
+--------------------------------
+- BU-65578F/M  - Version 16
+- BU-65590F/M  - Version 13
+
+4. PCI-104
+--------------------------------
+- BU-65577C    - Version 14
+- BU-65591C    - Version 12
+- BU-67104C    - Version 3.0
+
+5. AMC
+--------------------------------
+- BU-65590A    - Version 13
+
+6. PCI-Express
+--------------------------------
+- BU-67106K    - Version 4.0
+
+A firmware upgrade will be required if your device reports a different revision
+than shown above.  To upgrade your firmware on your device please see the
+firmware upgrade instructions that reside in the same directory as the flash
+utility.
+
+
+Known Issues
+--------------------------------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to The BU-69092Sx SDK and
+USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+
+1. The BU-65590/91U will cause a software crash if the minor frame time in BC
+   mode is less than approximately 6ms.
+
+2. RT may lose messages with RTMTiDemo sample
+
+3. Ace Test vectors and Protocol test do not operate on E2MA devices.
+
+4. aceBCStart frame repeat count executes more than expected.
+
+5. aceSetTimeTagRes doesn't allow the user to set the resolution to 1 microsecond
+   on a E2MA device.
+
+6. Memory leak from aceBCFrameCreate.
+
+7. EMACE Protocol Test Transmits on the Bus.
+
+8. System exception happened during functional test loop after 284 runs using
+   legacy cards such as 65569 and 65566.
+
+9. BU-65590FM does not have software support for External Trigger inputs on
+   DIO's.
+
+10. Mapping a TX data block to an RT subaddress does not function properly
+    when using ACE_RT_MSGTYPE_TX and the message type parameter passed to
+    aceRTDataBlkMapToSA.
+
+11. RTBusy incorrectly flags an error.
+
+12. In Windows and VxWorks, the MSB bit of the global time data (64 bits), of an
+    IRIGB Chapter 10 packet is used by the firmware to indicate loss of sync.
+
+13. Occasionally BC Message Count lags MTi and MRT by 1.
+
+14. RTMT mode sample shows different number of messages received from the BC.
+
+
+Fixed Defects
+--------------------------------------------------------------------------------
+1.  Fixed installation issue E2MAUSB.inf.
+
+================================================================================
+3.1.1 (6/23/09)
+
+New Features
+--------------------------------------------------------------------------------
+Driver and RTL improvements.
+1. Bug fixes
+
+2. Multi-RT / MTi for AceXtreme Devices
+
+3. Concurrent Multi-RT for AceXtreme Devices
+
+4. Concurrent BC/MTi
+
+5. Support DDC AceXtreme Architecture
+
+6. Added Ace to EMACE Translation Layer.
+
+7. Added BC Trigger Functionality to AceXtreme and E2MA devices.
+
+8. Added function to decode raw IRIG 106 Chapter 10 data.
+
+9. Supports General Purpose flag GP Flags 8-15 for E2MA and AceXtreme devices.
+
+10. New Card Manager with flash utility.
+
+Supported Hardware
+--------------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65553M
+2.  BU-65569i
+3.  BU-65569T
+4.  BU-65565F/M
+5.  BU-65566G/M
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65591U
+3.  BU-65577C
+4.  BU-65578C
+5.  BU-65578F/M
+6.  BU-65590C
+7.  BU-65590F/M
+8.  BU-65591C
+9.  BU-65590A
+
+AceXtreme Based Cards
+
+1.  BU-67102 Rugged USB
+2.  BU-67103 Lab USB
+3.  BU-67104 PCI/104+
+4.  BU-67105 PC/104+
+5.  BU-67106 PCI Express
+
+Minimum E2Ma Firmware Requirements
+--------------------------------------------------------------------------------
+The minimum firmware revision required for this library release listed by
+hardware type are as follows:
+
+1. USB
+--------------------------------
+- BU-65590UX   - Version 31
+- BU-65591Ux   - Version 31
+- BU-67102Ux   - Version 3.0
+- BU-67103Ux   - Version 3.0
+
+2. PC-104+
+--------------------------------
+- BU-65578C    - Version 14
+- BU-65590C    - Version 12
+- BU-67105C    - Version 3.0
+
+3. PMC
+--------------------------------
+- BU-65578F/M  - Version 16
+- BU-65590F/M  - Version 13
+
+4. PCI-104
+--------------------------------
+- BU-65577C    - Version 14
+- BU-65591C    - Version 12
+- BU-67104C    - Version 3.0
+
+5. AMC
+--------------------------------
+- BU-65590A    - Version 13
+
+6. PCI-Express
+--------------------------------
+- BU-67106K    - Version 4.0
+
+A firmware upgrade will be required if your device reports a different revision
+than shown above.  To upgrade your firmware on your device please see the
+firmware upgrade instructions that reside in the same directory as the flash
+utility.
+
+
+Known Issues
+--------------------------------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to The BU-69092Sx SDK and
+USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+
+1. The BU-65590/91U will cause a software crash if the minor frame time in BC
+   mode is less than approximately 6ms.
+
+2. RT may lose messages with RTMTiDemo sample
+
+3. Ace Test vectors and Protocol test do not operate on E2MA devices.
+
+4. aceBCStart frame repeat count executes more than expected.
+
+5. aceSetTimeTagRes doesn't allow the user to set the resolution to 1 microsecond
+   on a E2MA device.
+
+6. Memory leak from aceBCFrameCreate.
+
+7. EMACE Protocol Test Transmits on the Bus.
+
+8. System exception happened during functional test loop after 284 runs using
+   legacy cards such as 65569 and 65566.
+
+9. BU-65590FM does not have software support for External Trigger inputs on
+   DIO's.
+
+10. Mapping a TX data block to an RT subaddress does not function properly
+    when using ACE_RT_MSGTYPE_TX and the message type parameter passed to
+    aceRTDataBlkMapToSA.
+
+11. RTBusy incorrectly flags an error.
+
+12. In Windows and VxWorks, the MSB bit of the global time data (64 bits), of an
+    IRIGB Chapter 10 packet is used by the firmware to indicate loss of sync.
+
+13. Occasionally BC Message Count lags MTi and MRT by 1.
+
+14. RTMT mode sample shows different number of messages received from the BC.
+
+
+Fixed Defects
+--------------------------------------------------------------------------------
+1.  TT-649 - DDC1553 Card Manager and BU-65590/91U wrong part number.
+
+2.  TT-750 - Mtidemo takes up to 30 seconds to stop when running forever.
+
+3.  TT-815 - 1553 USB Windows driver locks with channels accessed by two
+             different programs.
+
+4.  TT-840 - BU-65590Ux causes windows Crash BSOD.
+
+5.  TT-855 - No IRIG Output support in API for BU-65578FM and BU-65590C.
+
+6.  TT-876 - Interrupting aceMTIGetCh10DataPkt() when no DATA present takes one
+             minute+ to unblock
+
+7.  TT-890 - PCI Windows Driver - Regression locked up on overnight test on
+             multi-core system.
+
+8.  TT-891 - PCI Windows Driver - MTI stops receiving data.
+
+9.  TT-896 - Library BC Module - Watchdog Timer  with low prority asynchronous
+             messages will not work concurently.
+
+10. TT-920 - MTIRQ with 65578C returns wrong data with aceMTGetHBufMsgDecoded.
+
+11. TT-927 - RT mode aceRTGetStkMsgDecoded and aceRTGetHbufMsgDecoded do not
+             give RT Status Word.
+
+================================================================================
+
+2.0.11 (10/16/08)
+
+New Features
+--------------------------------------------------------------------------------
+Driver and RTL improvements.
+1. Bug fixes
+
+Supported Hardware
+--------------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65553M
+2.  BU-65569i
+3.  BU-65569T
+4.  BU-65565F/M
+5.  BU-65566G/M
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65591U
+3.  BU-65577C
+4.  BU-65578C
+5.  BU-65578F/M
+6.  BU-65590C
+7.  BU-65590F/M
+8.  BU-65591C
+9.  BU-65590A
+
+Minimum E2Ma Firmware Requirements
+--------------------------------------------------------------------------------
+The minimum firmware revision required for this library release listed by
+hardware type are as follows:
+
+1. USB
+--------------------------------
+- BU-65590UX   - Version 29
+- BU-65591Ux   - Version 29
+
+2. PC-104+
+--------------------------------
+- BU-65578C    - Version 11
+- BU-65590C    - Version 11
+
+3. PMC
+--------------------------------
+- BU-65578F/M  - Version 15
+- BU-65590F/M  - Version 11
+
+4. PCI-104
+--------------------------------
+- BU-65577C    - Version 11
+- BU-65591C    - Version 11
+
+5. AMC
+--------------------------------
+- BU-65590A    - Version 12
+
+A firmware upgrade will be required if your device reports a different
+revision than shown above.  To upgrade your firmware on your device
+please see the firmware upgrade instructions that reside in the same
+directory as the flash utility.
+
+
+Known Issues
+--------------------------------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to The BU-69092Sx
+SDK and USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+
+1. The USB Avionics Device will cause a software crash if the minor frame
+   time in BC mode is less than approximately 6ms.
+
+2. RT may lose messages with RTMTiDemo sample
+
+3. The MTidemo sample may take up to 30 seconds to stop execution when
+   running with the wait forever option.
+
+4. Ace Test vectors and Protocol test do not operate on E2MA devices.
+
+5. aceBCStart frame repeat count executes more than expected.
+
+6. aceSetTimeTagRes doesn't allow the user to set the resolution to
+   1 microsecond on a E2MA device.
+
+7. Memory leak from aceBCFrameCreate.
+
+8. EMACE Protocol Test Transmits on the Bus.
+
+9. Cannot stop BU-65590U BC with aceBCStop() when using looped JMP
+   instruction.
+
+10. System exception happened during functional test loop after 284 runs
+    using legacy cards such as 65569 and 65566.
+
+11. aceSetTimeTagRes doesn't allow the user to set the res to 1 microsecond
+	for a USB device.
+
+12. 69092 Installshield 2008 - uninstall does not remove registry entry
+    for package when install cancelled.
+
+13. 1553 USB Windows driver locks with channels accessed by two different
+    programs.
+
+14. BU-65590FM does not have software support for External Trigger inputs
+    on DIO's.
+
+15. Mapping a TX data block to an RT subaddress does not function properly
+    when using ACE_RT_MSGTYPE_TX and the message type parameter passed to
+	aceRTDataBlkMapToSA.
+
+16. BU-65591Ux large voltage swings on 1553 wire on Power-UpBU-65591Ux
+    large voltage swings on 1553 wire on Power-Up.
+
+17. RTBusy incorrectly flags an error.
+
+18. BU-65590Ux causes windows Crash BSOD.
+
+19. In Windows and VxWorks, the MSB bit of the global time data (64 bits),
+    of an IRIGB Chapter 10 packet is used by the firmware to indicate the
+    loss of sync.
+
+Fixed Defects
+--------------------------------------------------------------------------------
+1.  TT-645 - EMACE Library, BU-69090Sx, BC mode, Status word for mode 17
+             not in MSGSTRUCT.
+
+2.  TT-803 - Bcdemo using Hbuf functions gets incorrect data when the
+             message data length is odd number.
+
+3.  TT-807 - Cannot use Host Buffer while in RTMT mode with 69092Sx.
+
+4.  TT-822 - aceGetTimeTagEx only reports ACE_ERR_INVALID_STATE.
+
+5.  TT-831 - BU-65578C has problems with 1553A mode.
+
+6.  TT-832 - BU-69092 library does not include functionality for reset
+             signal input.
+
+================================================================================
+
+2.0.10 (06/18/08)
+
+New Features
+--------------------------------------------------------------------------------
+Driver and RTL improvements.
+1. Bug fixes
+
+2. Support for loopback test added for E2MA devices
+
+3. 14 microsecond response timeout for RTs.
+
+4. 32 Bit Memory/Register Read/Write functions added for E2MA devices.
+
+5. Installsheild updated to InstallSheild 2008
+
+Supported Hardware
+-------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65553M
+2.  BU-65569i
+3.  BU-65569T
+4.  BU-65565F/M
+5.  BU-65566G/M
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65591U
+3.  BU-65577C
+4.  BU-65578C
+5.  BU-65578F/M
+6.  BU-65590C
+7.  BU-65590F/M
+8.  BU-65591C
+
+Minimum E2Ma Firmware Requirements
+-------------------------------------------------------------------------
+The minimum firmware revision required for this library release listed by
+hardware type are as follows:
+
+1. USB
+--------------------------------
+- BU-65590UX   - Version 29
+- BU-65591Ux   - Version 29
+
+2. PC-104+
+--------------------------------
+- BU-65578C    - Version 11
+- BU-65590C    - Version 11
+
+3. PMC
+--------------------------------
+- BU-65578F/M  - Version 15
+- BU-65590F/M  - Version 11
+
+4. PCI-104
+--------------------------------
+- BU-65577C    - Version 11
+- BU-65591C    - Version 11
+
+A firmware upgrade will be required if your device reports an earlier
+different revision.  To upgrade your firmware on your device please
+see the firmware upgrade instructions that come with the flash utility.
+
+
+Known Issues
+-------------------------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to The BU-69092Sx
+SDK and USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+
+1. The USB Avionics Device will cause a software crash if the minor frame
+   time in BC mode is less than approximately 6ms.
+
+2. RT may lose messages with RTMTiDemo sample
+
+3. The MTidemo sample may take up to 30 seconds to stop execution when
+   running with the wait forever option.
+
+4. Ace Test vectors and Protocol test do not operate on E2MA devices.
+
+5. aceBCStart frame repeat count executes more than expected.
+
+6. aceSetTimeTagRes doesn't allow the user to set the resolution to
+   1 microsecond on a E2MA device.
+
+7. Memory leak from aceBCFrameCreate.
+
+Fixed Defects
+-------------------------------------------------------------------------
+1.  TT-590 - RT circual buffer sizes incorrect
+
+2.  TT-597 - Wrong data length on messages with word count errors.
+
+3.  TT-604 - Problem decoding receive mode codes with data.
+
+4.  TT-690 - Monitor log incorrect status words.
+
+5.  TT-741 - DDC 1553 Card Manager does not configure two cards with same
+             device number (Different bus).
+
+6.  TT-761 - aceBCMsgModify function- incorrect return value.
+
+7.  TT-763 - aceMTIConfigure function- incorrect return value.
+
+8.  TT-764 - aceRTMTIConfigure function- incorrect return value.
+
+9.  TT-765 - aceRTMTIConfigure function- incorrect return value.
+
+10. TT-766 - aceGetTimeTagValueEx function- incorrect return value.
+
+11. TT-779 - Receiving Mulitple RT-RT Messages while in RT/MT Mode causes
+             second data pointer corruption.
+
+12. TT-792 - E2MAPCI.SYS driver sometimes returns incorrect value for MTI
+             packet length.
+
+13. TT-793 - Add Loopback support for the E2MA based boards.
+
+14. TT-799 - unresolved external symbols at link time when linking with
+             emacepls.lib.
+
+=========================================================================
+
+2.0.9 (3/7/08)
+
+New Features
+-------------------------------------------------------------------------
+Driver and RTL improvements.
+1.  Bug fixes
+
+Supported Hardware
+-------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65553M
+2.  BU-65569i
+3.  Bu-65569T
+4.  BU-65565F/M
+5.  BU-65566G/M
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65578C
+3.  BU-65590F/M
+4.  BU-65590C
+5.  BU-65578F/M
+
+Minimum E2Ma Firmware Requirements
+-------------------------------------------------------------------------
+The minimum firmware revision required for this library release listed by
+hardware type are as follows:
+
+1. USB
+--------------------------------
+- BU-65590UX -XXX - Version 25
+
+2. PC-104+
+--------------------------------
+- BU-65578C       - Version 8
+- BU-65590C	  - Version 10
+
+3. PMC
+--------------------------------
+- BU-65578F/M     - Version 14
+- BU-65590F/M     - Version 10
+
+
+A firmware upgrade will be required if your device reports an earlier
+different revision.  To upgrade your firmware on your device please
+see the firmware upgrade instructions that come with the flash utility.
+
+
+Known Issues
+-------------------------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to the BU-69092Sx
+SDK and USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+1. The EMACE RTL Monitor does not report the correct number of
+   words in messages with errors.
+
+2. The function aceBCDecodeRawMsg does not properly decode
+   receive mode codes with data.
+
+3. The USB Avionics Device will cause a software crash if the minor
+   frame time in BC mode is less than approximately 6ms.
+
+4. General Library Accumulations.
+
+5. MT does not log the correct status word if RT is on RTMT Mode.
+
+6. Time differences (1 Sec) for Time packets inconsistent in MT
+
+7. RT may lose messages with RTMTiDemo sample
+
+8. The MTidemo sample may take up to 30 seconds to stop execution when
+   running with the wait forever option.
+
+9. Must run the setup.exe twice to install the SDK if a previous version
+   is already installed.  The first time setup.exe is executed it will
+   remove the old installation and exit setup.exe.  To then install the
+   new SDK you must run setup.exe a second time.
+
+10. Ace Test vectors and Protocol test do not operate on E2MA devices.
+
+11. bcdbuf sends incorrect number of messages.
+
+Fixed Defects
+-------------------------------------------------------------------------
+1. 1. TT-787 - Using BU-69092 and DD-42992 libraries in the same
+               application.
+
+=========================================================================
+
+2.0.8 (2/29/08)
+
+New Features
+-------------------------------------------------------------------------
+Driver and RTL improvements.
+1.  Driver and RTL now support PMC High Density MIL-STD-1553 card.
+
+2.  Driver and RTL now support PC/104-Plus Multi-IO card.
+
+3.  Flash Utility now reports the firmware version in decimal.
+
+4.  Avionic Routines added to SDK.
+
+5.  Bug fixes
+
+Supported Hardware
+-------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65553M
+2.  BU-65569i
+3.  BU-65569T
+4.  BU-65565F/M
+5.  BU-65566G/M
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65578C
+3.  BU-65590F/M
+4.  BU-65590C
+5.  BU-65578F/M
+
+Minimum E2Ma Firmware Requirements
+-------------------------------------------------------------------------
+The minimum firmware revision required for this library release listed by
+hardware type are as follows:
+
+1. USB
+--------------------------------
+- BU-65590UX -XXX - Version 25
+
+2. PC-104+
+--------------------------------
+- BU-65578C       - Version 8
+- BU-65590C	  - Version 10
+
+3. PMC
+--------------------------------
+- BU-65578F/M     - Version 14
+- BU-65590F/M     - Version 10
+
+
+A firmware upgrade will be required if your device reports an earlier
+different revision.  To upgrade your firmware on your device please
+see the firmware upgrade instructions that come with the flash utility.
+
+
+Known Issues
+-------------------------------------------------------------------------
+See Errata BU_69092Sx_errata.pdf for all known issues to The BU-69092Sx
+SDK and USB_Errata.pdf for all known issues to the BU-65590Ux.
+
+1. The BU-69092Sx SDK and the DD-42992Sx SDK cannot currently be used in
+   the same application.  There will be compile errors when an attempt is
+   made to build one application which uses both the BU-69092Sx and the
+   DD-42992Sx SDKs.  The two SDKs can be used concurrently, just not in
+   the same application. The user must build one executable which links the
+   BU-69092Sx and one executable which links to the DD-42992sx if both
+   MIL-STD-1553 and ARINC-429 concurrent operation is required.
+
+2. The EMACE RTL Monitor does not report the correct number of words in
+   messages with errors.
+
+3. The function aceBCDecodeRawMsg does not properly decode receive mode
+   codes with data.
+
+4. The USB Avionics Device will cause a software crash if the minor frame
+   time in BC mode is less than approximately 6ms.
+
+5. General Library Accumulations.
+
+6. MT does not log the correct status word if RT is on RTMT Mode.
+
+7. Time differences (1 Sec) for Time packets inconsistent in MT
+
+8. RT may lose messages with RTMTiDemo sample
+
+9. The MTidemo sample may take up to 30 seconds to stop execution when
+   running with the wait forever option.
+
+10. Must run the setup.exe twice to install the SDK if a previous version
+    is already installed.  The first time setup.exe is executed it will
+    remove the old installation and exit setup.exe.  To then install the
+    new SDK you must run setup.exe a second time.
+
+11. Ace Test vectors and Protocol test do not operate on E2MA devices.
+
+12. bcdbuf sends incorrect number of messages.
+
+Fixed Defects
+-------------------------------------------------------------------------
+1. TT-695 - 1553 RTL - Function to Return a String with Model Name
+
+2. TT-754 - Infinite PCI read retry with the PLX chip
+
+3. TT-762 - 1553 RTL - MTiConfigure Parameter Limits
+
+=========================================================================
+
+2.0.7 (12/18/07)
+
+New Features
+-------------------------------------------------------------------------
+Driver and RTL improvements.
+1.  Driver and RTL now support PMC Multi-IO card.
+
+2.  Bug fixes
+
+Supported Hardware
+--------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65553M
+2.  BU-65569i
+3.  BU-65569T
+4.  BU-65565F/M
+5.  BU-65566G/M
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65578C
+3.  BU-65590F/M
+
+Minimum E2Ma Firmware Requirements
+-------------------------------------------------------------------------
+The minimum firmware revision required for this library release listed by
+hardware type are as follows:
+
+1. USB
+--------------------------------
+- BU-65590UX -XXX - Version 25
+
+2. PC-104+
+--------------------------------
+- BU-65578C       - Version 5
+
+3. PMC
+--------------------------------
+- BU-65590F/M     - Version 10
+
+
+A firmware upgrade will be required if your device reports an earlier
+different revision.  To upgrade your firmware on your device please
+see the firmware upgrade instructions that come with the flash utility.
+
+
+Known Issues
+-------------------------------------------------------------------------
+See Errata usb_errata_rev.pdf for all known issues.
+
+1. The EMACE RTL Monitor does not report the correct number of
+   words in messages with errors.
+
+2. The function aceBCDecodeRawMsg does not properly decode receive mode
+   codes with data.
+
+3. The USB Avionics Device will cause a software crash if the minor frame
+   time in BC mode is less than approximately 6ms.
+
+4. General Library Accumulations.
+
+5. MT does not log the correct status word if RT is on RTMT Mode.
+
+6. Time differences (1 Sec) for Time packets inconsistent in MT
+
+7. RT may lose messages with RTMTiDemo sample
+
+8. The MTidemo sample may take up to 30 seconds to stop execution when
+   running with the wait forever option.
+
+9. Must run the setup.exe twice to install the SDK if a previous version
+   is already installed.  The first time setup.exe is executed it will
+   remove the old installation and exit setup.exe.  To then install the
+   new SDK you must run setup.exe a second time.
+
+10. Ace Test vectors and Protocol test do not operate on E2MA devices.
+
+11. bcdbuf sends incorrect number of messages.
+
+12. Infinite PCI read retry with the PLX chip.
+
+Fixed Defects
+-------------------------------------------------------------------------
+1. TT-751 - Drivers not copied into windows\system32\drivers folder
+            during installation of new package.
+
+2. TT-752 - Flash utility will not update flash on a BU-65590ux on a Dell
+            Latitude Laptop.
+
+3. TT-753 - DDC 1553 Card Manager shows multiple devices with the same
+            logical device number.
+
+=========================================================================
+
+2.0.6 (12/11/07)
+
+New Features
+-------------------------------------------------------------------------
+Driver and RTL improvements.
+1.  Driver and RTL now support PMC Multi-IO card.
+
+Supported Hardware
+-------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65553M
+2.  BU-65569i
+3.  Bu-65569T
+4.  BU-65565F/M
+5.  BU-65566G/M
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65578C
+3.  BU-65590F/M
+
+Minimum E2Ma Firmware Requirements
+-------------------------------------------------------------------------
+The minimum firmware revision required for this library release listed by
+hardware type are as follows:
+
+1. USB
+--------------------------------
+- BU-65590UX -XXX - Version 23
+
+2. PC-104+
+--------------------------------
+- BU-65578C       - Version 5
+
+3. PMC
+--------------------------------
+- BU-65590F/M     - Version 9
+
+
+A firmware upgrade will be required if your device reports an earlier
+different revision.  To upgrade your firmware on your device please
+see the firmware upgrade instructions that come with the flash utility.
+
+
+Known Issues
+-------------------------------------------------------------------------
+See Errata usb_errata_rev10.pdf for all known issues.
+
+1. The EMACE RTL Monitor does not report the correct number of words in
+   messages with errors.
+
+2. The function aceBCDecodeRawMsg does not properly decode receive mode
+   codes with data.
+
+3. The USB Avionics Device will cause a software crash if the minor frame
+   time in BC mode is less than approximately 6ms.
+
+4. General Library Accumulations.
+
+5. MT does not log the correct status word if RT is on RTMT Mode.
+
+6. Time differences (1 Sec) for Time packets inconsistent in MT
+
+7. RT may lose messages with RTMTiDemo sample
+
+8. The driver for the BU-65590U and BU-65590F/M will not be updated to
+   the latest version with the install shield utility.  The user will
+   manually need to update his device driver in order to us the BU-65590U
+   and BU-65590F/M.
+
+9. The DDC 1553 Card Manager may list multipe devices with the same
+   logical device number.  The DDC 1553 Card Manager should be used with
+   the Show installed devices radio button selected.
+
+10. The BU-65590U may not flash on a Dell latitude under Windows XP.
+    Another PC other than a Dell Latitude will be required to upgrade the
+    firmware on the BU-65590Ux.
+
+11. The MTidemo sample may take up to 30 seconds to stop execution when
+    running with the wait forever option.
+
+Fixed Defects
+-------------------------------------------------------------------------
+1. TT-685 - Looptest.exe sample program reports errors when running it
+            with the USB device
+
+2. TT-688 - USB - aceMTIGetCh10DataPkt stops getting messages
+
+3. TT-689 - Incomplete 1553A/broadcast disable support in 1553 RTL for
+            MTi
+
+4. TT-694 - USB - IRIG, First 2 Time Packets Invalid
+
+5. TT-697 - 1553 RTL - Function to Read all DIO Lines at Once
+
+6. TT-706 - ddcins32.dll is missing from the Driver folder of the
+            69092 package
+
+7. TT-726 - "Zero-Copy" or "Non-Zero Copy" aceMTIConfigure option should
+            return NOT_SUPPORTED where applicable
+
+=========================================================================
+
+2.0.4 (8/27/07)
+
+New Features
+-------------------------------------------------------------------------
+Driver and RTL improvements.
+1.  Driver and RTL now support PC-104+ card.
+
+Supported Hardware
+-------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65553M
+2.  BU-65569i
+3.  Bu-65569T
+4.  BU-65565F/M
+5.  BU-65566G/M
+
+E2MA Based Cards
+1.  BU-65590U
+2.  BU-65578C
+
+Minimum E2Ma Firmware Requirements
+-------------------------------------------------------------------------
+The minimum firmware revision required for this library release listed by
+hardware type are as follows:
+
+1. USB
+----------------------------
+- BU-65590UX -XXX - Version 18
+
+2. PC-104+
+-----------------------------
+- BU-65578C       - Version 3
+
+A firmware upgrade will be required if your device reports an earlier
+different revision.  To upgrade your firmware on your device please
+see the firmware upgrade instructions that come with the flash utility.
+
+
+Known Issues
+-------------------------------------------------------------------------
+See Errata usb_errata_rev6.pdf for all known issues.
+
+1. The EMACE RTL Monitor does not report the correct number of 	words in
+   messages with errors.
+
+2. The function aceBCDecodeRawMsg does not properly decode receive mode
+   codes with data.
+
+3. The USB Avionics Device will cause a software crash if the minor frame
+   time in BC mode is less than approximately 6ms.
+
+4. General Library Accumulations.
+
+5. The loopback test is not currently supported by the USB device. If
+   someone runs Looptest.exe the output shows that the A=>B and B=>A
+   loopback fails.
+
+6. MT does not log the correct status word if RT is on RTMT Mode.
+
+7. USB - aceMTIGetCh10DataPkt stops getting messages
+
+8. Time differences (1 Sec) for Time packets inconsistent in MTI
+
+Fixed Defects
+-------------------------------------------------------------------------
+1. TT-689 - Incomplete 1553A/broadcast disable in MTI
+
+2. TT-694 - Must wait up to 2 seconds for first MTI time packet
+
+3. TT-673 - Discrete I/O not implemented in library
+
+4. TT-681 - aceBCMsgModify fails on USB
+
+5. TT-683 - USB Monitor cannot keep up with traffic
+
+6. TT-615 - Removal of USB cable causes windows to hang on shutdown
+
+7. TT-675 - USB flash utility does not recognize 2 devices
+
+8. TT-672 - BU-65578C -- No message Retries
+
+9. TT-664 - Bcdbuf.exe and RTDBuf.exe do not display correctly in Dos
+            Window.
+
+=========================================================================
+
+2.0.3 (6/22/07)
+
+New Features
+-------------------------------------------------------------------------
+Driver and RTL improvements.
+1.  Driver and RTL now support operation on a Dual Core processor base
+    computer.
+
+2.  Driver and RTL now support operation on a PC which supports
+    Hyperthreading.
+
+Supported Hardware
+-------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65553M
+2.  BU-65569i
+3.  Bu-65569T
+4.  BU-65565F/M
+5.  BU-65566G/M
+
+E2MA Based Cards
+1.  BU-65590U
+
+Minimum E2Ma Firmware Requirements
+-------------------------------------------------------------------------
+The minimum firmware revision required for this library release listed by
+hardware type are as follows:
+
+1. USB
+----------------------------
+- BU-65590UX -XXX - Version 17
+
+A firmware upgrade will be required if your device reports an earlier
+different revision.  To upgrade your firmware on your device please
+see the firmware upgrade instructions that come with the flash utility.
+
+
+Known Issues
+-------------------------------------------------------------------------
+See Errata usb_errata_rev4.pdf for all known issues.
+
+1. There is currently no provision for 100ns time tag resolution on USB.
+
+2. There is currently no provisions for an external time tag reset or
+   clock on USB.
+
+Fixed Defects
+-------------------------------------------------------------------------
+1. TT-614 - Driver may hang or crash on Dual Core Processor computer.
+
+2. TT-652 - BU-69092 License.txt file modified to include limitations.
+
+3. TT-665 - Bcasync.exe causes Dell Latitude D820 to crash.
+
+=========================================================================
+
+2.0.2 (5/24/07)
+
+New Features
+-------------------------------------------------------------------------
+Driver and RTL improvements.
+
+
+Supported Hardware
+-------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65553M
+2.  BU-65569i
+3.  BU-65569T
+4.  BU-65565F/M
+5.  BU-65566G/M
+
+E2MA Based Cards
+1.  BU-65590U
+
+Minimum E2Ma Firmware Requirements
+-------------------------------------------------------------------------
+The minimum firmware revision required for this library release listed by
+hardware type are as follows:
+
+1. USB
+----------------------------
+- BU-65590UX -XXX - Version 15
+
+A firmware upgrade will be required if your device reports an earlier
+different revision.  To upgrade your firmware on your device please
+see the firmware upgrade instructions that come with the flash utility.
+
+
+Known Issues
+-------------------------------------------------------------------------
+See Errata usb_errata_rev2.pdf for all known issues.
+
+Fixed Defects
+-------------------------------------------------------------------------
+1. TT-610 - aceBCGPQGetCount() API Library function returns an incorrect
+            count and the aceBCGPQRead().  API Library function returns
+            incorrect data.
+
+2. TT-611 - aceRTDataBlkCircBufInfo() API Library function returns an
+            incorrect offset for the pAceRWOffset parameter.
+
+3. TT-612 - aceISQRead() API Library function returns incorrect data.
+
+4. TT-613 - Windows 2000 operating systems are not fully supported by the
+            USB Avionics Device driver.
+
+5. TT-617 - The correct number of times to run a major frame may not
+            execute when using aceBCStart().
+
+6. TT-618 - aceRTDataBlkRead() returns 24 words when 32 are expected if
+            reading an RT Circular Buffer.
+
+7. TT-627 - Problems with USB - Computer Locks up while running BcDemo.
+
+
+=========================================================================
+
+2.0.1 (4/20/07)
+
+New Features
+-------------------------------------------------------------------------
+1. EMACE devices now supported.
+2. E2MA PCI hardware support expanded.
+
+
+Supported Hardware
+-------------------------------------------------------------------------
+EMACE Based Cards
+1.  BU-65553M
+2.  BU-65569i
+3.  BU-65569T
+4.  BU-65565F/M
+5.  BU-65566G/M
+
+E2MA Based Cards
+1.  BU-65590U
+
+
+Minimum E2MA Firmware Requirements
+-------------------------------------------------------------------------
+The minimum firmware revision required for this library release listed by
+hardware type are as follows:
+
+1. USB
+----------------------------
+- BU-65590UX -XXX - Version 14
+
+A firmware upgrade will be required if your device reports an earlier
+different revision.  To upgrade your firmware on your device please
+see the firmware upgrade instructions that come with the flash utility.
+
+
+Known Issues
+-------------------------------------------------------------------------
+See Errata See Errata usb_errata_rev1.pdf for all known issues.

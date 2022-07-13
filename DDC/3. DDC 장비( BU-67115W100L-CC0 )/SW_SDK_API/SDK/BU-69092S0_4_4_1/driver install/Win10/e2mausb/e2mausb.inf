@@ -1,0 +1,115 @@
+;/******************************************************************************
+; * Data Device Corporation
+; * Filename: e2mausb.inf
+; * Copyright (c) 2019 Data Device Corporation
+; ******************************************************************************
+; * Non-Disclosure Statement
+; * ------------------------
+; * This software is the sole property of Data Device Corporation. All
+; * rights, title, ownership, or other interests in the software remain
+; * the property of Data Device Corporation. This software may be used
+; * in accordance with applicable licenses. Any unauthorized use,
+; * duplication, transmission, distribution, or disclosure is expressly
+; * forbidden.
+; *
+; * This non-disclosure statement may not be removed or modified without
+; * prior written consent of Data Device Corporation.
+; ******************************************************************************/
+
+[Version]
+Signature="$Windows NT$"
+Class="DDC Devices"
+ClassGUID={b8fd1ebc-0bfd-4973-9a61-258d72bda69f}
+Provider=%DDC%
+CatalogFile=e2mausb.cat
+DriverPackageDisplayName=%DESC%
+DriverVer=02/04/2020,4.4.1.4
+
+[Manufacturer]
+%DDC%=DDC,NTx86
+
+[SourceDisksNames]
+1=%DISK_NAME%
+
+[SourceDisksFiles]
+e2mausb.sys=1
+WdfCoInstaller01009.dll=1
+ddcins32.dll=1
+
+[DestinationDirs]
+DefaultDestDir=12
+E2MAUSB.CopyFiles=11
+CoInstaller_CopyFiles=11
+
+[DDC.NTx86]
+%VID_4DDC&PID_5590.DeviceDesc% = E2MAUSB_Inst, USB\VID_4DDC&PID_5590
+
+;-------------------------------
+; Install DDC Device Class
+;-------------------------------
+
+[ClassInstall32]
+CopyFiles = E2MAUSB.CopyFiles
+AddReg = E2MAUSB.AddReg
+
+[E2MAUSB.AddReg]
+HKR,,,,"DDC Devices"
+HKR,,Installer32,,ddcins32.dll
+HKR,,Icon,,"102"
+
+[E2MAUSB.CopyFiles]
+ddcins32.dll
+
+;-------------------------------
+; Device Installation
+;-------------------------------
+
+[E2MAUSB_Inst.NTx86]
+CopyFiles=E2MAUSB_Inst.CopyFiles
+
+[E2MAUSB_Inst.CopyFiles]
+e2mausb.sys
+
+[E2MAUSB_Inst.NTx86.Services]
+AddService=e2mausb,0x00000002,E2MAUSB_Service
+
+[E2MAUSB_Service]
+DisplayName    = %E2MAUSB.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\e2mausb.sys
+AddReg         = E2MAUSB_Parameters_AddReg
+
+[E2MAUSB_Parameters_AddReg]
+HKR, Parameters\Wdf, VerboseOn,       0x00010001, 0
+HKR, Parameters\Wdf, VerifierOn,      0x00010001, 0
+HKR, Parameters\Wdf, DbgBreakOnError, 0x00010001, 0
+
+;-------------------------------
+; CoInstaller Installation
+;-------------------------------
+
+[E2MAUSB_Inst.NTx86.CoInstallers]
+AddReg=CoInstaller_AddReg
+CopyFiles=CoInstaller_CopyFiles
+
+[CoInstaller_CopyFiles]
+WdfCoInstaller01009.dll
+
+[CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller01009.dll,WdfCoInstaller"
+
+[E2MAUSB_Inst.NTx86.Wdf]
+KmdfService = e2mausb, E2MAUSB_wdfsect
+
+[E2MAUSB_wdfsect]
+KmdfLibraryVersion = 1.5
+
+[Strings]
+DDC                          = "Data Device Corporation"
+DISK_NAME                    = "DDC MIL-STD-1553/ARINC 429 USB AceExtreme Device - Installation disk"
+DESC                         = "DDC Driver for E2MA USB Devices"
+E2MAUSB.SvcDesc              = "DDC MIL-STD-1553/ARINC-429 E2MAUSB Driver"
+
+VID_4DDC&PID_5590.DeviceDesc = "BU-65590/BU-65591 USB MIL-STD-1553/ARINC-429 Card"

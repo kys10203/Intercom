@@ -1,0 +1,119 @@
+                Data Device Corporation
+                SOFTWARE LICENSE AGREEMENT
+                Revision Date:  09/01/2011
+
+IMPORTANT:READ CAREFULLY: This Software License Agreement ('SLA') is
+a legal agreement between you (either an individual or a single entity)
+and Data Device Corporation (DDC) for this DDC software product, which
+includes computer software and may include associated media, printed
+materials, and 'online' or electronic documentation ('Product').
+
+YOU AGREE TO BE BOUND BY THE TERMS OF THIS SLA BY INSTALLING,
+COPYING, OR OTHERWISE USING THE PRODUCT. IF YOU DO NOT AGREE,
+DO NOT INSTALL OR USE THE PRODUCT; YOU MAY RETURN IT TO YOUR
+PLACE OF PURCHASE FOR A FULL REFUND.
+
+1.  GRANT OF LICENSE. DDC grants you the following rights provided
+    that you comply with all terms and conditions of this SLA:
+
+
+    . Installation and use. You may install, use, access, display
+      and run one copy of the Product on a single computer, such as
+      a workstation, terminal or other device ('Workstation Computer').
+      The Product may not be used in conjunction with non-DDC devices.
+      You may not use the Product to permit any Device to use, access,
+      display or run other executable software residing on the
+      Workstation Computer, nor may you permit any Device to use,
+      access, display, or run the Product or Product's user interface,
+      unless the Device has a separate license for the Product.
+
+    . Storage/Network Use. You may also store or install a copy of the
+      Product on a storage device, such as a network server, used only
+      to install or run the Product on your other Workstation Computers
+      over an internal network; however, you must acquire and dedicate
+      an additional license for each separate Workstation Computer on or
+      from which the Product is installed, used, accessed, displayed or
+      run. A license for the Product may not be shared or used
+      concurrently on different Workstation Computers.
+
+    . Reservation of Rights. DDC reserves all rights not expressly
+      granted to you in this SLA.
+
+2.  ADDITIONAL SOFTWARE/SERVICES. This SLA applies to updates of the
+    Product that DDC may provide to you or make available to you after
+    the date you obtain your initial copy of the Product, unless we
+    provide other terms along with the update.
+
+3.  TRANSFER. You may move the Product to a different Workstation
+    Computer. After the transfer, you must completely remove the Product
+    from the former Workstation Computer. You may not rent, lease, lend
+    or provide commercial services to third parties with the Product.
+
+4.  LIMITATION ON REVERSE ENGINEERING, DECOMPILATION, AND DISASSEMBLY.
+    You may not reverse engineer, decompile, or disassemble the Product.
+
+5.  TERMINATION. Without prejudice to any other rights, DDC may cancel
+    this SLA if you do not abide by the terms and conditions of this SLA,
+    in which case you must return all copies of the Product and all of
+    its component parts.
+
+6.  EXPORT RESTRICTIONS.  You acknowledge that the Product is of U.S.
+    origin and subject to U.S. export jurisdiction. You agree to comply
+    with all applicable international and national laws that apply to the
+    Product, including the U.S. Export Administration Regulations, as
+    well as end-user, end-use, and destination restrictions issued by U.S.
+    and other governments.
+
+7.  DISCLAIMER OF WARRANTIES AND LIMITATION OF LIABILITIES AND
+    REMEDIES.  THIS SOFTWARE AND THE ACCOMPANYING FILES ARE SOLD
+    "AS IS" AND WITHOUT WARRANTIES AS TO PERFORMANCE OR 
+    MERCHANTABILITY OR ANY OTHER WARRANTIES WHETHER EXPRESSED OR
+    IMPLIED. DUE TO THE VARIETY OF SOFTWARE AND HARDWARE ENVIRONMENTS
+    INTO WHICH THE PRODUCT COULD BE IMPLEMENTED, NO WARRANTY OF
+    FITNESS FOR A PARTICULAR PURPOSE IS OFFERED. PROPER DATA
+    PROCESSING PROCEDURES REQUIRE THAT ANY PROGRAM BE THOROUGHLY
+    TESTED WITH NONCRITCAL DATA PRIOR TO ANY RELIANCE UPON ANY
+    SOFTWARE.  YOU ASSUME THE ENTIRE RISK OF USING THE PRODUCT. ANY
+    LIABILITY OF DDC WILL BE LIMITED EXCLUSIVELY TO PRODUCT
+    REPLACEMENT OR REFUND OF PURCHASE PRICE AT DDC's OPTION.
+
+8.  EXCLUSION OF INCIDENTAL, CONSEQUENTIAL AND CERTAIN OTHER DAMAGES.
+    TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW. IN NO EVENT
+    SHALL DDC OR ITS SUPPLIERS BE LIABLE FOR ANY SPECIAL, INCIDENTAL,
+    PUNITIVE, INDIRECT, OR CONSEQUENTIAL DAMAGES WHATSOEVER
+    (INCLUDING, BUT NOT LIMITED TO, DAMAGES FOR LOSS OF PROFITS OR
+    CONFIDENTIAL OR OTHER INFORMATION, FOR BUSINESS INTERRUPTION,
+    FOR PERSONAL INJURY, FOR LOSS OF PRIVACY, FOR FAILURE TO MEET
+    ANY DUTY INCLUDING OF GOOD FAITH OR OF REASONABLE CARE, FOR
+    NEGLIGENCE, AND FOR ANY OTHER LOSS WHATSOEVER) ARISING OUT OF
+    OR IN ANY WAY RELATED TO THE USE OF OR INABILITY TO USE THE
+    PRODUCT, THE PROVISION OF OR FAILURE TO PROVIDE SUPPORT OR OTHER
+    SERVICES, INFORMATON, SOFTWARE, AND RELATED CONTENT THROUGH THE
+    PRODUCT OR OTHERWISE ARISING OUT OF THE USE OF THE PRODUCT, OR
+    OTHERWISE UNDER OR IN CONNECTION WITH ANY PROVISION OF THIS SLA,
+    EVEN IN THE EVENT OF THE FAULT, TORT (INCLUDING NEGLIGENCE),
+    STRICT LIABILITY, BREACH OF CONTRACT OR BREACH OF WARRANTY OF
+    DDC OR ANY SUPPLIER, AND EVEN IF DDC OR ANY SUPPLIER HAS BEEN
+    ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+9.  U.S. GOVERNMENT LICENSE RIGHTS. All Product provided to the
+    U.S. Government is provided with the commercial license rights
+    and restrictions described elsewhere herein.
+
+10. APPLICABLE LAW. This SLA is governed by the laws of the State of
+    New York.
+
+11. ENTIRE AGREEMENT. This SLA (including any addendum or amendment to
+    this SLA which is included with the Product) are the entire agreement
+    between you and DDC relating to the Product and the support services
+    (if any) and they supersede all prior or contemporaneous oral or
+    written communications, proposals and representations with respect
+    to the Product or any other subject matter covered by this SLA.
+    To the extent the terms of any DDC policies or programs for support
+    services conflict with the terms of this SLA, the terms of this SLA
+    shall control.
+
+12. The Product is protected by copyright and other intellectual property
+    laws and treaties. DDC or its suppliers own the title, copyright, and
+    other intellectual property rights in the Product. The Product is
+    licensed, not sold.

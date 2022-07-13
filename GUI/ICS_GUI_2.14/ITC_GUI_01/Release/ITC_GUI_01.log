@@ -1,0 +1,45 @@
+﻿빌드 시작: 2021-09-14 오후 4:21:38
+     1>2 노드의 "C:\Users\User\Desktop\ICS_GUI_2.14\ITC_GUI_01\ITC_GUI_01.vcxproj" 프로젝트(Build 대상)입니다.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /IC:\DDC\aceXtremeSDKv4.4.1\libraries\emacepl\src\ /IC:\DDC\aceXtremeSDKv4.4.1\drivers\acex\src /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D _WINDOWS /D NDEBUG /D _UNICODE /D UNICODE /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Release\ITC_GUI_01.pch" /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt PRESET_LOAD2.cpp
+         PRESET_LOAD2.cpp
+     1>PRESET_LOAD2.cpp(117): warning C4244: '=' : 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\User\Desktop\ICS_GUI_2.14\Release\ITC_GUI_01.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:C:\DDC\aceXtremeSDKv4.4.1\libraries\emacepl\bin\Win32\Release /LIBPATH:C:\DDC\aceXtremeSDKv4.4.1\libraries\emacepl\bin\Win32\Release emacepl.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\Include\Manifest\dpiaware.manifest" /DEBUG /PDB:"C:\Users\User\Desktop\ICS_GUI_2.14\Release\ITC_GUI_01.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\User\Desktop\ICS_GUI_2.14\Release\ITC_GUI_01.lib" /MACHINE:X86 /SAFESEH Release\ITC_GUI_01.res
+         Release\BIT_FIELD.obj
+         Release\BIT_SUMMARY.obj
+         Release\BIT_SUMMARY2.obj
+         Release\ClientSocket.obj
+         Release\configop.obj
+         Release\CtrlPowSup.obj
+         Release\DlgProxy.obj
+         Release\FAULT_DATA.obj
+         Release\FMT_NET_LOAD.obj
+         Release\FMT_NET_LOAD2.obj
+         Release\ICS_CP.obj
+         Release\ITC_GUI_01.obj
+         Release\ITC_GUI_01Dlg.obj
+         Release\ITC_SET_DIS.obj
+         Release\MWOD_LOAD.obj
+         Release\MWOD_LOAD2.obj
+         Release\MWOD_LOAD_STATUS.obj
+         Release\MWOD_LOAD_STATUS2.obj
+         Release\PRESET_LOAD.obj
+         Release\PRESET_LOAD2.obj
+         Release\PRESET_STATUS.obj
+         Release\PRESET_STATUS2.obj
+         Release\SET_ARC1.obj
+         Release\SET_ARC2.obj
+         Release\SET_ETHERNET.obj
+         Release\stdafx.obj
+         Release\VOICE_MESSAGE.obj
+         코드를 생성하고 있습니다.
+         코드를 생성했습니다.
+         ITC_GUI_01.vcxproj -> C:\Users\User\Desktop\ICS_GUI_2.14\Release\ITC_GUI_01.exe
+       RegisterOutput:
+         "C:\Users\User\Desktop\ICS_GUI_2.14\Release\ITC_GUI_01.exe" /RegServer
+     1>"C:\Users\User\Desktop\ICS_GUI_2.14\ITC_GUI_01\ITC_GUI_01.vcxproj" 프로젝트를 빌드했습니다(Build 대상).
+
+빌드했습니다.
+
+경과 시간: 00:00:03.29

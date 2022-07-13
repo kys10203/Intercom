@@ -1,0 +1,17 @@
+REGEDIT
+; .REG 파일은 SETUP 프로그램에 사용될 수 있습니다.
+;   SETUP 프로그램을 사용할 수 없는 경우 아래 항목이
+;   CWinApp::RegisterShellFileTypes 및 COleObjectFactory::UpdateRegistryAll을
+;   호출하여 InitInstance에 자동으로 등록됩니다.
+
+
+HKEY_CLASSES_ROOT\ITC_GUI_01.Application = ITC_GUI_01 Application
+
+
+HKEY_CLASSES_ROOT\ITC_GUI_01.Application\CLSID = {429EBE3E-3D76-4298-9B50-EBA4C47632DA}
+
+HKEY_CLASSES_ROOT\CLSID\{429EBE3E-3D76-4298-9B50-EBA4C47632DA} = ITC_GUI_01 Application
+HKEY_CLASSES_ROOT\CLSID\{429EBE3E-3D76-4298-9B50-EBA4C47632DA}\ProgId = ITC_GUI_01.Application
+
+
+HKEY_CLASSES_ROOT\CLSID\{429EBE3E-3D76-4298-9B50-EBA4C47632DA}\LocalServer32 = ITC_GUI_01.EXE
